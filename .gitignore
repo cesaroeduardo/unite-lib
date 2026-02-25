@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Editor / IDE (mantém .cursor/skills/ para agentes de IA)
+.cursor/*
+!.cursor/skills/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & env
+*.log
+.env
+.env.local
+.env.*.local
+
+# Optional: test coverage (se usar no futuro)
+# coverage/
