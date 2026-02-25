@@ -1,6 +1,6 @@
 {
   "name": "unite-lib",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Assets and data library for Pokémon Unite — names, images, moves, maps. Use via npm or CDN.",
   "type": "module",
   "main": "./dist/index.cjs",

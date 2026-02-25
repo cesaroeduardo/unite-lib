@@ -55,14 +55,9 @@ export enum BattleType {
 }
 
 export enum BattleTypeColor {
-  ATTACKER = "linear-gradient(180deg, #B5393990 0%, #B5393950 100%)",
-  SPEEDSTER = "linear-gradient(180deg, #2895D290 0%, #2895D250 100%)",
-  ALLROUNDER = "linear-gradient(180deg, #BC56C390 0%, #BC56C350 100%)",
-  DEFENDER = "linear-gradient(180deg, #9DD65890 0%, #9DD65850 100%)",
-  SUPPORTER = "linear-gradient(180deg, #E4A55190 0%, #E4A55150 100%)",
-  FLEX = "linear-gradient(180deg, #8B451390 0%, #8B451350 100%)",
-  CASTER = "linear-gradient(180deg, #34343456 0%, #34343434 100%)",
-  COACH = "linear-gradient(180deg, #34343456 0%, #34343434 100%)",
-  ANALYST = "linear-gradient(180deg, #34343456 0%, #34343434 100%)",
-  MANAGER = "linear-gradient(180deg, #34343456 0%, #34343434 100%)",
+  ATTACKER = "#D96132",
+  SPEEDSTER = "#2695CD",
+  ALLROUNDER = "#B955BE",
+  DEFENDER = "#9BD652",
+  SUPPORTER = "#C78439",
 }
