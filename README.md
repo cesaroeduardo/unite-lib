@@ -60,73 +60,73 @@ getPokemonName("venusaur", "es");    // "Venusaur"
 
 Supported locales: `en`, `pt-BR`, `ja-JP`, `fr`, `es`.
 
-## Conteúdo
+## Content
 
-A library inclui dados e imagens prontos para usar em apps, bots e sites de Pokémon Unite.
+The library includes data and images ready to use in Pokémon Unite apps, bots, and sites.
 
-### Roster (pokémons)
+### Roster (Pokémon)
 
-Ícones de roster e imagens de estatísticas para todo o elenco ativo.
+Roster icons and stat images for the full active roster.
 
-| Exemplo roster | Exemplo estatísticas |
-|----------------|----------------------|
+| Roster example | Stats example |
+|----------------|----------------|
 | ![Pikachu](pokemons/roster-pikachu.png) | ![Pikachu stats](pokemons/stat-pikachu.png) |
 | ![Charizard](pokemons/roster-charizard.png) | ![Charizard stats](pokemons/stat-charizard.png) |
 | ![Venusaur](pokemons/roster-venusaur.png) | ![Venusaur stats](pokemons/stat-venusaur.png) |
 
 ### Moves
 
-Imagens dos movimentos (slot 1 e 2, variantes 1 e 2) por pokémon.
+Move images (slot 1 and 2, variants 1 and 2) per Pokémon.
 
 | Slot 1.1 | Slot 1.2 | Slot 2.1 | Slot 2.2 |
 |----------|----------|----------|----------|
 | ![Pikachu S11](moves/pikachu_s11.png) | ![Pikachu S12](moves/pikachu_s12.png) | ![Pikachu S21](moves/pikachu_s21.png) | ![Pikachu S22](moves/pikachu_s22.png) |
 
-### Mapas
+### Maps
 
-Imagens dos mapas de jogo (Remoat Stadium, Theia Sky Ruins, Mer Stadium, etc.).
+Game map images (Remoat Stadium, Theia Sky Ruins, Mer Stadium, etc.).
 
-![Mapa](maps/groudon.png)
+![Map](maps/groudon.png)
 
 ---
 
-## Local development (testar sem publicar no npm)
+## Local development (testing without publishing to npm)
 
-Para testar a library em outro projeto na sua máquina sem publicar no npm:
+To test the library in another project on your machine without publishing to npm:
 
-### 1. Buildar a library
+### 1. Build the library
 
-Na pasta da **unite-lib**:
+From the **unite-lib** folder:
 
 ```bash
 cd unite-lib
 npm run build
 ```
 
-### 2. Usar no seu projeto
+### 2. Use in your project
 
-**Opção A — `npm link` (symlink, ótimo para desenvolvimento)**
+**Option A — `npm link` (symlink, great for development)**
 
-Na pasta da library:
+From the library folder:
 
 ```bash
 npm link
 ```
 
-No seu outro projeto (ex.: app que consome a library):
+In your other project (e.g. the app that consumes the library):
 
 ```bash
-cd /caminho/do/seu/projeto
+cd /path/to/your/project
 npm link unite-lib
 ```
 
-A partir daí, `import { pokemons, getPokemonName } from "unite-lib"` usa a versão local. Ao alterar a library, rode `npm run build` nela de novo; o projeto que a consome já aponta para o mesmo pacote.
+From then on, `import { pokemons, getPokemonName } from "unite-lib"` uses the local version. When you change the library, run `npm run build` again; the consuming project already points to the same package.
 
-Para desfazer no projeto consumidor: `npm unlink unite-lib`.
+To undo in the consuming project: `npm unlink unite-lib`.
 
-**Opção B — dependência `file:` (cópia/instalação a partir do caminho)**
+**Option B — `file:` dependency (install from path)**
 
-No `package.json` do seu projeto, adicione:
+In your project's `package.json`, add:
 
 ```json
 {
@@ -136,20 +136,20 @@ No `package.json` do seu projeto, adicione:
 }
 ```
 
-Ajuste `../unite-lib` para o caminho relativo (ou absoluto) até a pasta da library. Depois:
+Adjust `../unite-lib` to the relative (or absolute) path to the library folder. Then:
 
 ```bash
 npm install
 ```
 
-Sempre que mudar a library, rode `npm run build` nela e, se quiser atualizar a cópia no consumidor, `npm install` de novo no projeto (ou use `npm update unite-lib`).
+Whenever you change the library, run `npm run build` in it and, to refresh the copy in the consumer, run `npm install` again in the project (or use `npm update unite-lib`).
 
-### Imagens ao testar localmente
+### Images when testing locally
 
-Os caminhos de imagem são relativos (ex.: `pokemons/roster-venusaur.png`). No consumidor você pode:
+Image paths are relative (e.g. `pokemons/roster-venusaur.png`). In the consumer you can:
 
-- Usar **baseUrl** ao chamar `getImageUrl(pokemon, "main", { baseUrl: "http://localhost:3000/node_modules/unite-lib" })` se o bundler/servidor servir `node_modules`, ou
-- Apontar **baseUrl** para onde as pastas `pokemons/`, `moves/`, `maps/` estejam acessíveis no seu app.
+- Use **baseUrl** when calling `getImageUrl(pokemon, "main", { baseUrl: "http://localhost:3000/node_modules/unite-lib" })` if the bundler/server serves `node_modules`, or
+- Point **baseUrl** to where the `pokemons/`, `moves/`, and `maps/` folders are available in your app.
 
 ---
 
@@ -191,7 +191,8 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 - **`pokemons/`** — Roster and stat images
 - **`moves/`** — Move images
 - **`maps/`** — Map images
-- **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) para uso em agentes de IA neste repositório (ex.: sincronizar roster a partir de imagens em `pokemons/` e `moves/`).
+- **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) for use with AI agents in this repo (e.g. syncing roster from images in `pokemons/` and `moves/`).
+- **`mcp/`** — [MCP server](mcp/README.md) (Model Context Protocol) para consumir a library em agentes de IA: tools para listar e buscar pokémons, moves, mapas, URLs de imagens e nomes localizados (Cursor, Claude Desktop, etc.).
 
 ## License
 

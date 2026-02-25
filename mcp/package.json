@@ -1,0 +1,26 @@
+{
+  "name": "unite-lib-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for unite-lib — query Pokémon Unite roster, moves, maps, and i18n from AI agents",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "unite-lib-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "unite-lib": "file:..",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

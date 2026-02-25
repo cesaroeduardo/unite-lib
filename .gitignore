@@ -3,6 +3,9 @@ node_modules/
 
 # Build output
 dist/
+# mcp/ build and deps (also covered by dist/ and node_modules/)
+mcp/dist/
+mcp/node_modules/
 
 # Editor / IDE (mantém .cursor/skills/ para agentes de IA)
 .cursor/*
