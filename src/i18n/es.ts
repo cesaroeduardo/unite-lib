@@ -27,6 +27,7 @@ const es: Record<string, string> = {
   lapras: "Lapras",
   vaporeon: "Vaporeon",
   snorlax: "Snorlax",
+  zapdos: "Zapdos",
   dragonite: "Dragonite",
   mewtwox: "Mega-Mewtwo X",
   mewtwoy: "Mega-Mewtwo Y",

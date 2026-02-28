@@ -27,6 +27,7 @@ const jaJP: Record<string, string> = {
   lapras: "ラプラス",
   vaporeon: "シャワーズ",
   snorlax: "カビゴン",
+  zapdos: "サンダー",
   dragonite: "カイリュー",
   mewtwox: "メガミュウツーX",
   mewtwoy: "メガミュウツーY",

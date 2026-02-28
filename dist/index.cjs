@@ -717,6 +717,31 @@ var pokemons = [
     "difficulty": 1
   },
   {
+    "name": "Zapdos",
+    "dex": 145,
+    "images": {
+      "main": "pokemons/roster-zapdos.png",
+      "big": "pokemons/roster-zapdos-2x.png",
+      "complete": "pokemons/stat-zapdos.png",
+      "move_s11": "moves/zapdos_s11.png",
+      "move_s21": "moves/zapdos_s21.png"
+    },
+    "active": true,
+    "battleType": BattleType.ATTACKER,
+    "stats": {
+      "offense": 5,
+      "endurance": 2,
+      "mobility": 1,
+      "scoring": 2,
+      "support": 2
+    },
+    "tags": [
+      Tag.ATTACKER,
+      Tag.RANGED
+    ],
+    "difficulty": 1
+  },
+  {
     "name": "Dragonite",
     "dex": 149,
     "images": {
@@ -1794,8 +1819,7 @@ var pokemons = [
       "complete": "pokemons/stat-dhelmise.png",
       "move_s11": "moves/dhelmise_s11.png",
       "move_s12": "moves/dhelmise_s12.png",
-      "move_s21": "moves/dhelmise_s21.png",
-      "move_s22": "moves/dhelmise_s22.png"
+      "move_s21": "moves/dhelmise_s21.png"
     },
     "active": true,
     "battleType": BattleType.ALLROUNDER,

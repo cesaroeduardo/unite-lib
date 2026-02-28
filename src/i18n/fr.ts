@@ -27,6 +27,7 @@ const fr: Record<string, string> = {
   lapras: "Lokhlass",
   vaporeon: "Aquali",
   snorlax: "Ronflex",
+  zapdos: "Électhor",
   dragonite: "Dracolosse",
   mewtwox: "Méga-Mewtwo X",
   mewtwoy: "Méga-Mewtwo Y",
