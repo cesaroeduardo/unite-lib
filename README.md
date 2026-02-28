@@ -70,9 +70,9 @@ Roster icons and stat images for the full active roster.
 
 | Roster example | Stats example |
 |----------------|----------------|
-| ![Pikachu](pokemons/roster-pikachu.png) | ![Pikachu stats](pokemons/stat-pikachu.png) |
-| ![Charizard](pokemons/roster-charizard.png) | ![Charizard stats](pokemons/stat-charizard.png) |
-| ![Venusaur](pokemons/roster-venusaur.png) | ![Venusaur stats](pokemons/stat-venusaur.png) |
+| ![Pikachu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-pikachu.png) | ![Pikachu stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-pikachu.png) |
+| ![Charizard](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-charizard.png) | ![Charizard stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-charizard.png) |
+| ![Venusaur](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-venusaur.png) | ![Venusaur stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-venusaur.png) |
 
 ### Moves
 
@@ -80,13 +80,13 @@ Move images (slot 1 and 2, variants 1 and 2) per Pokémon.
 
 | Slot 1.1 | Slot 1.2 | Slot 2.1 | Slot 2.2 |
 |----------|----------|----------|----------|
-| ![Pikachu S11](moves/pikachu_s11.png) | ![Pikachu S12](moves/pikachu_s12.png) | ![Pikachu S21](moves/pikachu_s21.png) | ![Pikachu S22](moves/pikachu_s22.png) |
+| ![Pikachu S11](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s11.png) | ![Pikachu S12](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s12.png) | ![Pikachu S21](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s21.png) | ![Pikachu S22](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s22.png) |
 
 ### Maps
 
 Game map images (Remoat Stadium, Theia Sky Ruins, Mer Stadium, etc.).
 
-![Map](maps/groudon.png)
+![Map](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/groudon.png)
 
 ---
 
