@@ -72,13 +72,14 @@ The library includes data and images ready to use in Pokémon Unite apps, bots, 
 
 ### Roster (Pokémon)
 
-Roster icons and stat images for the full active roster.
+Roster icons and stat images for the full active roster. The library includes every playable Pokémon with roster and stat assets.
 
-| Roster example | Stats example |
-|----------------|----------------|
-| ![Pikachu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-pikachu.png) | ![Pikachu stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-pikachu.png) |
-| ![Charizard](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-charizard.png) | ![Charizard stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-charizard.png) |
-| ![Venusaur](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-venusaur.png) | ![Venusaur stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-venusaur.png) |
+| Roster | Stats | Roster | Stats |
+|--------|-------|--------|-------|
+| ![Pikachu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-pikachu.png) Pikachu | ![Pikachu stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-pikachu.png) | ![Charizard](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-charizard.png) Charizard | ![Charizard stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-charizard.png) |
+| ![Venusaur](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-venusaur.png) Venusaur | ![Venusaur stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-venusaur.png) | ![Blastoise](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-blastoise.png) Blastoise | ![Blastoise stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-blastoise.png) |
+| ![Gengar](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-gengar.png) Gengar | ![Gengar stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-gengar.png) | ![Dragonite](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-dragonite.png) Dragonite | ![Dragonite stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-dragonite.png) |
+| ![Greninja](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-greninja.png) Greninja | ![Greninja stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-greninja.png) | ![Mew](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-mew.png) Mew | ![Mew stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-mew.png) |
 
 ### Moves
 
@@ -92,11 +93,22 @@ Move images (slot 1 and 2, variants 1 and 2) per Pokémon.
 
 Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map has multiple resolutions (1x, 2x, 4x); use `getMapImageUrl(map, resolution?, options?)` to pick one. Names and descriptions are available in all supported locales via `getMapName(mapId, locale)` and `getMapDescription(mapId, locale)` (see [i18n](#i18n-localized-names)).
 
-![Map](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/groudon.png)
+| Groudon | Kyogre | Rayquaza |
+|---------|--------|----------|
+| ![Theia Sky Ruins (Groudon)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-groudon/map-groudon@2x.png) | ![Theia Sky Ruins (Kyogre)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-kyogre/map-kyogre@2x.png) | ![Theia Sky Ruins (Rayquaza)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-rayquaza/map-rayquaza@2x.png) |
 
 ### Neutrals and spawns
 
 The library includes a **neutrals** catalog (wild Pokémon and items that spawn on maps) with images in `neutrals/`, and a unified **spawns** list in `src/spawns.ts` (same pattern as `pokemons.ts`) linking each spawn to a map and a neutral. Use `getSpawnsByMap(mapId)` to get all spawns for a map (e.g. `"map-groudon"`, `"map-kyogre"`, `"map-rayquaza"`), `getNeutralById(id)` to resolve the neutral (e.g. for its image), and `getNeutralImageUrl(neutral, options?)` for the image URL.
+
+| Wild Pokémon / Bosses | | | |
+|-----------------------|---|---|---|
+| ![Accelgor](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/accelgor.png) Accelgor | ![Altaria](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/altaria.png) Altaria | ![Baltoy](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/baltoy.png) Baltoy | ![Bunnelby](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/bunnelby.png) Bunnelby |
+| ![Escavalier](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/escavalier.png) Escavalier | ![Groudon](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/groudon.png) Groudon | ![Indeedee](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/indeedee.png) Indeedee | ![Kyogre](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/kyogre.png) Kyogre |
+| ![Natu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/natu.png) Natu | ![Rayquaza](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/rayquaza.png) Rayquaza | ![Regidrago](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regidrago.png) Regidrago | ![Regice](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regice.png) Regice |
+| ![Regieleki](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regieleki.png) Regieleki | ![Regirock](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regirock.png) Regirock | ![Registeel](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/registeel.png) Registeel | ![Xatu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/xatu.png) Xatu |
+| **Items** | | | |
+| ![Salac Berry](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/salac.png) Salac Berry | ![Sitrus Berry](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/sitrus.png) Sitrus Berry | | |
 
 ---
 
