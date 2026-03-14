@@ -19,6 +19,10 @@ for (const n of neutrals) {
   names[n.id] = n.name;
 }
 
+// Aliases for slug variants (e.g. kebab-case "mega-mewtwo-x" from display name).
+names["mega-mewtwo-x"] = "Mega Mewtwo X";
+names["mega-mewtwo-y"] = "Mega Mewtwo Y";
+
 // Spawn info (HTML). Other locales override same keys for translations.
 Object.assign(names, {
   "spawn.info.groudon.boss":

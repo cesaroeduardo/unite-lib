@@ -30,6 +30,7 @@ export {
   getNeutralById,
   getPokemonByName,
   getPokemonByDex,
+  getPokemonSlug,
   getPokemonBySlug,
   getPokemonsByBattleType,
   getPokemonsByTag,

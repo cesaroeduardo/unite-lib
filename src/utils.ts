@@ -86,12 +86,14 @@ export function getPokemonByDex(dex: number): Pokemon | undefined {
 
 /**
  * Slug from roster image: "pokemons/roster-venusaur.png" -> "venusaur"
+ * Use this slug with getPokemonName(id, locale) for i18n.
  */
+export function getPokemonSlug(pokemon: Pokemon): string {
+  return pokemon.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
+}
+
 export function getPokemonBySlug(slug: string): Pokemon | undefined {
-  return pokemons.find((p) => {
-    const s = p.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
-    return s === slug;
-  });
+  return pokemons.find((p) => getPokemonSlug(p) === slug);
 }
 
 export function getPokemonsByBattleType(battleType: BattleType): Pokemon[] {
