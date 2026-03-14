@@ -520,6 +520,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "09:00",
     respawnTime: 0,
     permanentDelete: true,
+    despawnTime: "02:00",
     infoKey: "natu.900",
   },
   {
@@ -530,6 +531,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "09:20",
     respawnTime: 60,
     permanentDelete: false,
+    despawnTime: "02:00",
     infoKey: "natu.920",
   },
   {
@@ -792,6 +794,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "NaN:NaN",
     respawnTime: 0,
     permanentDelete: false,
+    despawnTime: "02:00",
     infoKey: "altaria.after_regidrago",
   },
   // --- map-kyogre ---
@@ -1313,6 +1316,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "09:00",
     respawnTime: 0,
     permanentDelete: true,
+    despawnTime: "02:00",
     infoKey: "natu.900",
   },
   {
@@ -1323,6 +1327,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "09:20",
     respawnTime: 60,
     permanentDelete: false,
+    despawnTime: "02:00",
     infoKey: "natu.920",
   },
   {
@@ -1599,6 +1604,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "NaN:NaN",
     respawnTime: 0,
     permanentDelete: false,
+    despawnTime: "02:00",
     infoKey: "altaria.after_regidrago",
   },
   // --- map-rayquaza ---
@@ -2372,6 +2378,7 @@ const spawns: MapSpawn[] = [
     spawnTime: "08:00",
     respawnTime: 90,
     permanentDelete: false,
+    despawnTime: "02:00",
     infoKey: "altaria.rayquaza",
   }
 ];

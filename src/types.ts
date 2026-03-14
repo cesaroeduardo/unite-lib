@@ -90,6 +90,11 @@ export interface MapSpawn {
   spawnTime: string;
   respawnTime: number;
   permanentDelete: boolean;
+  /**
+   * Optional game-clock time when this spawn disappears (e.g. when the center boss spawns).
+   * Format "MM:SS" (e.g. "02:00"). Use to hide Natu/Altaria at center when Groudon/Kyogre/Rayquaza spawn.
+   */
+  despawnTime?: string;
   /** Optional HTML description (default locale). Use getSpawnInfo for i18n). */
   info?: string;
   /** Optional i18n key for info (spawn.info.<key>). When set, getSpawnInfo uses it. */
