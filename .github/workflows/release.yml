@@ -30,9 +30,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Para main protegida com "Require PR": adicione secret GH_PAT (PAT da sua conta admin).
+      # Menos log do npm evita buffer gigante (muitos arquivos em moves/ e pokemons/).
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_LOGLEVEL: error
         run: npx semantic-release
