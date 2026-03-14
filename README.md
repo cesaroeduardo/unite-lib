@@ -94,6 +94,10 @@ Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map 
 
 ![Map](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/groudon.png)
 
+### Neutrals and spawns
+
+The library includes a **neutrals** catalog (wild Pokémon and items that spawn on maps) with images in `neutrals/`, and a unified **spawns** list in `src/spawns.ts` (same pattern as `pokemons.ts`) linking each spawn to a map and a neutral. Use `getSpawnsByMap(mapId)` to get all spawns for a map (e.g. `"map-groudon"`, `"map-kyogre"`, `"map-rayquaza"`), `getNeutralById(id)` to resolve the neutral (e.g. for its image), and `getNeutralImageUrl(neutral, options?)` for the image URL.
+
 ---
 
 ## Local development (testing without publishing to npm)
@@ -180,10 +184,15 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `pokemons` | Full roster (name, dex, images, battleType, stats, tags, difficulty) |
 | `moves` | Move list (pokemonId, slotId, name, image) |
 | `maps` | Map list (id, name, image, images by resolution, description) |
+| `neutrals` | Neutral catalog (id, image; wild Pokémon/items for spawns) |
+| `spawns` | All map spawns (mapId, neutralId, left, top, spawnTime, respawnTime, etc.) |
 | `BattleType` | `attacker`, `defender`, `allrounder`, `speedster`, `supporter` |
 | `Tag` | Role + style: `attacker`, `defender`, `melee`, `ranged`, … |
 | `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` |
 | `getMapImageUrl(map, resolution?, options?)` | Map image URL (resolution: `"1"`, `"2"`, `"4"`) |
+| `getNeutralImageUrl(neutral, options?)` | Neutral image path or full URL |
+| `getSpawnsByMap(mapId)` | Spawns for a map (e.g. `"map-groudon"`) |
+| `getNeutralById(id)` | Find neutral by id |
 | `getPokemonByName(name)` | Find by display name |
 | `getPokemonByDex(dex)` | Find by Pokédex number |
 | `getPokemonBySlug(slug)` | Find by slug (e.g. `venusaur`) |
@@ -194,12 +203,15 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `getMapName(mapId, locale)` | Localized map name |
 | `getMapDescription(mapId, locale)` | Localized map description |
 
+Types: `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `Move`, etc.).
+
 ## Project structure
 
 - **`dist/`** — Built ESM, CJS, and IIFE; type definitions (`.d.ts`)
 - **`pokemons/`** — Roster and stat images
 - **`moves/`** — Move images
 - **`maps/`** — Map images
+- **`neutrals/`** — Wild Pokémon and item images used in map spawns
 - **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) for use with AI agents in this repo (e.g. syncing roster from images in `pokemons/` and `moves/`).
 - **`mcp/`** — [MCP server](mcp/README.md) (Model Context Protocol) para consumir a library em agentes de IA: tools para listar e buscar pokémons, moves, mapas, URLs de imagens e nomes localizados (Cursor, Claude Desktop, etc.).
 

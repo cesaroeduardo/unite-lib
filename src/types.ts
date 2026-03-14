@@ -69,3 +69,29 @@ export interface Map {
   /** Optional description. */
   description?: string;
 }
+
+/** Wild/neutral Pokémon or item that can spawn on a map. */
+export interface Neutral {
+  id: string;
+  /** Image path (relative to package root or baseUrl). */
+  image: string;
+  /** Display name in English (use getNeutralName for other locales). */
+  name: string;
+  /** Pokédex number (omit for non-Pokémon e.g. berries). */
+  dex?: number;
+}
+
+/** A single spawn point on a map, linked to a neutral by neutralId. */
+export interface MapSpawn {
+  mapId: string;
+  neutralId: string;
+  left: string;
+  top: string;
+  spawnTime: string;
+  respawnTime: number;
+  permanentDelete: boolean;
+  /** Optional HTML description (default locale). Use getSpawnInfo for i18n). */
+  info?: string;
+  /** Optional i18n key for info (spawn.info.<key>). When set, getSpawnInfo uses it. */
+  infoKey?: string;
+}

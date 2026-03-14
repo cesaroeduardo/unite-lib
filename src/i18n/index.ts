@@ -45,4 +45,46 @@ export function getMapDescription(
   return map[key] ?? en[key] ?? "";
 }
 
+/**
+ * Returns the localized name for a neutral (wild Pokémon/item) by id and locale.
+ * Falls back to English, then to the id.
+ */
+export function getNeutralName(
+  neutralId: string,
+  locale: Locale = "en"
+): string {
+  const map = locales[locale] ?? en;
+  return map[neutralId] ?? en[neutralId] ?? neutralId;
+}
+
+/**
+ * Returns the localized spawn info HTML by key and locale.
+ * Key format: "spawn.info.<infoKey>". Falls back to English, then to empty string.
+ */
+export function getSpawnInfo(
+  infoKey: string,
+  locale: Locale = "en"
+): string {
+  const key = `spawn.info.${infoKey}`;
+  const map = locales[locale] ?? en;
+  return map[key] ?? en[key] ?? "";
+}
+
+/** MapSpawn with optional infoKey (from types). */
+type SpawnLike = { infoKey?: string; info?: string };
+
+/**
+ * Returns the localized spawn info HTML for a spawn. Uses infoKey when set, else spawn.info.
+ */
+export function getSpawnInfoForSpawn(
+  spawn: SpawnLike,
+  locale: Locale = "en"
+): string {
+  if (spawn.infoKey) {
+    const out = getSpawnInfo(spawn.infoKey, locale);
+    if (out) return out;
+  }
+  return spawn.info ?? "";
+}
+
 export { en, ptBR, jaJP, fr, es };

@@ -1,4 +1,4 @@
-export { Locale, getPokemonName } from './i18n/index.js';
+export { Locale, getMapDescription, getMapName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn } from './i18n/index.js';
 
 /**
  * Battle role in Pokémon Unite (Attacker, Defender, etc.).
@@ -74,14 +74,42 @@ interface Move {
     /** Image path (relative to package root or baseUrl). */
     image: string;
 }
+/** Map image resolution (1x, 2x, 4x). */
+type MapResolution = "1" | "2" | "4";
 /** Map/arena data. */
 interface Map {
     id: string;
     name: string;
-    /** Image path (relative to package root or baseUrl). */
+    /** Default image path (e.g. 1x). Use getMapImageUrl for a specific resolution. */
     image: string;
+    /** Optional resolution variants (@1x, @2x, @4x). Keys are "1", "2", "4". */
+    images?: Partial<Record<MapResolution, string>>;
     /** Optional description. */
     description?: string;
+}
+/** Wild/neutral Pokémon or item that can spawn on a map. */
+interface Neutral {
+    id: string;
+    /** Image path (relative to package root or baseUrl). */
+    image: string;
+    /** Display name in English (use getNeutralName for other locales). */
+    name: string;
+    /** Pokédex number (omit for non-Pokémon e.g. berries). */
+    dex?: number;
+}
+/** A single spawn point on a map, linked to a neutral by neutralId. */
+interface MapSpawn {
+    mapId: string;
+    neutralId: string;
+    left: string;
+    top: string;
+    spawnTime: string;
+    respawnTime: number;
+    permanentDelete: boolean;
+    /** Optional HTML description (default locale). Use getSpawnInfo for i18n). */
+    info?: string;
+    /** Optional i18n key for info (spawn.info.<key>). When set, getSpawnInfo uses it. */
+    infoKey?: string;
 }
 
 declare const pokemons: Array<Pokemon>;
@@ -89,6 +117,10 @@ declare const pokemons: Array<Pokemon>;
 declare const moves: Move[];
 
 declare const maps: Map[];
+
+declare const neutrals: Neutral[];
+
+declare const spawns: MapSpawn[];
 
 interface GetImageUrlOptions {
     /** Base URL for assets (e.g. CDN). No trailing slash. */
@@ -99,6 +131,23 @@ interface GetImageUrlOptions {
  * Use baseUrl for CDN: e.g. "https://cdn.jsdelivr.net/npm/unite-lib@1.0.0"
  */
 declare function getImageUrl(pokemon: Pokemon, imageKey: keyof PokemonImages, options?: GetImageUrlOptions): string;
+/**
+ * Returns the image URL for a map, optionally at a given resolution (1x, 2x, 4x).
+ * Falls back to map.image when resolution is omitted or not available.
+ */
+declare function getMapImageUrl(map: Map, resolution?: MapResolution, options?: GetImageUrlOptions): string;
+/**
+ * Returns spawns for a given map id (e.g. "map-groudon", "map-kyogre", "map-rayquaza").
+ */
+declare function getSpawnsByMap(mapId: string): MapSpawn[];
+/**
+ * Returns the neutral by id, or undefined if not found.
+ */
+declare function getNeutralById(id: string): Neutral | undefined;
+/**
+ * Returns the image URL for a neutral (wild Pokémon or item).
+ */
+declare function getNeutralImageUrl(neutral: Neutral, options?: GetImageUrlOptions): string;
 declare function getPokemonByName(name: string): Pokemon | undefined;
 declare function getPokemonByDex(dex: number): Pokemon | undefined;
 /**
@@ -109,4 +158,4 @@ declare function getPokemonsByBattleType(battleType: BattleType): Pokemon[];
 declare function getPokemonsByTag(tag: Tag): Pokemon[];
 declare function getActivePokemons(): Pokemon[];
 
-export { BattleType, type GetImageUrlOptions, type Map, type Move, type MoveSlotId, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonsByBattleType, getPokemonsByTag, maps, moves, pokemons };
+export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, maps, moves, neutrals, pokemons, spawns };

@@ -1,6 +1,15 @@
-import type { Pokemon, PokemonImages, Map, MapResolution } from "./types";
+import type {
+  Pokemon,
+  PokemonImages,
+  Map,
+  MapResolution,
+  Neutral,
+  MapSpawn,
+} from "./types";
 import type { BattleType, Tag } from "./types";
 import pokemons from "./pokemons";
+import neutrals from "./neutrals";
+import spawns from "./spawns";
 
 export interface GetImageUrlOptions {
   /** Base URL for assets (e.g. CDN). No trailing slash. */
@@ -35,6 +44,33 @@ export function getMapImageUrl(
     resolution && map.images?.[resolution] != null
       ? map.images[resolution]
       : map.image;
+  if (path == null || path === "") return "";
+  const base = options?.baseUrl?.replace(/\/$/, "");
+  return base ? `${base}/${path}` : path;
+}
+
+/**
+ * Returns spawns for a given map id (e.g. "map-groudon", "map-kyogre", "map-rayquaza").
+ */
+export function getSpawnsByMap(mapId: string): MapSpawn[] {
+  return spawns.filter((s) => s.mapId === mapId);
+}
+
+/**
+ * Returns the neutral by id, or undefined if not found.
+ */
+export function getNeutralById(id: string): Neutral | undefined {
+  return neutrals.find((n) => n.id === id);
+}
+
+/**
+ * Returns the image URL for a neutral (wild Pokémon or item).
+ */
+export function getNeutralImageUrl(
+  neutral: Neutral,
+  options?: GetImageUrlOptions
+): string {
+  const path = neutral.image;
   if (path == null || path === "") return "";
   const base = options?.baseUrl?.replace(/\/$/, "");
   return base ? `${base}/${path}` : path;

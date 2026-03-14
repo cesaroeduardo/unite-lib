@@ -24,15 +24,26 @@ __export(src_exports, {
   Tag: () => Tag,
   getActivePokemons: () => getActivePokemons,
   getImageUrl: () => getImageUrl,
+  getMapDescription: () => getMapDescription,
+  getMapImageUrl: () => getMapImageUrl,
+  getMapName: () => getMapName,
+  getNeutralById: () => getNeutralById,
+  getNeutralImageUrl: () => getNeutralImageUrl,
+  getNeutralName: () => getNeutralName,
   getPokemonByDex: () => getPokemonByDex,
   getPokemonByName: () => getPokemonByName,
   getPokemonBySlug: () => getPokemonBySlug,
   getPokemonName: () => getPokemonName,
   getPokemonsByBattleType: () => getPokemonsByBattleType,
   getPokemonsByTag: () => getPokemonsByTag,
+  getSpawnInfo: () => getSpawnInfo,
+  getSpawnInfoForSpawn: () => getSpawnInfoForSpawn,
+  getSpawnsByMap: () => getSpawnsByMap,
   maps: () => maps_default,
   moves: () => moves_default,
-  pokemons: () => pokemons_default
+  neutrals: () => neutrals_default,
+  pokemons: () => pokemons_default,
+  spawns: () => spawns_default
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -742,6 +753,31 @@ var pokemons = [
     "difficulty": 1
   },
   {
+    "name": "Moltres",
+    "dex": 146,
+    "images": {
+      "main": "pokemons/roster-moltres.png",
+      "big": "pokemons/roster-moltres-2x.png",
+      "complete": "pokemons/stat-moltres.png",
+      "move_s11": "moves/moltres_s11.png",
+      "move_s21": "moves/moltres_s21.png"
+    },
+    "active": true,
+    "battleType": BattleType.ALLROUNDER,
+    "stats": {
+      "offense": 4,
+      "endurance": 2.5,
+      "mobility": 2,
+      "scoring": 2,
+      "support": 2
+    },
+    "tags": [
+      Tag.ALLROUNDER,
+      Tag.MELEE
+    ],
+    "difficulty": 2
+  },
+  {
     "name": "Dragonite",
     "dex": 149,
     "images": {
@@ -769,7 +805,7 @@ var pokemons = [
     "difficulty": 1
   },
   {
-    "name": "Mewtwo X",
+    "name": "Mega Mewtwo X",
     "dex": 150,
     "images": {
       "main": "pokemons/roster-mewtwox.png",
@@ -796,7 +832,7 @@ var pokemons = [
     "difficulty": 1
   },
   {
-    "name": "Mewtwo Y",
+    "name": "Mega Mewtwo Y",
     "dex": 150,
     "images": {
       "main": "pokemons/roster-mewtwoy.png",
@@ -2406,29 +2442,2463 @@ var moves_default = moves;
 // src/maps.ts
 var maps = [
   {
-    id: "remoat-stadium",
-    name: "Remoat Stadium",
-    image: "maps/remoat-stadium.png",
-    description: "Standard 5v5 map."
-  },
-  {
-    id: "theia-sky-ruins",
+    id: "map-groudon",
     name: "Theia Sky Ruins",
-    image: "maps/theia-sky-ruins.png",
-    description: "5v5 map with Rayquaza."
+    image: "maps/map-groudon/map-groudon@4x.png",
+    images: {
+      "1": "maps/map-groudon/map-groudon@1x.png",
+      "2": "maps/map-groudon/map-groudon@2x.png",
+      "4": "maps/map-groudon/map-groudon@4x.png"
+    },
+    description: "Map with Groudon."
   },
   {
-    id: "mer-stadium",
-    name: "Mer Stadium",
-    image: "maps/mer-stadium.png",
-    description: "Quick battle map."
+    id: "map-kyogre",
+    name: "Theia Sky Ruins",
+    image: "maps/map-kyogre/map-kyogre@4x.png",
+    images: {
+      "1": "maps/map-kyogre/map-kyogre@1x.png",
+      "2": "maps/map-kyogre/map-kyogre@2x.png",
+      "4": "maps/map-kyogre/map-kyogre@4x.png"
+    },
+    description: "Map with Kyogre."
+  },
+  {
+    id: "map-rayquaza",
+    name: "Theia Sky Ruins",
+    image: "maps/map-rayquaza/map-rayquaza@4x.png",
+    images: {
+      "1": "maps/map-rayquaza/map-rayquaza@1x.png",
+      "2": "maps/map-rayquaza/map-rayquaza@2x.png",
+      "4": "maps/map-rayquaza/map-rayquaza@4x.png"
+    },
+    description: "Map with Rayquaza."
   }
 ];
 var maps_default = maps;
 
+// src/neutrals.ts
+var neutrals = [
+  { id: "accelgor", image: "neutrals/accelgor.png", name: "Accelgor", dex: 617 },
+  { id: "altaria", image: "neutrals/altaria.png", name: "Altaria", dex: 334 },
+  { id: "baltoy", image: "neutrals/baltoy.png", name: "Baltoy", dex: 343 },
+  { id: "bunnelby", image: "neutrals/bunnelby.png", name: "Bunnelby", dex: 659 },
+  { id: "escavalier", image: "neutrals/escavalier.png", name: "Escavalier", dex: 589 },
+  { id: "groudon", image: "neutrals/groudon.png", name: "Groudon", dex: 383 },
+  { id: "indeedee", image: "neutrals/indeedee.png", name: "Indeedee", dex: 876 },
+  { id: "kyogre", image: "neutrals/kyogre.png", name: "Kyogre", dex: 382 },
+  { id: "natu", image: "neutrals/natu.png", name: "Natu", dex: 177 },
+  { id: "rayquaza", image: "neutrals/rayquaza.png", name: "Rayquaza", dex: 384 },
+  { id: "regidrago", image: "neutrals/regidrago.png", name: "Regidrago", dex: 895 },
+  { id: "regice", image: "neutrals/regice.png", name: "Regice", dex: 378 },
+  { id: "regieleki", image: "neutrals/regieleki.png", name: "Regieleki", dex: 894 },
+  { id: "regirock", image: "neutrals/regirock.png", name: "Regirock", dex: 377 },
+  { id: "registeel", image: "neutrals/registeel.png", name: "Registeel", dex: 379 },
+  { id: "salac", image: "neutrals/salac.png", name: "Salac Berry" },
+  { id: "sitrus", image: "neutrals/sitrus.png", name: "Sitrus Berry" },
+  { id: "xatu", image: "neutrals/xatu.png", name: "Xatu", dex: 178 }
+];
+var neutrals_default = neutrals;
+
+// src/spawns.ts
+var spawns = [
+  // --- map-groudon ---
+  {
+    mapId: "map-groudon",
+    neutralId: "groudon",
+    left: "50.29%",
+    top: "38.11%",
+    spawnTime: "02:00",
+    respawnTime: 0,
+    permanentDelete: false,
+    infoKey: "groudon.boss"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "16.36%",
+    top: "47.47%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "16.36%",
+    top: "34.6%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "22.21%",
+    top: "58%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "23.38%",
+    top: "25.24%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "32.74%",
+    top: "65.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "33.91%",
+    top: "19.39%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "84.22%",
+    top: "47.47%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "83.05%",
+    top: "34.6%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "78.37%",
+    top: "58%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "76.03%",
+    top: "25.24%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "67.84%",
+    top: "65.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "66.67%",
+    top: "19.39%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "50.06%",
+    top: "13.54%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_940"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "56.84%",
+    top: "12.37%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "42.8%",
+    top: "12.37%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "48.89%",
+    top: "75.55%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_940"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "51.7%",
+    top: "75.55%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_940"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "bunnelby",
+    left: "50.06%",
+    top: "59.76%",
+    spawnTime: "09:15",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_915"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "accelgor",
+    left: "33.8%",
+    top: "49.23%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "accelgor",
+    left: "65.85%",
+    top: "49.23%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "escavalier",
+    left: "33.8%",
+    top: "31.68%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "escavalier"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "escavalier",
+    left: "66.79%",
+    top: "31.68%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "escavalier"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "26.07%",
+    top: "35.77%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.generic"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "25.61%",
+    top: "46.89%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.generic"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "73.46%",
+    top: "35.77%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.generic"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "74.04%",
+    top: "46.89%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.generic"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "56.84%",
+    top: "21.73%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "42.8%",
+    top: "21.73%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "50.06%",
+    top: "10.03%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "33.33%",
+    top: "12.37%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_only"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "67.26%",
+    top: "12.37%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_only"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "30.99%",
+    top: "73.21%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "69.13%",
+    top: "73.21%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_only"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "42.34%",
+    top: "40.45%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "57.55%",
+    top: "40.45%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "28.06%",
+    top: "29.34%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "72.05%",
+    top: "29.34%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "25.61%",
+    top: "52.15%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "baltoy",
+    left: "74.51%",
+    top: "51.57%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regidrago",
+    left: "50.29%",
+    top: "38.11%",
+    spawnTime: "00:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regidrago"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regieleki",
+    left: "50.06%",
+    top: "7.69%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regieleki"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regieleki",
+    left: "50.06%",
+    top: "84.91%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regieleki"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regice",
+    left: "50.06%",
+    top: "0.67%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regice",
+    left: "50.06%",
+    top: "91.93%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "registeel",
+    left: "45.38%",
+    top: "0.67%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "registeel",
+    left: "45.38%",
+    top: "91.93%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regirock",
+    left: "54.74%",
+    top: "0.67%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "regirock",
+    left: "54.74%",
+    top: "91.93%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "xatu",
+    left: "23.62%",
+    top: "41.62%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "xatu",
+    left: "76.97%",
+    top: "41.62%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "natu",
+    left: "50.18%",
+    top: "41.04%",
+    spawnTime: "09:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "natu.900"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "natu",
+    left: "50.18%",
+    top: "23.49%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "natu.920"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "40.93%",
+    top: "74.38%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "41.87%",
+    top: "61.51%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "58.72%",
+    top: "74.38%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "57.78%",
+    top: "61.51%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "25.61%",
+    top: "15.88%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "18.7%",
+    top: "20.56%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "13.55%",
+    top: "27.58%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "74.04%",
+    top: "15.88%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "80.95%",
+    top: "20.56%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "84.92%",
+    top: "26.41%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "11.21%",
+    top: "56.6%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "15.66%",
+    top: "62.1%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "84.46%",
+    top: "62.1%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "indeedee",
+    left: "88.9%",
+    top: "56.83%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "36.72%",
+    top: "64.44%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "34.73%",
+    top: "68.53%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "64.33%",
+    top: "64.44%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "66.32%",
+    top: "68.53%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "37.66%",
+    top: "19.98%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "36.72%",
+    top: "15.88%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "62.93%",
+    top: "19.39%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "sitrus",
+    left: "63.86%",
+    top: "15.88%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "salac",
+    left: "45.14%",
+    top: "50.4%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "salac",
+    left: "54.5%",
+    top: "50.4%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "salac",
+    left: "45.14%",
+    top: "32.26%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "salac",
+    left: "54.5%",
+    top: "32.26%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac"
+  },
+  {
+    mapId: "map-groudon",
+    neutralId: "altaria",
+    left: "0%",
+    top: "0%",
+    spawnTime: "NaN:NaN",
+    respawnTime: 0,
+    permanentDelete: false,
+    infoKey: "altaria.after_regidrago"
+  },
+  // --- map-kyogre ---
+  {
+    mapId: "map-kyogre",
+    neutralId: "kyogre",
+    left: "50.29%",
+    top: "38.53%",
+    spawnTime: "02:00",
+    respawnTime: 0,
+    permanentDelete: false,
+    infoKey: "kyogre.boss"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "15.66%",
+    top: "47.89%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "15.66%",
+    top: "35.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "22.68%",
+    top: "58.42%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "22.68%",
+    top: "25.66%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "32.39%",
+    top: "65.44%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "32.39%",
+    top: "19.81%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "84.92%",
+    top: "47.89%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "84.92%",
+    top: "35.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "76.97%",
+    top: "58.42%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "76.97%",
+    top: "25.66%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "68.19%",
+    top: "65.44%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "68.19%",
+    top: "19.81%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.initial"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "50.06%",
+    top: "13.96%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "56.84%",
+    top: "12.79%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "42.8%",
+    top: "12.79%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "48.89%",
+    top: "75.97%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "51.7%",
+    top: "75.97%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "bunnelby",
+    left: "50.06%",
+    top: "60.17%",
+    spawnTime: "09:15",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_915_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "accelgor",
+    left: "25.61%",
+    top: "47.3%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "accelgor",
+    left: "74.04%",
+    top: "47.3%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "escavalier",
+    left: "33.8%",
+    top: "32.09%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "escavalier"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "escavalier",
+    left: "66.79%",
+    top: "32.09%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "escavalier"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "26.07%",
+    top: "36.19%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "33.8%",
+    top: "49.06%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "73.46%",
+    top: "36.19%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "65.85%",
+    top: "49.06%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "56.84%",
+    top: "22.15%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "42.8%",
+    top: "22.15%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "50.06%",
+    top: "10.45%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "33.33%",
+    top: "12.79%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "67.26%",
+    top: "12.79%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "30.99%",
+    top: "73.63%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "69.13%",
+    top: "73.63%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "42.34%",
+    top: "40.87%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "57.55%",
+    top: "40.87%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "28.06%",
+    top: "29.75%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_kyogre"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "72.05%",
+    top: "29.75%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_kyogre"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "25.61%",
+    top: "52.57%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_kyogre"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "baltoy",
+    left: "74.51%",
+    top: "51.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_kyogre"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regidrago",
+    left: "50.29%",
+    top: "38.53%",
+    spawnTime: "00:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regidrago.kyogre"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regieleki",
+    left: "50.06%",
+    top: "8.11%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regieleki",
+    left: "50.06%",
+    top: "85.33%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regice",
+    left: "50.06%",
+    top: "1.09%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regice",
+    left: "50.06%",
+    top: "92.35%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "registeel",
+    left: "45.38%",
+    top: "1.09%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "registeel",
+    left: "45.38%",
+    top: "92.35%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regirock",
+    left: "54.74%",
+    top: "1.09%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "regirock",
+    left: "54.74%",
+    top: "92.35%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "xatu",
+    left: "23.62%",
+    top: "42.04%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu.short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "xatu",
+    left: "76.97%",
+    top: "42.04%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu.short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "natu",
+    left: "50.18%",
+    top: "41.45%",
+    spawnTime: "09:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "natu.900"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "natu",
+    left: "50.18%",
+    top: "23.9%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "natu.920"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "40.93%",
+    top: "74.8%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "41.87%",
+    top: "61.93%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "58.72%",
+    top: "74.8%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "57.78%",
+    top: "61.93%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "25.61%",
+    top: "16.3%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "18.7%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "13.55%",
+    top: "28%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "74.04%",
+    top: "16.3%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "80.95%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "84.92%",
+    top: "26.83%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "11.21%",
+    top: "57.01%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "15.66%",
+    top: "62.51%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "84.46%",
+    top: "62.51%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "indeedee",
+    left: "88.9%",
+    top: "57.25%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.tower_short"
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "36.72%",
+    top: "64.85%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "34.73%",
+    top: "68.95%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "64.33%",
+    top: "64.85%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "66.32%",
+    top: "68.95%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "37.66%",
+    top: "20.39%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "36.72%",
+    top: "16.3%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "62.93%",
+    top: "19.81%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "63.86%",
+    top: "16.3%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "45.14%",
+    top: "50.81%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "54.5%",
+    top: "50.81%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "45.14%",
+    top: "32.68%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "54.5%",
+    top: "32.68%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "36.72%",
+    top: "42.04%",
+    spawnTime: "05:00",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "sitrus",
+    left: "63.4%",
+    top: "42.04%",
+    spawnTime: "05:00",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-kyogre",
+    neutralId: "altaria",
+    left: "0%",
+    top: "0%",
+    spawnTime: "NaN:NaN",
+    respawnTime: 0,
+    permanentDelete: false,
+    infoKey: "altaria.after_regidrago"
+  },
+  // --- map-rayquaza ---
+  {
+    mapId: "map-rayquaza",
+    neutralId: "rayquaza",
+    left: "50.1%",
+    top: "39.7%",
+    spawnTime: "02:00",
+    respawnTime: 0,
+    permanentDelete: false,
+    infoKey: "rayquaza.boss"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "15.47%",
+    top: "47.89%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "15.47%",
+    top: "35.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "22.49%",
+    top: "58.42%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "22.49%",
+    top: "25.66%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "32.66%",
+    top: "62.51%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "31.73%",
+    top: "67.78%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "34.07%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "33.13%",
+    top: "18.05%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "84.73%",
+    top: "47.89%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "84.73%",
+    top: "35.02%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "76.77%",
+    top: "58.42%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "76.77%",
+    top: "25.66%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "67.06%",
+    top: "63.1%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "68%",
+    top: "67.78%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "66.13%",
+    top: "17.47%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "65.07%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "bunnelby.points"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "49.86%",
+    top: "13.96%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "56.65%",
+    top: "12.79%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "42.61%",
+    top: "12.79%",
+    spawnTime: "09:20",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_920_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "48.69%",
+    top: "75.97%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "51.5%",
+    top: "75.97%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "bunnelby",
+    left: "49.86%",
+    top: "60.17%",
+    spawnTime: "09:15",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "bunnelby.lane_915_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "accelgor",
+    left: "33.6%",
+    top: "49.64%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "accelgor",
+    left: "65.66%",
+    top: "49.64%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "accelgor"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "escavalier",
+    left: "33.6%",
+    top: "32.09%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "escavalier",
+    left: "66.59%",
+    top: "32.09%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "25.88%",
+    top: "36.19%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "25.41%",
+    top: "47.3%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "73.26%",
+    top: "36.19%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "73.85%",
+    top: "47.3%",
+    spawnTime: "09:45",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.945_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "49.98%",
+    top: "23.9%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "56.65%",
+    top: "22.15%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "42.61%",
+    top: "22.15%",
+    spawnTime: "09:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_940_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "49.86%",
+    top: "10.45%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "33.13%",
+    top: "12.79%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "67.06%",
+    top: "12.79%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "30.79%",
+    top: "73.63%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "68.93%",
+    top: "73.63%",
+    spawnTime: "09:10",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_910_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "42.14%",
+    top: "40.87%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "57.35%",
+    top: "40.87%",
+    spawnTime: "08:40",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.lane_840_short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "27.87%",
+    top: "29.75%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "71.86%",
+    top: "29.75%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "25.41%",
+    top: "52.57%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "baltoy",
+    left: "74.32%",
+    top: "51.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "regieleki",
+    left: "49.86%",
+    top: "8.11%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "regice",
+    left: "49.86%",
+    top: "85.33%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "registeel",
+    left: "45.18%",
+    top: "85.33%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "regirock",
+    left: "54.54%",
+    top: "85.33%",
+    spawnTime: "07:00",
+    respawnTime: 120,
+    permanentDelete: false,
+    infoKey: "regi.700"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "xatu",
+    left: "23.42%",
+    top: "42.04%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "xatu",
+    left: "76.77%",
+    top: "42.04%",
+    spawnTime: "09:59",
+    respawnTime: 0,
+    permanentDelete: true,
+    infoKey: "xatu.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "40.74%",
+    top: "74.8%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "41.67%",
+    top: "61.93%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "58.52%",
+    top: "74.8%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_930"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "57.59%",
+    top: "61.93%",
+    spawnTime: "09:35",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "indeedee.lane_935"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "25.41%",
+    top: "16.3%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "18.51%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "13.36%",
+    top: "28%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "73.85%",
+    top: "16.3%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "80.75%",
+    top: "20.98%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "84.73%",
+    top: "26.83%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "11.02%",
+    top: "57.01%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "15.47%",
+    top: "62.51%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "84.26%",
+    top: "62.51%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "indeedee",
+    left: "88.71%",
+    top: "57.25%",
+    spawnTime: "10:00",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "baltoy.tower_break"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "36.53%",
+    top: "64.85%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "34.54%",
+    top: "68.95%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "64.14%",
+    top: "64.85%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "66.13%",
+    top: "68.95%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "37.46%",
+    top: "20.39%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "36.53%",
+    top: "16.3%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "62.73%",
+    top: "19.81%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "sitrus",
+    left: "63.67%",
+    top: "16.3%",
+    spawnTime: "09:30",
+    respawnTime: 60,
+    permanentDelete: false
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "salac",
+    left: "44.95%",
+    top: "50.81%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "salac",
+    left: "54.31%",
+    top: "50.81%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "salac",
+    left: "44.95%",
+    top: "32.68%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "salac",
+    left: "54.31%",
+    top: "32.68%",
+    spawnTime: "08:30",
+    respawnTime: 60,
+    permanentDelete: false,
+    infoKey: "salac.short"
+  },
+  {
+    mapId: "map-rayquaza",
+    neutralId: "altaria",
+    left: "49.86%",
+    top: "40.87%",
+    spawnTime: "08:00",
+    respawnTime: 90,
+    permanentDelete: false,
+    infoKey: "altaria.rayquaza"
+  }
+];
+var spawns_default = spawns;
+
 // src/utils.ts
 function getImageUrl(pokemon, imageKey, options) {
   const path = pokemon.images[imageKey];
+  if (path == null || path === "") return "";
+  const base = options?.baseUrl?.replace(/\/$/, "");
+  return base ? `${base}/${path}` : path;
+}
+function getMapImageUrl(map, resolution, options) {
+  const path = resolution && map.images?.[resolution] != null ? map.images[resolution] : map.image;
+  if (path == null || path === "") return "";
+  const base = options?.baseUrl?.replace(/\/$/, "");
+  return base ? `${base}/${path}` : path;
+}
+function getSpawnsByMap(mapId) {
+  return spawns_default.filter((s) => s.mapId === mapId);
+}
+function getNeutralById(id) {
+  return neutrals_default.find((n) => n.id === id);
+}
+function getNeutralImageUrl(neutral, options) {
+  const path = neutral.image;
   if (path == null || path === "") return "";
   const base = options?.baseUrl?.replace(/\/$/, "");
   return base ? `${base}/${path}` : path;
@@ -2463,10 +4933,117 @@ var names = {};
 for (const p of pokemons_default) {
   names[slugFromMain(p.images.main)] = p.name;
 }
+for (const m of maps_default) {
+  names[m.id] = m.name;
+  if (m.description) names[`${m.id}.description`] = m.description;
+}
+for (const n of neutrals_default) {
+  names[n.id] = n.name;
+}
+Object.assign(names, {
+  "spawn.info.groudon.boss": "<p>When defeated, all team members alive receive a <strong>buff</strong> and <strong>15 aeos points</strong>.<br>This buff is <strong>permanent until the holder is KO'd</strong>. When the holder is <strong>KO'd</strong>, the buff <strong>transfers to the killer</strong>.<br>It provides a <strong>goal-scoring speed boost</strong>, a <strong>huge damage boost</strong>, and a <strong>small shield</strong>.<br>Always spawn at 2:00.</p>",
+  "spawn.info.bunnelby.initial": "<p>They <strong>spawn at the beginning of the game</strong> and <strong>never respawn</strong> once killed.</p><p>Give 2 points.</p>",
+  "spawn.info.bunnelby.lane_940": "<p>Starts spawning at <strong>9:40</strong>.</p><p>When defeated, grants <strong>2 points</strong> and respawn after <strong>60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.bunnelby.lane_920": "<p>Starts spawning at <strong>9:20</strong>.</p><p>When defeated, grants <strong>2 points</strong> and respawn after <strong>60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.bunnelby.lane_915": "<p>Starts spawning at <strong>9:15</strong>.</p><p>When defeated, grants <strong>2 points</strong> and respawn after <strong>60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.accelgor": "<p>Starts spawning at <strong>9:45</strong>.</p><p>When defeated, grants <strong>4 / 7 points</strong> and a <strong>buff</strong>. <strong>Respawns after 60 seconds</strong>.</p><p>This buff lasts for <strong>70 seconds</strong> and provides a <strong>10% move cooldown reduction</strong>.</p>",
+  "spawn.info.escavalier": "<p>Starts spawning at <strong>9:45</strong>.</p><p>When defeated, grants <strong>4 / 7 points</strong> and a <strong>buff</strong>. <strong>Respawns after 60 seconds</strong>.</p><p>This buff lasts for <strong>70 seconds</strong> and provides <strong>basic attacks extra damage and decreases opponent movement speed for a short time</strong>.</p>",
+  "spawn.info.baltoy.generic": "<p>Starts spawning at <strong>9:45</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p>",
+  "spawn.info.baltoy.lane_940": "<p>Starts spawning at <strong>9:40</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.baltoy.lane_920": "<p>Starts spawning at <strong>9:40</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.baltoy.lane_910": "<p>Starts spawning at <strong>9:10</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.baltoy.lane_910_only": "<p>Starts spawning at <strong>9:10</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p>",
+  "spawn.info.baltoy.lane_840": "<p>Starts spawning at <strong>8:40</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p>",
+  "spawn.info.baltoy.tower": "<p>Starts spawning when the corresponding <strong>first tower is destroyed</strong>.</p><p>When defeated, grants <strong>2 points</strong>. <strong>Respawns after 60 seconds</strong>.</p>",
+  "spawn.info.regidrago": "<p>Spawns in the <strong>middle of the map at 8:00</strong>. When killed, <strong>Altaria spawn instead 1:30 minute after</strong>.<br>The team that defeats <strong>Regidrago</strong> gains <strong>experience for all teammates</strong>.<br>The player who lands the killing blow receives a <strong>scoring-speed buff</strong> and <strong>20 points</strong>.</p>",
+  "spawn.info.regieleki": "<p>Spawns at <strong>7:00</strong> on a random lane between <strong>toplane and botlane</strong>.<br>When defeated, goes to the base of the opposing team and if it touches the base, scores <strong>20/16/12/8 points</strong> and if the base is still alive, makes <strong>any goal become instant during 20/15/10/5s</strong>.<br>The player who lands the killing blow receives <strong>20 points</strong>.<br>Respawns <strong>2 minutes</strong> after death.</p>",
+  "spawn.info.regi.700": "<p>Spawns at <strong>7:00</strong>.</p>",
+  "spawn.info.xatu": "<p>Spawns at <strong>9:59</strong>.</p><p>Grants <strong>a large amount of experience</strong> and <strong>2 points</strong> when defeated.</p><p><strong>Does not respawn</strong>.</p>",
+  "spawn.info.natu.900": "<p>Spawns at <strong>9:00</strong>.</p>",
+  "spawn.info.natu.920": "<p>Spawns at <strong>9:20</strong>.</p>",
+  "spawn.info.indeedee.lane": "<p>Starts spawning at <strong>9:30</strong> / <strong>9:35</strong>.</p><p>When defeated, <strong>respawns after 60 seconds</strong> and grants <strong>5 points</strong>.</p><p>If either of the <strong>first towers</strong> in the lane is destroyed, it <strong>disappears</strong>.</p>",
+  "spawn.info.indeedee.tower": "<p>Spawns when the corresponding <strong>first tower</strong> is destroyed.</p><p>When defeated, <strong>respawns after 60 seconds</strong> and grants <strong>5 points</strong>.</p>",
+  "spawn.info.salac": "<p>When consumed, grants a <strong>movement speed bonus</strong> for <strong>3 seconds</strong>.</p><p>Starts spawning at <strong>8:30</strong> and respawns <strong>60 seconds</strong> after being consumed.</p>",
+  "spawn.info.salac.short": "<p>Movement speed bonus for 3 seconds.</p>",
+  "spawn.info.altaria.after_regidrago": "<p>Starts spawning <strong>mid 1:30 after Regidrago is killed</strong>.</p>",
+  "spawn.info.altaria.rayquaza": "<p>Spawn at <strong>8:00</strong> and respawn every <strong>1:30</strong>.</p><p>Disappears at <strong>2:30</strong>.</p>",
+  "spawn.info.kyogre.boss": "<p>When defeated, all team members alive receive a <strong>buff</strong>, <strong>15 aeos points</strong> and all opponents' towers still up are disabled for 1:30 (opponent can't receive shield and regen).<br>This buff is <strong>permanent until the holder is KO'd</strong>. When the holder is <strong>KO'd</strong>, the buff <strong>transfers to the killer</strong>.<br>It provides a <strong>goal-scoring speed boost</strong>, <strong>self regen (5% per second)</strong>, and a <strong>small shield</strong>.<br>Always spawn at 2:00.</p>",
+  "spawn.info.rayquaza.boss": "<p>When defeated, grants the winning team <strong>15 aeos points</strong>, a <strong>shield</strong> that <strong>speeds up goal scoring</strong> and <strong>prevents goals from being blocked</strong>.<br>Always spawns at 2:00.</p>",
+  "spawn.info.regidrago.kyogre": "<p>Spawns in the <strong>middle of the map at 8:00</strong>.</p>",
+  "spawn.info.xatu.short": "<p>Spawns at <strong>9:59</strong>.</p>",
+  "spawn.info.indeedee.tower_break": "<p>Tower break spawn.</p>",
+  "spawn.info.baltoy.tower_break": "<p>Tower break spawn.</p>",
+  "spawn.info.bunnelby.lane": "<p>Starts spawning at <strong>9:40</strong>.</p>",
+  "spawn.info.bunnelby.lane_920_short": "<p>Starts spawning at <strong>9:20</strong>.</p>",
+  "spawn.info.bunnelby.lane_915_short": "<p>Starts spawning at <strong>9:15</strong>.</p>",
+  "spawn.info.baltoy.lane_940_short": "<p>Starts spawning at <strong>9:40</strong>.</p>",
+  "spawn.info.baltoy.945_short": "<p>Starts spawning at <strong>9:45</strong>.</p>",
+  "spawn.info.baltoy.lane_910_short": "<p>Starts spawning at <strong>9:10</strong>.</p>",
+  "spawn.info.baltoy.lane_840_short": "<p>Starts spawning at <strong>8:40</strong>.</p>",
+  "spawn.info.indeedee.lane_930": "<p>Starts spawning at <strong>9:30</strong>.</p>",
+  "spawn.info.indeedee.lane_935": "<p>Starts spawning at <strong>9:35</strong>.</p>",
+  "spawn.info.bunnelby.points": "<p>Give 2 points.</p>",
+  "spawn.info.baltoy.tower_kyogre": "<p>Starts spawning when the corresponding <strong>first tower is destroyed</strong>.</p>",
+  "spawn.info.indeedee.tower_short": "<p>Spawns when the corresponding <strong>first tower</strong> is destroyed.</p>"
+});
 var en_default = names;
 
 // src/i18n/pt-BR.ts
-var ptBR = { ...en_default };
+var ptBR = {
+  ...en_default,
+  // Maps — names and descriptions
+  "map-groudon": "Ru\xEDnas Celestes de Theia",
+  "map-groudon.description": "Mapa 5v5 com Groudon.",
+  "map-kyogre": "Ru\xEDnas Celestes de Theia",
+  "map-kyogre.description": "Mapa 5v5 com Kyogre.",
+  "map-rayquaza": "Ru\xEDnas Celestes de Theia",
+  "map-rayquaza.description": "Mapa 5v5 com Rayquaza.",
+  // Spawn info (HTML) — principais textos; demais usam fallback en
+  "spawn.info.groudon.boss": "<p>Ao ser derrotado, todos os membros vivos do time recebem <strong>buff</strong> e <strong>15 pontos aeos</strong>.<br>O buff \xE9 <strong>permanente at\xE9 o portador ser nocauteado</strong>. Ao ser nocauteado, o buff <strong>transfere para quem aplicou o KO</strong>.<br>Concede <strong>aumento de velocidade de pontua\xE7\xE3o</strong>, <strong>grande aumento de dano</strong> e <strong>pequeno escudo</strong>.<br>Sempre aparece \xE0s 2:00.</p>",
+  "spawn.info.kyogre.boss": "<p>Ao ser derrotado, todos os membros vivos do time recebem <strong>buff</strong>, <strong>15 pontos aeos</strong> e as torres advers\xE1rias ainda de p\xE9 ficam desativadas por 1:30 (advers\xE1rio n\xE3o recebe escudo e regenera\xE7\xE3o).<br>O buff \xE9 <strong>permanente at\xE9 o portador ser nocauteado</strong>. Ao ser nocauteado, o buff <strong>transfere para quem aplicou o KO</strong>.<br>Concede <strong>aumento de velocidade de pontua\xE7\xE3o</strong>, <strong>autorregenera\xE7\xE3o (5% por segundo)</strong> e <strong>pequeno escudo</strong>.<br>Sempre aparece \xE0s 2:00.</p>",
+  "spawn.info.rayquaza.boss": "<p>Ao ser derrotado, concede ao time vencedor <strong>15 pontos aeos</strong>, um <strong>escudo</strong> que <strong>acelera a pontua\xE7\xE3o</strong> e <strong>impede que gols sejam bloqueados</strong>.<br>Sempre aparece \xE0s 2:00.</p>",
+  "spawn.info.bunnelby.initial": "<p><strong>Aparecem no in\xEDcio da partida</strong> e <strong>n\xE3o ressurgem</strong> ap\xF3s derrotados.</p><p>D\xE3o 2 pontos.</p>",
+  "spawn.info.bunnelby.points": "<p>D\xE3o 2 pontos.</p>",
+  "spawn.info.regi.700": "<p>Aparece \xE0s <strong>7:00</strong>.</p>",
+  "spawn.info.bunnelby.lane_940": "<p>Come\xE7a a aparecer \xE0s <strong>9:40</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong> e ressurgem ap\xF3s <strong>60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.bunnelby.lane_920": "<p>Come\xE7a a aparecer \xE0s <strong>9:20</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong> e ressurgem ap\xF3s <strong>60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.bunnelby.lane_915": "<p>Come\xE7a a aparecer \xE0s <strong>9:15</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong> e ressurgem ap\xF3s <strong>60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.accelgor": "<p>Come\xE7a a aparecer \xE0s <strong>9:45</strong>.</p><p>Quando derrotado, concede <strong>4 / 7 pontos</strong> e um <strong>buff</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p><p>O buff dura <strong>70 segundos</strong> e concede <strong>10% de redu\xE7\xE3o no tempo de recarga dos movimentos</strong>.</p>",
+  "spawn.info.escavalier": "<p>Come\xE7a a aparecer \xE0s <strong>9:45</strong>.</p><p>Quando derrotado, concede <strong>4 / 7 pontos</strong> e um <strong>buff</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p><p>O buff dura <strong>70 segundos</strong> e concede <strong>dano extra em ataques b\xE1sicos e reduz a velocidade de movimento do oponente por um curto tempo</strong>.</p>",
+  "spawn.info.baltoy.generic": "<p>Come\xE7a a aparecer \xE0s <strong>9:45</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p>",
+  "spawn.info.baltoy.lane_940": "<p>Come\xE7a a aparecer \xE0s <strong>9:40</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_920": "<p>Come\xE7a a aparecer \xE0s <strong>9:40</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_910": "<p>Come\xE7a a aparecer \xE0s <strong>9:10</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_910_only": "<p>Come\xE7a a aparecer \xE0s <strong>9:10</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p>",
+  "spawn.info.baltoy.lane_840": "<p>Come\xE7a a aparecer \xE0s <strong>8:40</strong>.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p>",
+  "spawn.info.baltoy.tower": "<p>Come\xE7a a aparecer quando a <strong>primeira torre correspondente</strong> for destru\xEDda.</p><p>Quando derrotado, concede <strong>2 pontos</strong>. <strong>Ressurge ap\xF3s 60 segundos</strong>.</p>",
+  "spawn.info.regidrago": "<p>Aparece no <strong>centro do mapa \xE0s 8:00</strong>. Quando derrotado, <strong>Altaria aparece 1:30 minuto depois</strong>.<br>O time que derrotar o <strong>Regidrago</strong> ganha <strong>experi\xEAncia para todos os aliados</strong>.<br>Quem aplicar o golpe final recebe <strong>buff de velocidade de pontua\xE7\xE3o</strong> e <strong>20 pontos</strong>.</p>",
+  "spawn.info.regieleki": "<p>Aparece \xE0s <strong>7:00</strong> em uma lane aleat\xF3ria entre <strong>topo e base</strong>.<br>Quando derrotado, vai at\xE9 a base do time advers\xE1rio e, se tocar a base, pontua <strong>20/16/12/8 pontos</strong>; se a base ainda estiver de p\xE9, <strong>gols ficam instant\xE2neos por 20/15/10/5s</strong>.<br>Quem aplicar o golpe final recebe <strong>20 pontos</strong>.<br>Ressurge <strong>2 minutos</strong> ap\xF3s a morte.</p>",
+  "spawn.info.xatu": "<p>Aparece \xE0s <strong>9:59</strong>.</p><p>Concede <strong>muita experi\xEAncia</strong> e <strong>2 pontos</strong> quando derrotado.</p><p><strong>N\xE3o ressurgem</strong>.</p>",
+  "spawn.info.natu.900": "<p>Aparece \xE0s <strong>9:00</strong>.</p>",
+  "spawn.info.natu.920": "<p>Aparece \xE0s <strong>9:20</strong>.</p>",
+  "spawn.info.indeedee.lane": "<p>Come\xE7a a aparecer \xE0s <strong>9:30</strong> / <strong>9:35</strong>.</p><p>Quando derrotado, <strong>ressurge ap\xF3s 60 segundos</strong> e concede <strong>5 pontos</strong>.</p><p>Se alguma das <strong>primeiras torres</strong> da lane for destru\xEDda, <strong>desaparece</strong>.</p>",
+  "spawn.info.indeedee.tower": "<p>Aparece quando a <strong>primeira torre correspondente</strong> for destru\xEDda.</p><p>Quando derrotado, <strong>ressurge ap\xF3s 60 segundos</strong> e concede <strong>5 pontos</strong>.</p>",
+  "spawn.info.salac": "<p>Quando consumido, concede <strong>b\xF4nus de velocidade de movimento</strong> por <strong>3 segundos</strong>.</p><p>Come\xE7a a aparecer \xE0s <strong>8:30</strong> e ressurgem <strong>60 segundos</strong> ap\xF3s o consumo.</p>",
+  "spawn.info.salac.short": "<p>B\xF4nus de velocidade de movimento por 3 segundos.</p>",
+  "spawn.info.altaria.after_regidrago": "<p>Come\xE7a a aparecer <strong>1:30 ap\xF3s o Regidrago ser derrotado</strong>.</p>",
+  "spawn.info.altaria.rayquaza": "<p>Aparece \xE0s <strong>8:00</strong> e resurge a cada <strong>1:30</strong>.</p><p>Desaparece \xE0s <strong>2:30</strong>.</p>",
+  "spawn.info.regidrago.kyogre": "<p>Aparece no <strong>centro do mapa \xE0s 8:00</strong>.</p>",
+  "spawn.info.xatu.short": "<p>Aparece \xE0s <strong>9:59</strong>.</p>",
+  "spawn.info.indeedee.tower_break": "<p>Aparece quando torre \xE9 destru\xEDda.</p>",
+  "spawn.info.baltoy.tower_break": "<p>Aparece quando torre \xE9 destru\xEDda.</p>",
+  "spawn.info.bunnelby.lane": "<p>Come\xE7a a aparecer \xE0s <strong>9:40</strong>.</p>",
+  "spawn.info.bunnelby.lane_920_short": "<p>Come\xE7a a aparecer \xE0s <strong>9:20</strong>.</p>",
+  "spawn.info.bunnelby.lane_915_short": "<p>Come\xE7a a aparecer \xE0s <strong>9:15</strong>.</p>",
+  "spawn.info.baltoy.lane_940_short": "<p>Come\xE7a a aparecer \xE0s <strong>9:40</strong>.</p>",
+  "spawn.info.baltoy.945_short": "<p>Come\xE7a a aparecer \xE0s <strong>9:45</strong>.</p>",
+  "spawn.info.baltoy.lane_910_short": "<p>Come\xE7a a aparecer \xE0s <strong>9:10</strong>.</p>",
+  "spawn.info.baltoy.lane_840_short": "<p>Come\xE7a a aparecer \xE0s <strong>8:40</strong>.</p>",
+  "spawn.info.indeedee.lane_930": "<p>Come\xE7a a aparecer \xE0s <strong>9:30</strong>.</p>",
+  "spawn.info.indeedee.lane_935": "<p>Come\xE7a a aparecer \xE0s <strong>9:35</strong>.</p>",
+  "spawn.info.baltoy.tower_kyogre": "<p>Come\xE7a a aparecer quando a <strong>primeira torre correspondente</strong> for destru\xEDda.</p>",
+  "spawn.info.indeedee.tower_short": "<p>Aparece quando a <strong>primeira torre correspondente</strong> for destru\xEDda.</p>"
+};
 var pt_BR_default = ptBR;
 
 // src/i18n/ja-JP.ts
@@ -2496,6 +5073,7 @@ var jaJP = {
   lapras: "\u30E9\u30D7\u30E9\u30B9",
   vaporeon: "\u30B7\u30E3\u30EF\u30FC\u30BA",
   snorlax: "\u30AB\u30D3\u30B4\u30F3",
+  zapdos: "\u30B5\u30F3\u30C0\u30FC",
   dragonite: "\u30AB\u30A4\u30EA\u30E5\u30FC",
   mewtwox: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCX",
   mewtwoy: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCY",
@@ -2556,7 +5134,78 @@ var jaJP = {
   armarouge: "\u30B0\u30EC\u30F3\u30A2\u30EB\u30DE",
   ceruledge: "\u30BD\u30A6\u30D6\u30EC\u30A4\u30BA",
   tinkaton: "\u30C7\u30AB\u30CC\u30C1\u30E3\u30F3",
-  miraidon: "\u30DF\u30E9\u30A4\u30C9\u30F3"
+  miraidon: "\u30DF\u30E9\u30A4\u30C9\u30F3",
+  // Maps — names and descriptions
+  "map-groudon": "\u30C6\u30A4\u30A2\u306E\u5929\u7A7A\u907A\u8DE1",
+  "map-groudon.description": "\u30B0\u30E9\u30FC\u30C9\u30F3\u304C\u767B\u5834\u3059\u308B5v5\u30DE\u30C3\u30D7\u3002",
+  "map-kyogre": "\u30C6\u30A4\u30A2\u306E\u5929\u7A7A\u907A\u8DE1",
+  "map-kyogre.description": "\u30AB\u30A4\u30AA\u30FC\u30AC\u304C\u767B\u5834\u3059\u308B5v5\u30DE\u30C3\u30D7\u3002",
+  "map-rayquaza": "\u30C6\u30A4\u30A2\u306E\u5929\u7A7A\u907A\u8DE1",
+  "map-rayquaza.description": "\u30EC\u30C3\u30AF\u30A6\u30B6\u304C\u767B\u5834\u3059\u308B5v5\u30DE\u30C3\u30D7\u3002",
+  // Neutrals (wild Pokémon / items)
+  accelgor: "\u30A2\u30C3\u30B1\u30E9\u30FC",
+  altaria: "\u30C1\u30EB\u30BF\u30EA\u30B9",
+  baltoy: "\u30E4\u30C9\u30F3",
+  bunnelby: "\u30DB\u30EB\u30D3\u30FC",
+  escavalier: "\u30B7\u30E5\u30D0\u30EB\u30B4",
+  groudon: "\u30B0\u30E9\u30FC\u30C9\u30F3",
+  indeedee: "\u30A4\u30A8\u30C3\u30B5\u30F3",
+  kyogre: "\u30AB\u30A4\u30AA\u30FC\u30AC",
+  natu: "\u30CD\u30A4\u30C6\u30A3",
+  rayquaza: "\u30EC\u30C3\u30AF\u30A6\u30B6",
+  regidrago: "\u30EC\u30B8\u30C9\u30E9\u30B4",
+  regice: "\u30EC\u30B8\u30A2\u30A4\u30B9",
+  regieleki: "\u30EC\u30B8\u30A8\u30EC\u30AD",
+  regirock: "\u30EC\u30B8\u30ED\u30C3\u30AF",
+  registeel: "\u30EC\u30B8\u30B9\u30C1\u30EB",
+  salac: "\u30B5\u30E9\u30AF\u306E\u307F",
+  sitrus: "\u30AA\u30DC\u30F3\u306E\u307F",
+  xatu: "\u30CD\u30A4\u30C6\u30A3\u30AA",
+  // Spawn info (HTML)
+  "spawn.info.groudon.boss": "<p>\u6483\u7834\u3059\u308B\u3068\u3001\u751F\u5B58\u3057\u3066\u3044\u308B\u5473\u65B9\u5168\u54E1\u304C<strong>\u30D0\u30D5</strong>\u3068<strong>15\u30A2\u30A8\u30AA\u30B9\u30DD\u30A4\u30F3\u30C8</strong>\u3092\u7372\u5F97\u3002<br>\u3053\u306E\u30D0\u30D5\u306F<strong>\u6240\u6301\u8005\u304C\u30CE\u30C3\u30AF\u30A2\u30A6\u30C8\u3055\u308C\u308B\u307E\u3067\u6C38\u7D9A</strong>\u3002\u30CE\u30C3\u30AF\u30A2\u30A6\u30C8\u3055\u308C\u308B\u3068\u30D0\u30D5\u306F<strong>\u4E0E\u3048\u305F\u5074\u306B\u79FB\u308B</strong>\u3002<br><strong>\u30B4\u30FC\u30EB\u901F\u5EA6\u4E0A\u6607</strong>\u30FB<strong>\u5927\u30C0\u30E1\u30FC\u30B8\u4E0A\u6607</strong>\u30FB<strong>\u5C0F\u30B7\u30FC\u30EB\u30C9</strong>\u3002<br>2:00\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.bunnelby.initial": "<p><strong>\u8A66\u5408\u958B\u59CB\u6642\u306B\u51FA\u73FE</strong>\u3057\u3001<strong>\u6483\u7834\u5F8C\u306F\u518D\u51FA\u73FE\u3057\u306A\u3044</strong>\u3002</p><p>2\u30DD\u30A4\u30F3\u30C8\u7372\u5F97\u3002</p>",
+  "spawn.info.bunnelby.lane_940": "<p><strong>9:40</strong>\u304B\u3089\u51FA\u73FE\u3002<br>\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u7372\u5F97\u3001<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002<br>\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u304C\u7834\u58CA\u3055\u308C\u308B\u3068<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.bunnelby.lane_920": "<p><strong>9:20</strong>\u304B\u3089\u51FA\u73FE\u3002<br>\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u7372\u5F97\u3001<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002<br>\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u304C\u7834\u58CA\u3055\u308C\u308B\u3068<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.bunnelby.lane_915": "<p><strong>9:15</strong>\u304B\u3089\u51FA\u73FE\u3002<br>\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u7372\u5F97\u3001<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002<br>\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u304C\u7834\u58CA\u3055\u308C\u308B\u3068<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.accelgor": "<p><strong>9:45</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>4/7\u30DD\u30A4\u30F3\u30C8</strong>\u3068<strong>\u30D0\u30D5</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002<br>\u30D0\u30D5\u306F<strong>70\u79D2</strong>\u9593\u3001<strong>\u308F\u3056\u306E\u30AF\u30FC\u30EB\u30C0\u30A6\u30F310%\u77ED\u7E2E</strong>\u3002</p>",
+  "spawn.info.escavalier": "<p><strong>9:45</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>4/7\u30DD\u30A4\u30F3\u30C8</strong>\u3068<strong>\u30D0\u30D5</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002<br>\u30D0\u30D5\u306F<strong>70\u79D2</strong>\u9593\u3001<strong>\u57FA\u672C\u653B\u6483\u30C0\u30E1\u30FC\u30B8\u4E0A\u6607\u30FB\u76F8\u624B\u306E\u79FB\u52D5\u901F\u5EA6\u77ED\u6642\u9593\u4F4E\u4E0B</strong>\u3002</p>",
+  "spawn.info.baltoy.generic": "<p><strong>9:45</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.lane_940": "<p><strong>9:40</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u3067<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.baltoy.lane_920": "<p><strong>9:40</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u3067<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.baltoy.lane_910": "<p><strong>9:10</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u3067<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.baltoy.lane_910_only": "<p><strong>9:10</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.lane_840": "<p><strong>8:40</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.tower": "<p>\u5BFE\u5FDC\u3059\u308B<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u5F8C\u306B\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.regidrago": "<p><strong>8:00</strong>\u306B\u30DE\u30C3\u30D7\u4E2D\u592E\u306B\u51FA\u73FE\u3002\u6483\u7834\u304B\u3089<strong>1:30</strong>\u5F8C\u306B\u30C1\u30EB\u30BF\u30EA\u30B9\u304C\u51FA\u73FE\u3002<br>\u6483\u7834\u3057\u305F\u30C1\u30FC\u30E0\u306F<strong>\u5473\u65B9\u5168\u54E1\u306B\u7D4C\u9A13\u5024</strong>\u3002\u3068\u3069\u3081\u3092\u523A\u3057\u305F\u30D7\u30EC\u30A4\u30E4\u30FC\u306F<strong>\u5F97\u70B9\u901F\u5EA6\u30D0\u30D5</strong>\u3068<strong>20\u30DD\u30A4\u30F3\u30C8</strong>\u3002</p>",
+  "spawn.info.regieleki": "<p><strong>7:00</strong>\u306B\u30C8\u30C3\u30D7/\u30DC\u30C8\u30E0\u306E\u3044\u305A\u308C\u304B\u306E\u30EC\u30FC\u30F3\u306B\u51FA\u73FE\u3002\u6483\u7834\u3059\u308B\u3068\u76F8\u624B\u9663\u5730\u3078\u3002\u9663\u5730\u306B\u5230\u9054\u3067<strong>20/16/12/8\u30DD\u30A4\u30F3\u30C8</strong>\u3001\u9663\u5730\u304C\u5065\u5728\u306A\u3089<strong>20/15/10/5\u79D2\u9593\u30B4\u30FC\u30EB\u5373\u6642</strong>\u3002<br>\u3068\u3069\u3081\u3067<strong>20\u30DD\u30A4\u30F3\u30C8</strong>\u3002\u6483\u7834\u304B\u3089<strong>2\u5206</strong>\u3067\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.regi.700": "<p><strong>7:00</strong>\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.xatu": "<p><strong>9:59</strong>\u306B\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>\u5927\u91CF\u7D4C\u9A13\u5024</strong>\u3068<strong>2\u30DD\u30A4\u30F3\u30C8</strong>\u3002<strong>\u518D\u51FA\u73FE\u306A\u3057</strong>\u3002</p>",
+  "spawn.info.natu.900": "<p><strong>9:00</strong>\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.natu.920": "<p><strong>9:20</strong>\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.indeedee.lane": "<p><strong>9:30</strong>/<strong>9:35</strong>\u304B\u3089\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3001<strong>5\u30DD\u30A4\u30F3\u30C8</strong>\u3002\u30EC\u30FC\u30F3\u306E<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u3067<strong>\u6D88\u6EC5</strong>\u3002</p>",
+  "spawn.info.indeedee.tower": "<p>\u5BFE\u5FDC\u3059\u308B<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u5F8C\u306B\u51FA\u73FE\u3002\u6483\u7834\u3067<strong>60\u79D2</strong>\u5F8C\u306B\u518D\u51FA\u73FE\u3001<strong>5\u30DD\u30A4\u30F3\u30C8</strong>\u3002</p>",
+  "spawn.info.salac": "<p>\u4F7F\u7528\u3067<strong>3\u79D2\u9593</strong><strong>\u79FB\u52D5\u901F\u5EA6\u30A2\u30C3\u30D7</strong>\u3002<strong>8:30</strong>\u304B\u3089\u51FA\u73FE\u3001\u4F7F\u7528\u5F8C<strong>60\u79D2</strong>\u3067\u518D\u51FA\u73FE\u3002</p>",
+  "spawn.info.salac.short": "<p>3\u79D2\u9593\u79FB\u52D5\u901F\u5EA6\u30A2\u30C3\u30D7\u3002</p>",
+  "spawn.info.altaria.after_regidrago": "<p>\u30EC\u30B8\u30C9\u30E9\u30B4\u6483\u7834\u304B\u3089<strong>1:30</strong>\u5F8C\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.altaria.rayquaza": "<p><strong>8:00</strong>\u306B\u51FA\u73FE\u3001<strong>1:30</strong>\u3054\u3068\u306B\u518D\u51FA\u73FE\u3002<strong>2:30</strong>\u306B\u6D88\u6EC5\u3002</p>",
+  "spawn.info.kyogre.boss": "<p>\u6483\u7834\u3059\u308B\u3068\u751F\u5B58\u5473\u65B9\u5168\u54E1\u304C<strong>\u30D0\u30D5</strong>\u3068<strong>15\u30A2\u30A8\u30AA\u30B9\u30DD\u30A4\u30F3\u30C8</strong>\u3092\u7372\u5F97\u3002\u76F8\u624B\u306E\u6B8B\u5B58\u30BF\u30EF\u30FC\u306F1:30\u9593\u7121\u52B9\uFF08\u30B7\u30FC\u30EB\u30C9\u30FB\u56DE\u5FA9\u4E0D\u53EF\uFF09\u3002<br>\u30D0\u30D5\u306F<strong>\u6240\u6301\u8005\u304C\u30CE\u30C3\u30AF\u30A2\u30A6\u30C8\u3055\u308C\u308B\u307E\u3067\u6C38\u7D9A</strong>\u3002\u30CE\u30C3\u30AF\u30A2\u30A6\u30C8\u3067<strong>\u4E0E\u3048\u305F\u5074\u306B\u79FB\u308B</strong>\u3002<br><strong>\u30B4\u30FC\u30EB\u901F\u5EA6\u4E0A\u6607</strong>\u30FB<strong>\u81EA\u5DF1\u56DE\u5FA9(\u6BCE\u79D25%)</strong>\u30FB<strong>\u5C0F\u30B7\u30FC\u30EB\u30C9</strong>\u3002<br>2:00\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.rayquaza.boss": "<p>\u6483\u7834\u3067\u52DD\u5229\u30C1\u30FC\u30E0\u306B<strong>15\u30A2\u30A8\u30AA\u30B9\u30DD\u30A4\u30F3\u30C8</strong>\u3068<strong>\u30B7\u30FC\u30EB\u30C9</strong>\uFF08\u5F97\u70B9\u901F\u5EA6\u4E0A\u6607\u30FB\u30B4\u30FC\u30EB\u59A8\u5BB3\u7121\u52B9\uFF09\u3002<br>2:00\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.regidrago.kyogre": "<p><strong>8:00</strong>\u306B\u30DE\u30C3\u30D7\u4E2D\u592E\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.xatu.short": "<p><strong>9:59</strong>\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.indeedee.tower_break": "<p>\u30BF\u30EF\u30FC\u7834\u58CA\u3067\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.tower_break": "<p>\u30BF\u30EF\u30FC\u7834\u58CA\u3067\u51FA\u73FE\u3002</p>",
+  "spawn.info.bunnelby.lane": "<p><strong>9:40</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.bunnelby.lane_920_short": "<p><strong>9:20</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.bunnelby.lane_915_short": "<p><strong>9:15</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.lane_940_short": "<p><strong>9:40</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.945_short": "<p><strong>9:45</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.lane_910_short": "<p><strong>9:10</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.baltoy.lane_840_short": "<p><strong>8:40</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.indeedee.lane_930": "<p><strong>9:30</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.indeedee.lane_935": "<p><strong>9:35</strong>\u304B\u3089\u51FA\u73FE\u3002</p>",
+  "spawn.info.bunnelby.points": "<p>2\u30DD\u30A4\u30F3\u30C8\u7372\u5F97\u3002</p>",
+  "spawn.info.baltoy.tower_kyogre": "<p>\u5BFE\u5FDC\u3059\u308B<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u5F8C\u306B\u51FA\u73FE\u3002</p>",
+  "spawn.info.indeedee.tower_short": "<p>\u5BFE\u5FDC\u3059\u308B<strong>\u6700\u521D\u306E\u30BF\u30EF\u30FC</strong>\u7834\u58CA\u5F8C\u306B\u51FA\u73FE\u3002</p>"
 };
 var ja_JP_default = jaJP;
 
@@ -2587,6 +5236,7 @@ var fr = {
   lapras: "Lokhlass",
   vaporeon: "Aquali",
   snorlax: "Ronflex",
+  zapdos: "\xC9lecthor",
   dragonite: "Dracolosse",
   mewtwox: "M\xE9ga-Mewtwo X",
   mewtwoy: "M\xE9ga-Mewtwo Y",
@@ -2647,7 +5297,78 @@ var fr = {
   armarouge: "Carmadura",
   ceruledge: "Malvalame",
   tinkaton: "Forgerette",
-  miraidon: "Miraidon"
+  miraidon: "Miraidon",
+  // Maps — names and descriptions
+  "map-groudon": "Ruines C\xE9lestes de Theia",
+  "map-groudon.description": "Carte 5v5 avec Groudon.",
+  "map-kyogre": "Ruines C\xE9lestes de Theia",
+  "map-kyogre.description": "Carte 5v5 avec Kyogre.",
+  "map-rayquaza": "Ruines C\xE9lestes de Theia",
+  "map-rayquaza.description": "Carte 5v5 avec Rayquaza.",
+  // Neutrals (wild Pokémon / items)
+  accelgor: "Accelgor",
+  altaria: "Altaria",
+  baltoy: "Balbuto",
+  bunnelby: "Sapereau",
+  escavalier: "Lan\xE7argot",
+  groudon: "Groudon",
+  indeedee: "Wimessir",
+  kyogre: "Kyogre",
+  natu: "Natu",
+  rayquaza: "Rayquaza",
+  regidrago: "Regidrago",
+  regice: "Regice",
+  regieleki: "Regieleki",
+  regirock: "Regirock",
+  registeel: "Registeel",
+  salac: "Baie Salac",
+  sitrus: "Baie Sitrus",
+  xatu: "Xatu",
+  // Spawn info (HTML)
+  "spawn.info.groudon.boss": "<p>Une fois vaincu, tous les co\xE9quipiers vivants re\xE7oivent un <strong>buff</strong> et <strong>15 points aeos</strong>.<br>Ce buff est <strong>permanent jusqu'\xE0 ce que le porteur soit K.O.</strong>. Au K.O., le buff <strong>passe au vainqueur</strong>.<br>Il donne un <strong>boost de vitesse de score</strong>, un <strong>gros boost de d\xE9g\xE2ts</strong> et un <strong>petit bouclier</strong>.<br>Appara\xEEt toujours \xE0 2:00.</p>",
+  "spawn.info.bunnelby.initial": "<p>Ils <strong>apparaissent au d\xE9but de la partie</strong> et <strong>ne r\xE9apparaissent jamais</strong> une fois vaincus.</p><p>Donnent 2 points.</p>",
+  "spawn.info.bunnelby.lane_940": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:40</strong>.</p><p>Vaincu : <strong>2 points</strong>, r\xE9apparition apr\xE8s <strong>60 secondes</strong>.</p><p>Si une des <strong>premi\xE8res tours</strong> de la voie est d\xE9truite, <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.bunnelby.lane_920": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:20</strong>.</p><p>Vaincu : <strong>2 points</strong>, r\xE9apparition apr\xE8s <strong>60 secondes</strong>.</p><p>Si une des <strong>premi\xE8res tours</strong> de la voie est d\xE9truite, <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.bunnelby.lane_915": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:15</strong>.</p><p>Vaincu : <strong>2 points</strong>, r\xE9apparition apr\xE8s <strong>60 secondes</strong>.</p><p>Si une des <strong>premi\xE8res tours</strong> de la voie est d\xE9truite, <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.accelgor": "<p>Commence \xE0 <strong>9:45</strong>. Vaincu : <strong>4 / 7 points</strong> et <strong>buff</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>. Buff <strong>70 s</strong> : <strong>-10% temps de recharge des capacit\xE9s</strong>.</p>",
+  "spawn.info.escavalier": "<p>Commence \xE0 <strong>9:45</strong>. Vaincu : <strong>4 / 7 points</strong> et <strong>buff</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>. Buff <strong>70 s</strong> : <strong>d\xE9g\xE2ts d\u2019attaque basique + ralentissement adverse</strong>.</p>",
+  "spawn.info.baltoy.generic": "<p>Commence \xE0 <strong>9:45</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.lane_940": "<p>Commence \xE0 <strong>9:40</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>. <strong>Premi\xE8re tour</strong> d\xE9truite \u2192 <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.baltoy.lane_920": "<p>Commence \xE0 <strong>9:40</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>. <strong>Premi\xE8re tour</strong> d\xE9truite \u2192 <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.baltoy.lane_910": "<p>Commence \xE0 <strong>9:10</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>. <strong>Premi\xE8re tour</strong> d\xE9truite \u2192 <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.baltoy.lane_910_only": "<p>Commence \xE0 <strong>9:10</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.lane_840": "<p>Commence \xE0 <strong>8:40</strong>. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.tower": "<p>Appara\xEEt quand la <strong>premi\xE8re tour correspondante</strong> est d\xE9truite. Vaincu : <strong>2 points</strong>. R\xE9apparition apr\xE8s <strong>60 s</strong>.</p>",
+  "spawn.info.regidrago": "<p>Appara\xEEt <strong>au centre \xE0 8:00</strong>. Vaincu \u2192 <strong>Altaria 1:30 apr\xE8s</strong>.<br>L\u2019\xE9quipe qui le vainc gagne <strong>de l\u2019exp pour toute l\u2019\xE9quipe</strong>. Dernier coup : <strong>buff score</strong> et <strong>20 points</strong>.</p>",
+  "spawn.info.regieleki": "<p>Appara\xEEt \xE0 <strong>7:00</strong> en haut ou en bas. Vaincu \u2192 va vers la base adverse ; touche la base : <strong>20/16/12/8 points</strong> ; base vivante : <strong>buts instantan\xE9s 20/15/10/5 s</strong>.<br>Dernier coup : <strong>20 points</strong>. R\xE9apparition <strong>2 min</strong> apr\xE8s.</p>",
+  "spawn.info.regi.700": "<p>Appara\xEEt \xE0 <strong>7:00</strong>.</p>",
+  "spawn.info.xatu": "<p>Appara\xEEt \xE0 <strong>9:59</strong>. Vaincu : <strong>beaucoup d\u2019exp</strong> et <strong>2 points</strong>. <strong>Ne r\xE9appara\xEEt pas</strong>.</p>",
+  "spawn.info.natu.900": "<p>Appara\xEEt \xE0 <strong>9:00</strong>.</p>",
+  "spawn.info.natu.920": "<p>Appara\xEEt \xE0 <strong>9:20</strong>.</p>",
+  "spawn.info.indeedee.lane": "<p>Commence \xE0 <strong>9:30</strong> / <strong>9:35</strong>. Vaincu : r\xE9apparition <strong>60 s</strong>, <strong>5 points</strong>. <strong>Premi\xE8re tour</strong> d\xE9truite \u2192 <strong>dispara\xEEt</strong>.</p>",
+  "spawn.info.indeedee.tower": "<p>Appara\xEEt quand la <strong>premi\xE8re tour correspondante</strong> est d\xE9truite. Vaincu : r\xE9apparition <strong>60 s</strong>, <strong>5 points</strong>.</p>",
+  "spawn.info.salac": "<p>Consomm\xE9 : <strong>bonus vitesse 3 s</strong>. Apparition \xE0 <strong>8:30</strong>, r\xE9apparition <strong>60 s</strong> apr\xE8s consommation.</p>",
+  "spawn.info.salac.short": "<p>Bonus de vitesse pendant 3 secondes.</p>",
+  "spawn.info.altaria.after_regidrago": "<p>Appara\xEEt <strong>1:30 apr\xE8s la chute de Regidrago</strong>.</p>",
+  "spawn.info.altaria.rayquaza": "<p>Appara\xEEt \xE0 <strong>8:00</strong>, r\xE9apparition toutes les <strong>1:30</strong>. Dispara\xEEt \xE0 <strong>2:30</strong>.</p>",
+  "spawn.info.kyogre.boss": "<p>Vaincu : co\xE9quipiers vivants \u2192 <strong>buff</strong>, <strong>15 points aeos</strong>, tours adverses encore debout d\xE9sactiv\xE9es 1:30 (pas de bouclier/r\xE9g\xE9n).<br>Buff <strong>permanent jusqu\u2019au K.O. du porteur</strong>, puis <strong>passe au vainqueur</strong>.<br><strong>Vitesse de score</strong>, <strong>r\xE9g\xE9n 5%/s</strong>, <strong>petit bouclier</strong>. Appara\xEEt \xE0 2:00.</p>",
+  "spawn.info.rayquaza.boss": "<p>Vaincu : \xE9quipe gagnante re\xE7oit <strong>15 points aeos</strong>, un <strong>bouclier</strong> qui <strong>acc\xE9l\xE8re le score</strong> et <strong>emp\xEAche le blocage des buts</strong>. Appara\xEEt \xE0 2:00.</p>",
+  "spawn.info.regidrago.kyogre": "<p>Appara\xEEt <strong>au centre \xE0 8:00</strong>.</p>",
+  "spawn.info.xatu.short": "<p>Appara\xEEt \xE0 <strong>9:59</strong>.</p>",
+  "spawn.info.indeedee.tower_break": "<p>Apparition apr\xE8s destruction de tour.</p>",
+  "spawn.info.baltoy.tower_break": "<p>Apparition apr\xE8s destruction de tour.</p>",
+  "spawn.info.bunnelby.lane": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:40</strong>.</p>",
+  "spawn.info.bunnelby.lane_920_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:20</strong>.</p>",
+  "spawn.info.bunnelby.lane_915_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:15</strong>.</p>",
+  "spawn.info.baltoy.lane_940_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:40</strong>.</p>",
+  "spawn.info.baltoy.945_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:45</strong>.</p>",
+  "spawn.info.baltoy.lane_910_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:10</strong>.</p>",
+  "spawn.info.baltoy.lane_840_short": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>8:40</strong>.</p>",
+  "spawn.info.indeedee.lane_930": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:30</strong>.</p>",
+  "spawn.info.indeedee.lane_935": "<p>Commence \xE0 appara\xEEtre \xE0 <strong>9:35</strong>.</p>",
+  "spawn.info.bunnelby.points": "<p>Donnent 2 points.</p>",
+  "spawn.info.baltoy.tower_kyogre": "<p>Appara\xEEt quand la <strong>premi\xE8re tour correspondante</strong> est d\xE9truite.</p>",
+  "spawn.info.indeedee.tower_short": "<p>Appara\xEEt quand la <strong>premi\xE8re tour correspondante</strong> est d\xE9truite.</p>"
 };
 var fr_default = fr;
 
@@ -2678,6 +5399,7 @@ var es = {
   lapras: "Lapras",
   vaporeon: "Vaporeon",
   snorlax: "Snorlax",
+  zapdos: "Zapdos",
   dragonite: "Dragonite",
   mewtwox: "Mega-Mewtwo X",
   mewtwoy: "Mega-Mewtwo Y",
@@ -2738,7 +5460,78 @@ var es = {
   armarouge: "Armarouge",
   ceruledge: "Ceruledge",
   tinkaton: "Tinkaton",
-  miraidon: "Miraidon"
+  miraidon: "Miraidon",
+  // Maps — names and descriptions
+  "map-groudon": "Ruinas Celestiales de Theia",
+  "map-groudon.description": "Mapa 5v5 con Groudon.",
+  "map-kyogre": "Ruinas Celestiales de Theia",
+  "map-kyogre.description": "Mapa 5v5 con Kyogre.",
+  "map-rayquaza": "Ruinas Celestiales de Theia",
+  "map-rayquaza.description": "Mapa 5v5 con Rayquaza.",
+  // Neutrals (wild Pokémon / items)
+  accelgor: "Accelgor",
+  altaria: "Altaria",
+  baltoy: "Baltoy",
+  bunnelby: "Bunnelby",
+  escavalier: "Escavalier",
+  groudon: "Groudon",
+  indeedee: "Indeedee",
+  kyogre: "Kyogre",
+  natu: "Natu",
+  rayquaza: "Rayquaza",
+  regidrago: "Regidrago",
+  regice: "Regice",
+  regieleki: "Regieleki",
+  regirock: "Regirock",
+  registeel: "Registeel",
+  salac: "Baya Salac",
+  sitrus: "Baya Sitrus",
+  xatu: "Xatu",
+  // Spawn info (HTML)
+  "spawn.info.groudon.boss": "<p>Al derrotarlo, todos los compa\xF1eros vivos reciben <strong>buff</strong> y <strong>15 puntos aeos</strong>.<br>El buff es <strong>permanente hasta que el portador sea K.O.</strong>. Al ser K.O., el buff <strong>pasa al que lo derrot\xF3</strong>.<br>Da <strong>aumento de velocidad de anotaci\xF3n</strong>, <strong>gran aumento de da\xF1o</strong> y <strong>peque\xF1o escudo</strong>.<br>Siempre aparece a las 2:00.</p>",
+  "spawn.info.bunnelby.initial": "<p><strong>Aparecen al inicio de la partida</strong> y <strong>no reaparecen</strong> al ser derrotados.</p><p>Dan 2 puntos.</p>",
+  "spawn.info.bunnelby.lane_940": "<p>Empieza a aparecer a las <strong>9:40</strong>.</p><p>Al derrotarlo: <strong>2 puntos</strong>, reaparece tras <strong>60 segundos</strong>.</p><p>Si alguna <strong>primera torre</strong> del carril cae, <strong>desaparece</strong>.</p>",
+  "spawn.info.bunnelby.lane_920": "<p>Empieza a aparecer a las <strong>9:20</strong>.</p><p>Al derrotarlo: <strong>2 puntos</strong>, reaparece tras <strong>60 segundos</strong>.</p><p>Si alguna <strong>primera torre</strong> del carril cae, <strong>desaparece</strong>.</p>",
+  "spawn.info.bunnelby.lane_915": "<p>Empieza a aparecer a las <strong>9:15</strong>.</p><p>Al derrotarlo: <strong>2 puntos</strong>, reaparece tras <strong>60 segundos</strong>.</p><p>Si alguna <strong>primera torre</strong> del carril cae, <strong>desaparece</strong>.</p>",
+  "spawn.info.accelgor": "<p>Empieza a las <strong>9:45</strong>. Derrotado: <strong>4 / 7 puntos</strong> y <strong>buff</strong>. Reaparece en <strong>60 s</strong>. Buff <strong>70 s</strong>: <strong>-10% enfriamiento de movimientos</strong>.</p>",
+  "spawn.info.escavalier": "<p>Empieza a las <strong>9:45</strong>. Derrotado: <strong>4 / 7 puntos</strong> y <strong>buff</strong>. Reaparece en <strong>60 s</strong>. Buff <strong>70 s</strong>: <strong>da\xF1o extra en ataques b\xE1sicos y ralentiza al rival</strong>.</p>",
+  "spawn.info.baltoy.generic": "<p>Empieza a las <strong>9:45</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.lane_940": "<p>Empieza a las <strong>9:40</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>. <strong>Primera torre</strong> del carril destruida \u2192 <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_920": "<p>Empieza a las <strong>9:40</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>. <strong>Primera torre</strong> del carril destruida \u2192 <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_910": "<p>Empieza a las <strong>9:10</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>. <strong>Primera torre</strong> del carril destruida \u2192 <strong>desaparece</strong>.</p>",
+  "spawn.info.baltoy.lane_910_only": "<p>Empieza a las <strong>9:10</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.lane_840": "<p>Empieza a las <strong>8:40</strong>. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>.</p>",
+  "spawn.info.baltoy.tower": "<p>Aparece cuando la <strong>primera torre correspondiente</strong> es destruida. Derrotado: <strong>2 puntos</strong>. Reaparece en <strong>60 s</strong>.</p>",
+  "spawn.info.regidrago": "<p>Aparece en <strong>el centro del mapa a las 8:00</strong>. Derrotado \u2192 <strong>Altaria 1:30 despu\xE9s</strong>.<br>El equipo que lo derrote gana <strong>experiencia para todos</strong>. Golpe final: <strong>buff de anotaci\xF3n</strong> y <strong>20 puntos</strong>.</p>",
+  "spawn.info.regieleki": "<p>Aparece a las <strong>7:00</strong> en carril superior o inferior. Derrotado \u2192 va a la base rival; toca base: <strong>20/16/12/8 puntos</strong>; base viva: <strong>goles instant\xE1neos 20/15/10/5 s</strong>.<br>Golpe final: <strong>20 puntos</strong>. Reaparece <strong>2 min</strong> despu\xE9s.</p>",
+  "spawn.info.regi.700": "<p>Aparece a las <strong>7:00</strong>.</p>",
+  "spawn.info.xatu": "<p>Aparece a las <strong>9:59</strong>. Derrotado: <strong>mucha experiencia</strong> y <strong>2 puntos</strong>. <strong>No reaparece</strong>.</p>",
+  "spawn.info.natu.900": "<p>Aparece a las <strong>9:00</strong>.</p>",
+  "spawn.info.natu.920": "<p>Aparece a las <strong>9:20</strong>.</p>",
+  "spawn.info.indeedee.lane": "<p>Empieza a las <strong>9:30</strong> / <strong>9:35</strong>. Derrotado: reaparece en <strong>60 s</strong>, <strong>5 puntos</strong>. <strong>Primera torre</strong> destruida \u2192 <strong>desaparece</strong>.</p>",
+  "spawn.info.indeedee.tower": "<p>Aparece cuando la <strong>primera torre correspondiente</strong> es destruida. Derrotado: reaparece en <strong>60 s</strong>, <strong>5 puntos</strong>.</p>",
+  "spawn.info.salac": "<p>Al consumir: <strong>bonus de velocidad 3 s</strong>. Aparece a las <strong>8:30</strong>, reaparece <strong>60 s</strong> despu\xE9s de consumir.</p>",
+  "spawn.info.salac.short": "<p>Bonus de velocidad durante 3 segundos.</p>",
+  "spawn.info.altaria.after_regidrago": "<p>Aparece <strong>1:30 despu\xE9s de derrotar a Regidrago</strong>.</p>",
+  "spawn.info.altaria.rayquaza": "<p>Aparece a las <strong>8:00</strong>, reaparece cada <strong>1:30</strong>. Desaparece a las <strong>2:30</strong>.</p>",
+  "spawn.info.kyogre.boss": "<p>Derrotado: compa\xF1eros vivos \u2192 <strong>buff</strong>, <strong>15 puntos aeos</strong>, torres rivales a\xFAn en pie desactivadas 1:30 (sin escudo/regen).<br>Buff <strong>permanente hasta K.O. del portador</strong>, luego <strong>pasa al que lo derrot\xF3</strong>.<br><strong>Velocidad de anotaci\xF3n</strong>, <strong>regen 5%/s</strong>, <strong>peque\xF1o escudo</strong>. Aparece a las 2:00.</p>",
+  "spawn.info.rayquaza.boss": "<p>Derrotado: el equipo ganador recibe <strong>15 puntos aeos</strong>, un <strong>escudo</strong> que <strong>acelera el marcador</strong> y <strong>evita que bloqueen goles</strong>. Aparece a las 2:00.</p>",
+  "spawn.info.regidrago.kyogre": "<p>Aparece en <strong>el centro del mapa a las 8:00</strong>.</p>",
+  "spawn.info.xatu.short": "<p>Aparece a las <strong>9:59</strong>.</p>",
+  "spawn.info.indeedee.tower_break": "<p>Aparece al destruir torre.</p>",
+  "spawn.info.baltoy.tower_break": "<p>Aparece al destruir torre.</p>",
+  "spawn.info.bunnelby.lane": "<p>Empieza a aparecer a las <strong>9:40</strong>.</p>",
+  "spawn.info.bunnelby.lane_920_short": "<p>Empieza a aparecer a las <strong>9:20</strong>.</p>",
+  "spawn.info.bunnelby.lane_915_short": "<p>Empieza a aparecer a las <strong>9:15</strong>.</p>",
+  "spawn.info.baltoy.lane_940_short": "<p>Empieza a aparecer a las <strong>9:40</strong>.</p>",
+  "spawn.info.baltoy.945_short": "<p>Empieza a aparecer a las <strong>9:45</strong>.</p>",
+  "spawn.info.baltoy.lane_910_short": "<p>Empieza a aparecer a las <strong>9:10</strong>.</p>",
+  "spawn.info.baltoy.lane_840_short": "<p>Empieza a aparecer a las <strong>8:40</strong>.</p>",
+  "spawn.info.indeedee.lane_930": "<p>Empieza a aparecer a las <strong>9:30</strong>.</p>",
+  "spawn.info.indeedee.lane_935": "<p>Empieza a aparecer a las <strong>9:35</strong>.</p>",
+  "spawn.info.bunnelby.points": "<p>Dan 2 puntos.</p>",
+  "spawn.info.baltoy.tower_kyogre": "<p>Aparece cuando la <strong>primera torre correspondiente</strong> es destruida.</p>",
+  "spawn.info.indeedee.tower_short": "<p>Aparece cuando la <strong>primera torre correspondiente</strong> es destruida.</p>"
 };
 var es_default = es;
 
@@ -2754,20 +5547,56 @@ function getPokemonName(id, locale = "en") {
   const map = locales[locale] ?? en_default;
   return map[id] ?? en_default[id] ?? id;
 }
+function getMapName(mapId, locale = "en") {
+  const map = locales[locale] ?? en_default;
+  return map[mapId] ?? en_default[mapId] ?? mapId;
+}
+function getMapDescription(mapId, locale = "en") {
+  const key = `${mapId}.description`;
+  const map = locales[locale] ?? en_default;
+  return map[key] ?? en_default[key] ?? "";
+}
+function getNeutralName(neutralId, locale = "en") {
+  const map = locales[locale] ?? en_default;
+  return map[neutralId] ?? en_default[neutralId] ?? neutralId;
+}
+function getSpawnInfo(infoKey, locale = "en") {
+  const key = `spawn.info.${infoKey}`;
+  const map = locales[locale] ?? en_default;
+  return map[key] ?? en_default[key] ?? "";
+}
+function getSpawnInfoForSpawn(spawn, locale = "en") {
+  if (spawn.infoKey) {
+    const out = getSpawnInfo(spawn.infoKey, locale);
+    if (out) return out;
+  }
+  return spawn.info ?? "";
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   BattleType,
   Tag,
   getActivePokemons,
   getImageUrl,
+  getMapDescription,
+  getMapImageUrl,
+  getMapName,
+  getNeutralById,
+  getNeutralImageUrl,
+  getNeutralName,
   getPokemonByDex,
   getPokemonByName,
   getPokemonBySlug,
   getPokemonName,
   getPokemonsByBattleType,
   getPokemonsByTag,
+  getSpawnInfo,
+  getSpawnInfoForSpawn,
+  getSpawnsByMap,
   maps,
   moves,
-  pokemons
+  neutrals,
+  pokemons,
+  spawns
 });
 //# sourceMappingURL=index.cjs.map

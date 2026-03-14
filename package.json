@@ -22,7 +22,8 @@
     "dist",
     "pokemons",
     "moves",
-    "maps"
+    "maps",
+    "neutrals"
   ],
   "scripts": {
     "build": "tsup",
