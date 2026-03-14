@@ -194,6 +194,42 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 - **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) for use with AI agents in this repo (e.g. syncing roster from images in `pokemons/` and `moves/`).
 - **`mcp/`** — [MCP server](mcp/README.md) (Model Context Protocol) para consumir a library em agentes de IA: tools para listar e buscar pokémons, moves, mapas, URLs de imagens e nomes localizados (Cursor, Claude Desktop, etc.).
 
+## Releases (publicação no npm)
+
+As versões e a publicação no npm são feitas automaticamente com [semantic-release](https://github.com/semantic-release/semantic-release) quando há **push na branch `main`**.
+
+### Como a versão é definida
+
+Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/). O semantic-release usa isso para decidir o tipo de release:
+
+| Tipo de commit   | Efeito na versão |
+|------------------|-------------------|
+| `feat:`          | **MINOR** (1.**x**.0) — nova funcionalidade |
+| `fix:`, `perf:`, `docs:` (sem escopo de código) | **PATCH** (1.0.**x**) — correção ou melhoria |
+| `BREAKING CHANGE` ou `!` no escopo (ex.: `feat!:`) | **MAJOR** (**x**.0.0) — mudança incompatível |
+
+Exemplos:
+
+```bash
+git commit -m "feat: add Mega Charizard Y to roster"
+git commit -m "fix: correct Venusaur stat image path"
+git commit -m "feat!: change getImageUrl signature"   # breaking → MAJOR
+```
+
+Commits que não indicam release (ex.: `chore:`, `style:`, `test:`) não geram nova versão; mesmo assim o push na `main` roda o workflow (que pode não publicar nada).
+
+### O que você precisa configurar
+
+1. **Token do npm (NPM_TOKEN)**  
+   No repositório no GitHub: **Settings → Secrets and variables → Actions** e crie um secret chamado **`NPM_TOKEN`**.
+   - Crie o token em [npmjs.com → Access Tokens](https://www.npmjs.com/settings/~youruser/tokens): “Automation” ou “Publish”.
+   - Cole o valor no secret `NPM_TOKEN`.
+
+2. **Conventional Commits**  
+   Para haver release, use pelo menos um commit com `feat:` ou `fix:` (ou breaking) no histórico desde a última tag. Se todos forem `chore:`/`style:`/`test:`, nenhuma versão será publicada.
+
+Depois disso, ao dar push na `main`, o workflow **Release** roda, o semantic-release analisa os commits, atualiza a versão no `package.json`, gera/atualiza o `CHANGELOG.md`, cria a release no GitHub e publica o pacote no npm.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
