@@ -30,9 +30,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # NPM_TOKEN: crie em GitHub → Settings → Secrets → Actions (token npm com "Automation" ou "Publish")
+      # Use GH_PAT (Personal Access Token) se a main exige PR e não há bypass para GitHub Actions
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
