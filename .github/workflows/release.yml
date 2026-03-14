@@ -5,7 +5,8 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: write   # tag/release e push do @semantic-release/git
+  issues: write    # criar issue quando o release falhar (@semantic-release/github)
 
 jobs:
   release:
@@ -27,6 +28,7 @@ jobs:
       - name: Build
         run: npm run build
 
+      # NPM_TOKEN: crie em GitHub → Settings → Secrets → Actions (token npm com "Automation" ou "Publish")
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
