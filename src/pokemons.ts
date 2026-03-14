@@ -687,6 +687,31 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 1
 },
 {
+  "name": "Moltres",
+  "dex": 146,
+  "images": {
+    "main": "pokemons/roster-moltres.png",
+    "big": "pokemons/roster-moltres-2x.png",
+    "complete": "pokemons/stat-moltres.png",
+    "move_s11": "moves/moltres_s11.png",
+    "move_s21": "moves/moltres_s21.png",
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 4,
+    "endurance": 2.5,
+    "mobility": 2,
+    "scoring": 2,
+    "support": 2
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
   "name": "Dragonite",
   "dex": 149,
   "images": {
@@ -714,7 +739,7 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 1
 },
 {
-  "name": "Mewtwo X",
+  "name": "Mega Mewtwo X",
   "dex": 150,
   "images": {
     "main": "pokemons/roster-mewtwox.png",
@@ -741,7 +766,7 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 1
 },
 {
-  "name": "Mewtwo Y",
+  "name": "Mega Mewtwo Y",
   "dex": 150,
   "images": {
     "main": "pokemons/roster-mewtwoy.png",
