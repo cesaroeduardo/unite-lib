@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Use GH_PAT (Personal Access Token) se a main exige PR e não há bypass para GitHub Actions
+      # Para main protegida com "Require PR": adicione secret GH_PAT (PAT da sua conta admin).
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
