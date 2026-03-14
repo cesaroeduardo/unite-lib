@@ -11,6 +11,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # Usa o environment onde você configurou o NPM_TOKEN (Environment secrets)
+    environment: NPM_TOKEN
     steps:
       - uses: actions/checkout@v4
         with:
