@@ -2,22 +2,37 @@ import type { Map } from "./types";
 
 const maps: Map[] = [
   {
-    id: "remoat-stadium",
-    name: "Remoat Stadium",
-    image: "maps/remoat-stadium.png",
-    description: "Standard 5v5 map.",
-  },
-  {
-    id: "theia-sky-ruins",
+    id: "map-groudon",
     name: "Theia Sky Ruins",
-    image: "maps/theia-sky-ruins.png",
-    description: "5v5 map with Rayquaza.",
+    image: "maps/map-groudon/map-groudon@4x.png",
+    images: {
+      "1": "maps/map-groudon/map-groudon@1x.png",
+      "2": "maps/map-groudon/map-groudon@2x.png",
+      "4": "maps/map-groudon/map-groudon@4x.png",
+    },
+    description: "Map with Groudon.",
   },
   {
-    id: "mer-stadium",
-    name: "Mer Stadium",
-    image: "maps/mer-stadium.png",
-    description: "Quick battle map.",
+    id: "map-kyogre",
+    name: "Theia Sky Ruins",
+    image: "maps/map-kyogre/map-kyogre@4x.png",
+    images: {
+      "1": "maps/map-kyogre/map-kyogre@1x.png",
+      "2": "maps/map-kyogre/map-kyogre@2x.png",
+      "4": "maps/map-kyogre/map-kyogre@4x.png",
+    },
+    description: "Map with Kyogre.",
+  },
+  {
+    id: "map-rayquaza",
+    name: "Theia Sky Ruins",
+    image: "maps/map-rayquaza/map-rayquaza@4x.png",
+    images: {
+      "1": "maps/map-rayquaza/map-rayquaza@1x.png",
+      "2": "maps/map-rayquaza/map-rayquaza@2x.png",
+      "4": "maps/map-rayquaza/map-rayquaza@4x.png",
+    },
+    description: "Map with Rayquaza.",
   },
 ];
 

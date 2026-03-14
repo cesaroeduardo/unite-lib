@@ -55,12 +55,17 @@ export interface Move {
   image: string;
 }
 
+/** Map image resolution (1x, 2x, 4x). */
+export type MapResolution = "1" | "2" | "4";
+
 /** Map/arena data. */
 export interface Map {
   id: string;
   name: string;
-  /** Image path (relative to package root or baseUrl). */
+  /** Default image path (e.g. 1x). Use getMapImageUrl for a specific resolution. */
   image: string;
+  /** Optional resolution variants (@1x, @2x, @4x). Keys are "1", "2", "4". */
+  images?: Partial<Record<MapResolution, string>>;
   /** Optional description. */
   description?: string;
 }

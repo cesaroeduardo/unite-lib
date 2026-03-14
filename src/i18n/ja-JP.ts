@@ -89,6 +89,13 @@ const jaJP: Record<string, string> = {
   ceruledge: "ソウブレイズ",
   tinkaton: "デカヌチャン",
   miraidon: "ミライドン",
+  // Maps — names and descriptions
+  "map-groudon": "テイアの天空遺跡",
+  "map-groudon.description": "グラードンが登場する5v5マップ。",
+  "map-kyogre": "テイアの天空遺跡",
+  "map-kyogre.description": "カイオーガが登場する5v5マップ。",
+  "map-rayquaza": "テイアの天空遺跡",
+  "map-rayquaza.description": "レックウザが登場する5v5マップ。",
 };
 
 export default jaJP;

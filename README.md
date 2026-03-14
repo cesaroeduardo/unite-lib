@@ -47,18 +47,24 @@ const cdnImg = getImageUrl(pikachu, "main", {
 ### i18n (localized names)
 
 ```js
-import { getPokemonName } from "unite-lib";
+import { getPokemonName, getMapName, getMapDescription } from "unite-lib";
 // or
-import { getPokemonName } from "unite-lib/i18n";
+import { getPokemonName, getMapName, getMapDescription } from "unite-lib/i18n";
 
+// Pokémon names
 getPokemonName("venusaur", "en");    // "Venusaur"
 getPokemonName("venusaur", "pt-BR"); // "Venusaur"
 getPokemonName("venusaur", "ja-JP"); // "フシギバナ"
 getPokemonName("venusaur", "fr");    // "Florizarre"
 getPokemonName("venusaur", "es");    // "Venusaur"
+
+// Map names and descriptions (optional — use when you need localized UI)
+getMapName("map-groudon", "en");       // "Theia Sky Ruins"
+getMapName("map-groudon", "pt-BR");   // "Ruínas Celestes de Theia"
+getMapDescription("map-groudon", "es"); // "Mapa 5v5 con Groudon."
 ```
 
-Supported locales: `en`, `pt-BR`, `ja-JP`, `fr`, `es`.
+Supported locales: `en`, `pt-BR`, `ja-JP`, `fr`, `es`. Each map in `maps` has a default `name` and `description` (English); use `getMapName(mapId, locale)` and `getMapDescription(mapId, locale)` when you want to show them in another language.
 
 ## Content
 
@@ -84,7 +90,7 @@ Move images (slot 1 and 2, variants 1 and 2) per Pokémon.
 
 ### Maps
 
-Game map images (Remoat Stadium, Theia Sky Ruins, Mer Stadium, etc.).
+Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map has multiple resolutions (1x, 2x, 4x); use `getMapImageUrl(map, resolution?, options?)` to pick one. Names and descriptions are available in all supported locales via `getMapName(mapId, locale)` and `getMapDescription(mapId, locale)` (see [i18n](#i18n-localized-names)).
 
 ![Map](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/groudon.png)
 
@@ -173,17 +179,20 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 |--------|-------------|
 | `pokemons` | Full roster (name, dex, images, battleType, stats, tags, difficulty) |
 | `moves` | Move list (pokemonId, slotId, name, image) |
-| `maps` | Map list (id, name, image, description) |
+| `maps` | Map list (id, name, image, images by resolution, description) |
 | `BattleType` | `attacker`, `defender`, `allrounder`, `speedster`, `supporter` |
 | `Tag` | Role + style: `attacker`, `defender`, `melee`, `ranged`, … |
 | `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` |
+| `getMapImageUrl(map, resolution?, options?)` | Map image URL (resolution: `"1"`, `"2"`, `"4"`) |
 | `getPokemonByName(name)` | Find by display name |
 | `getPokemonByDex(dex)` | Find by Pokédex number |
 | `getPokemonBySlug(slug)` | Find by slug (e.g. `venusaur`) |
 | `getPokemonsByBattleType(type)` | Filter by BattleType |
 | `getPokemonsByTag(tag)` | Filter by Tag |
 | `getActivePokemons()` | Only active roster entries |
-| `getPokemonName(slug, locale)` | Localized name (from main package or `unite-lib/i18n`) |
+| `getPokemonName(slug, locale)` | Localized Pokémon name (from main package or `unite-lib/i18n`) |
+| `getMapName(mapId, locale)` | Localized map name |
+| `getMapDescription(mapId, locale)` | Localized map description |
 
 ## Project structure
 

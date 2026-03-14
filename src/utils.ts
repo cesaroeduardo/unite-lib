@@ -1,4 +1,4 @@
-import type { Pokemon, PokemonImages } from "./types";
+import type { Pokemon, PokemonImages, Map, MapResolution } from "./types";
 import type { BattleType, Tag } from "./types";
 import pokemons from "./pokemons";
 
@@ -17,6 +17,24 @@ export function getImageUrl(
   options?: GetImageUrlOptions
 ): string {
   const path = pokemon.images[imageKey];
+  if (path == null || path === "") return "";
+  const base = options?.baseUrl?.replace(/\/$/, "");
+  return base ? `${base}/${path}` : path;
+}
+
+/**
+ * Returns the image URL for a map, optionally at a given resolution (1x, 2x, 4x).
+ * Falls back to map.image when resolution is omitted or not available.
+ */
+export function getMapImageUrl(
+  map: Map,
+  resolution?: MapResolution,
+  options?: GetImageUrlOptions
+): string {
+  const path =
+    resolution && map.images?.[resolution] != null
+      ? map.images[resolution]
+      : map.image;
   if (path == null || path === "") return "";
   const base = options?.baseUrl?.replace(/\/$/, "");
   return base ? `${base}/${path}` : path;

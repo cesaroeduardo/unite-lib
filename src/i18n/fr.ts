@@ -89,6 +89,13 @@ const fr: Record<string, string> = {
   ceruledge: "Malvalame",
   tinkaton: "Forgerette",
   miraidon: "Miraidon",
+  // Maps — names and descriptions
+  "map-groudon": "Ruines Célestes de Theia",
+  "map-groudon.description": "Carte 5v5 avec Groudon.",
+  "map-kyogre": "Ruines Célestes de Theia",
+  "map-kyogre.description": "Carte 5v5 avec Kyogre.",
+  "map-rayquaza": "Ruines Célestes de Theia",
+  "map-rayquaza.description": "Carte 5v5 avec Rayquaza.",
 };
 
 export default fr;
