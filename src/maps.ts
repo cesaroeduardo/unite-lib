@@ -10,7 +10,7 @@ const maps: Map[] = [
       "2": "maps/map-groudon/map-groudon@2x.png",
       "4": "maps/map-groudon/map-groudon@4x.png",
     },
-    description: "Map with Groudon.",
+    description: "Map with Groudon",
   },
   {
     id: "map-kyogre",
@@ -21,7 +21,7 @@ const maps: Map[] = [
       "2": "maps/map-kyogre/map-kyogre@2x.png",
       "4": "maps/map-kyogre/map-kyogre@4x.png",
     },
-    description: "Map with Kyogre.",
+    description: "Map with Kyogre",
   },
   {
     id: "map-rayquaza",
@@ -32,7 +32,7 @@ const maps: Map[] = [
       "2": "maps/map-rayquaza/map-rayquaza@2x.png",
       "4": "maps/map-rayquaza/map-rayquaza@4x.png",
     },
-    description: "Map with Rayquaza.",
+    description: "Map with Rayquaza",
   },
 ];
 
