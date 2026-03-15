@@ -146,6 +146,21 @@ declare function getMapImageUrl(map: Map, resolution?: MapResolution, options?: 
  */
 declare function getSpawnsByMap(mapId: string): MapSpawn[];
 /**
+ * Parses game clock "MM:SS" to seconds remaining (e.g. "10:00" → 600, "02:00" → 120).
+ */
+declare function parseGameClockToSeconds(clock: string): number;
+/**
+ * Returns whether a spawn is visible at the given game clock (seconds remaining).
+ * Considers both spawnTime (spawn appears when clock ≤ spawnTime) and despawnTime
+ * (spawn disappears when clock ≤ despawnTime, e.g. center Natu/Altaria when boss spawns at 02:00).
+ */
+declare function isSpawnVisibleAtGameClock(spawn: MapSpawn, gameClockSeconds: number): boolean;
+/**
+ * Returns spawns for a map that are visible at the given game clock (seconds remaining).
+ * Use this when you need to show only spawns that have already appeared and not yet despawned.
+ */
+declare function getSpawnsByMapVisibleAt(mapId: string, gameClockSeconds: number): MapSpawn[];
+/**
  * Returns the neutral by id, or undefined if not found.
  */
 declare function getNeutralById(id: string): Neutral | undefined;
@@ -165,4 +180,4 @@ declare function getPokemonsByBattleType(battleType: BattleType): Pokemon[];
 declare function getPokemonsByTag(tag: Tag): Pokemon[];
 declare function getActivePokemons(): Pokemon[];
 
-export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, maps, moves, neutrals, pokemons, spawns };
+export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, getSpawnsByMapVisibleAt, isSpawnVisibleAtGameClock, maps, moves, neutrals, parseGameClockToSeconds, pokemons, spawns };

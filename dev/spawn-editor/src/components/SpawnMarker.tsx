@@ -101,6 +101,9 @@ export function SpawnMarker({
       const el = ref.current;
       const pop = document.getElementById(`spawn-dropdown-${globalIndex}`);
       if (el?.contains(e.target as Node) || pop?.contains(e.target as Node)) return;
+      const target = e.target as HTMLElement;
+      if (target.closest?.("select") || target.tagName === "OPTION") return;
+      if (document.activeElement?.tagName === "SELECT") return;
       setDropdownOpen(false);
     };
     window.addEventListener("mousedown", close);

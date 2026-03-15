@@ -57,6 +57,47 @@ export function getSpawnsByMap(mapId: string): MapSpawn[] {
 }
 
 /**
+ * Parses game clock "MM:SS" to seconds remaining (e.g. "10:00" → 600, "02:00" → 120).
+ */
+export function parseGameClockToSeconds(clock: string): number {
+  const parts = String(clock).trim().split(":");
+  const m = parseInt(parts[0], 10) || 0;
+  const s = parseInt(parts[1], 10) || 0;
+  return m * 60 + s;
+}
+
+/**
+ * Returns whether a spawn is visible at the given game clock (seconds remaining).
+ * Considers both spawnTime (spawn appears when clock ≤ spawnTime) and despawnTime
+ * (spawn disappears when clock ≤ despawnTime, e.g. center Natu/Altaria when boss spawns at 02:00).
+ */
+export function isSpawnVisibleAtGameClock(
+  spawn: MapSpawn,
+  gameClockSeconds: number
+): boolean {
+  const spawnSec = parseGameClockToSeconds(spawn.spawnTime);
+  if (gameClockSeconds > spawnSec) return false;
+  if (spawn.despawnTime != null && spawn.despawnTime !== "") {
+    const despawnSec = parseGameClockToSeconds(spawn.despawnTime);
+    if (gameClockSeconds <= despawnSec) return false;
+  }
+  return true;
+}
+
+/**
+ * Returns spawns for a map that are visible at the given game clock (seconds remaining).
+ * Use this when you need to show only spawns that have already appeared and not yet despawned.
+ */
+export function getSpawnsByMapVisibleAt(
+  mapId: string,
+  gameClockSeconds: number
+): MapSpawn[] {
+  return getSpawnsByMap(mapId).filter((s) =>
+    isSpawnVisibleAtGameClock(s, gameClockSeconds)
+  );
+}
+
+/**
  * Returns the neutral by id, or undefined if not found.
  */
 export function getNeutralById(id: string): Neutral | undefined {

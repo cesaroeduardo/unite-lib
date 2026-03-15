@@ -27,6 +27,7 @@ export {
   getMapImageUrl,
   getNeutralImageUrl,
   getSpawnsByMap,
+  getSpawnsByMapVisibleAt,
   getNeutralById,
   getPokemonByName,
   getPokemonByDex,
@@ -35,6 +36,8 @@ export {
   getPokemonsByBattleType,
   getPokemonsByTag,
   getActivePokemons,
+  parseGameClockToSeconds,
+  isSpawnVisibleAtGameClock,
 } from "./utils";
 export type { GetImageUrlOptions } from "./utils";
 

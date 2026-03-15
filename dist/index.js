@@ -4874,6 +4874,26 @@ function getMapImageUrl(map, resolution, options) {
 function getSpawnsByMap(mapId) {
   return spawns_default.filter((s) => s.mapId === mapId);
 }
+function parseGameClockToSeconds(clock) {
+  const parts = String(clock).trim().split(":");
+  const m = parseInt(parts[0], 10) || 0;
+  const s = parseInt(parts[1], 10) || 0;
+  return m * 60 + s;
+}
+function isSpawnVisibleAtGameClock(spawn, gameClockSeconds) {
+  const spawnSec = parseGameClockToSeconds(spawn.spawnTime);
+  if (gameClockSeconds > spawnSec) return false;
+  if (spawn.despawnTime != null && spawn.despawnTime !== "") {
+    const despawnSec = parseGameClockToSeconds(spawn.despawnTime);
+    if (gameClockSeconds <= despawnSec) return false;
+  }
+  return true;
+}
+function getSpawnsByMapVisibleAt(mapId, gameClockSeconds) {
+  return getSpawnsByMap(mapId).filter(
+    (s) => isSpawnVisibleAtGameClock(s, gameClockSeconds)
+  );
+}
 function getNeutralById(id) {
   return neutrals_default.find((n) => n.id === id);
 }
@@ -5584,9 +5604,12 @@ export {
   getSpawnInfo,
   getSpawnInfoForSpawn,
   getSpawnsByMap,
+  getSpawnsByMapVisibleAt,
+  isSpawnVisibleAtGameClock,
   maps_default as maps,
   moves_default as moves,
   neutrals_default as neutrals,
+  parseGameClockToSeconds,
   pokemons_default as pokemons,
   spawns_default as spawns
 };
