@@ -106,6 +106,11 @@ interface MapSpawn {
     spawnTime: string;
     respawnTime: number;
     permanentDelete: boolean;
+    /**
+     * Optional game-clock time when this spawn disappears (e.g. when the center boss spawns).
+     * Format "MM:SS" (e.g. "02:00"). Use to hide Natu/Altaria at center when Groudon/Kyogre/Rayquaza spawn.
+     */
+    despawnTime?: string;
     /** Optional HTML description (default locale). Use getSpawnInfo for i18n). */
     info?: string;
     /** Optional i18n key for info (spawn.info.<key>). When set, getSpawnInfo uses it. */
@@ -152,10 +157,12 @@ declare function getPokemonByName(name: string): Pokemon | undefined;
 declare function getPokemonByDex(dex: number): Pokemon | undefined;
 /**
  * Slug from roster image: "pokemons/roster-venusaur.png" -> "venusaur"
+ * Use this slug with getPokemonName(id, locale) for i18n.
  */
+declare function getPokemonSlug(pokemon: Pokemon): string;
 declare function getPokemonBySlug(slug: string): Pokemon | undefined;
 declare function getPokemonsByBattleType(battleType: BattleType): Pokemon[];
 declare function getPokemonsByTag(tag: Tag): Pokemon[];
 declare function getActivePokemons(): Pokemon[];
 
-export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, maps, moves, neutrals, pokemons, spawns };
+export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, maps, moves, neutrals, pokemons, spawns };

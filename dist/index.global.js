@@ -35,6 +35,7 @@ var UniteLib = (() => {
     getPokemonByName: () => getPokemonByName,
     getPokemonBySlug: () => getPokemonBySlug,
     getPokemonName: () => getPokemonName,
+    getPokemonSlug: () => getPokemonSlug,
     getPokemonsByBattleType: () => getPokemonsByBattleType,
     getPokemonsByTag: () => getPokemonsByTag,
     getSpawnInfo: () => getSpawnInfo,
@@ -2450,7 +2451,7 @@ var UniteLib = (() => {
         "2": "maps/map-groudon/map-groudon@2x.png",
         "4": "maps/map-groudon/map-groudon@4x.png"
       },
-      description: "Map with Groudon."
+      description: "Map with Groudon"
     },
     {
       id: "map-kyogre",
@@ -2461,7 +2462,7 @@ var UniteLib = (() => {
         "2": "maps/map-kyogre/map-kyogre@2x.png",
         "4": "maps/map-kyogre/map-kyogre@4x.png"
       },
-      description: "Map with Kyogre."
+      description: "Map with Kyogre"
     },
     {
       id: "map-rayquaza",
@@ -2472,7 +2473,7 @@ var UniteLib = (() => {
         "2": "maps/map-rayquaza/map-rayquaza@2x.png",
         "4": "maps/map-rayquaza/map-rayquaza@4x.png"
       },
-      description: "Map with Rayquaza."
+      description: "Map with Rayquaza"
     }
   ];
   var maps_default = maps;
@@ -2506,8 +2507,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "groudon",
-      left: "50.29%",
-      top: "38.11%",
+      left: "50%",
+      top: "43%",
       spawnTime: "02:00",
       respawnTime: 0,
       permanentDelete: false,
@@ -2516,8 +2517,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "16.36%",
-      top: "47.47%",
+      left: "19.5%",
+      top: "47%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2526,8 +2527,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "16.36%",
-      top: "34.6%",
+      left: "20.5%",
+      top: "38.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2546,8 +2547,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "23.38%",
-      top: "25.24%",
+      left: "25.5%",
+      top: "29.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2566,8 +2567,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "33.91%",
-      top: "19.39%",
+      left: "34%",
+      top: "22.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2576,8 +2577,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "84.22%",
-      top: "47.47%",
+      left: "80.5%",
+      top: "49.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2586,8 +2587,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "83.05%",
-      top: "34.6%",
+      left: "80%",
+      top: "37.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2596,7 +2597,7 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "78.37%",
+      left: "77%",
       top: "58%",
       spawnTime: "10:00",
       respawnTime: 0,
@@ -2606,8 +2607,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "76.03%",
-      top: "25.24%",
+      left: "75%",
+      top: "29.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2616,8 +2617,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "67.84%",
-      top: "65.02%",
+      left: "67.5%",
+      top: "67%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2626,8 +2627,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "66.67%",
-      top: "19.39%",
+      left: "66%",
+      top: "22.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -2656,8 +2657,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "bunnelby",
-      left: "42.8%",
-      top: "12.37%",
+      left: "43.5%",
+      top: "13.5%",
       spawnTime: "09:20",
       respawnTime: 60,
       permanentDelete: false,
@@ -2696,8 +2697,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "accelgor",
-      left: "33.8%",
-      top: "49.23%",
+      left: "35%",
+      top: "52%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2706,8 +2707,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "accelgor",
-      left: "65.85%",
-      top: "49.23%",
+      left: "65%",
+      top: "52%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2716,8 +2717,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "escavalier",
-      left: "33.8%",
-      top: "31.68%",
+      left: "35%",
+      top: "35.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2726,8 +2727,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "escavalier",
-      left: "66.79%",
-      top: "31.68%",
+      left: "65%",
+      top: "35%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2736,8 +2737,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "26.07%",
-      top: "35.77%",
+      left: "28.5%",
+      top: "38.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2746,8 +2747,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "25.61%",
-      top: "46.89%",
+      left: "28%",
+      top: "49.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2756,8 +2757,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "73.46%",
-      top: "35.77%",
+      left: "71.5%",
+      top: "38%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2766,8 +2767,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "74.04%",
-      top: "46.89%",
+      left: "72.5%",
+      top: "50%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -2776,8 +2777,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "56.84%",
-      top: "21.73%",
+      left: "56%",
+      top: "23%",
       spawnTime: "09:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -2786,8 +2787,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "42.8%",
-      top: "21.73%",
+      left: "44%",
+      top: "23.5%",
       spawnTime: "09:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -2806,8 +2807,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "33.33%",
-      top: "12.37%",
+      left: "35%",
+      top: "14%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -2826,8 +2827,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "30.99%",
-      top: "73.21%",
+      left: "33%",
+      top: "75%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -2836,8 +2837,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "69.13%",
-      top: "73.21%",
+      left: "67.5%",
+      top: "76%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -2846,8 +2847,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "42.34%",
-      top: "40.45%",
+      left: "43.5%",
+      top: "43.5%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -2856,8 +2857,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "57.55%",
-      top: "40.45%",
+      left: "57%",
+      top: "43%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -2866,8 +2867,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "28.06%",
-      top: "29.34%",
+      left: "30%",
+      top: "32%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -2876,8 +2877,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "72.05%",
-      top: "29.34%",
+      left: "71.5%",
+      top: "32.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -2886,8 +2887,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "25.61%",
-      top: "52.15%",
+      left: "27.5%",
+      top: "54%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -2896,8 +2897,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "baltoy",
-      left: "74.51%",
-      top: "51.57%",
+      left: "72%",
+      top: "54.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -2906,21 +2907,23 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "regidrago",
-      left: "50.29%",
-      top: "38.11%",
-      spawnTime: "00:00",
+      left: "50%",
+      top: "51.5%",
+      spawnTime: "08:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:30",
       infoKey: "regidrago"
     },
     {
       mapId: "map-groudon",
       neutralId: "regieleki",
-      left: "50.06%",
-      top: "7.69%",
+      left: "50%",
+      top: "9.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regieleki"
     },
     {
@@ -2931,73 +2934,80 @@ var UniteLib = (() => {
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regieleki"
     },
     {
       mapId: "map-groudon",
       neutralId: "regice",
-      left: "50.06%",
-      top: "0.67%",
+      left: "50%",
+      top: "4%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "regice",
-      left: "50.06%",
-      top: "91.93%",
+      left: "50%",
+      top: "90%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "registeel",
-      left: "45.38%",
-      top: "0.67%",
+      left: "46.5%",
+      top: "7.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "registeel",
-      left: "45.38%",
-      top: "91.93%",
+      left: "46%",
+      top: "88.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "regirock",
-      left: "54.74%",
-      top: "0.67%",
+      left: "53.5%",
+      top: "8.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "regirock",
-      left: "54.74%",
-      top: "91.93%",
+      left: "54%",
+      top: "88.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-groudon",
       neutralId: "xatu",
-      left: "23.62%",
-      top: "41.62%",
+      left: "25.5%",
+      top: "43.5%",
       spawnTime: "09:59",
       respawnTime: 0,
       permanentDelete: true,
@@ -3006,8 +3016,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "xatu",
-      left: "76.97%",
-      top: "41.62%",
+      left: "74.5%",
+      top: "43%",
       spawnTime: "09:59",
       respawnTime: 0,
       permanentDelete: true,
@@ -3016,28 +3026,30 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "natu",
-      left: "50.18%",
-      top: "41.04%",
+      left: "51%",
+      top: "42.5%",
       spawnTime: "09:00",
       respawnTime: 0,
       permanentDelete: true,
+      despawnTime: "02:00",
       infoKey: "natu.900"
     },
     {
       mapId: "map-groudon",
       neutralId: "natu",
-      left: "50.18%",
-      top: "23.49%",
+      left: "49%",
+      top: "42.5%",
       spawnTime: "09:20",
       respawnTime: 60,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "natu.920"
     },
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "40.93%",
-      top: "74.38%",
+      left: "42%",
+      top: "77%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3046,8 +3058,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "41.87%",
-      top: "61.51%",
+      left: "42.5%",
+      top: "63%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -3056,8 +3068,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "58.72%",
-      top: "74.38%",
+      left: "57.5%",
+      top: "76.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3066,8 +3078,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "57.78%",
-      top: "61.51%",
+      left: "56.5%",
+      top: "63%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -3076,8 +3088,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "25.61%",
-      top: "15.88%",
+      left: "29%",
+      top: "17.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3086,8 +3098,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "18.7%",
-      top: "20.56%",
+      left: "22.5%",
+      top: "23.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3096,8 +3108,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "13.55%",
-      top: "27.58%",
+      left: "19%",
+      top: "31%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3106,8 +3118,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "74.04%",
-      top: "15.88%",
+      left: "71.5%",
+      top: "18.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3116,8 +3128,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "80.95%",
-      top: "20.56%",
+      left: "77.5%",
+      top: "23.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3126,8 +3138,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "84.92%",
-      top: "26.41%",
+      left: "81.5%",
+      top: "31.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3136,8 +3148,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "11.21%",
-      top: "56.6%",
+      left: "16.5%",
+      top: "59.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3146,8 +3158,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "15.66%",
-      top: "62.1%",
+      left: "19.5%",
+      top: "65%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3156,8 +3168,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "84.46%",
-      top: "62.1%",
+      left: "81%",
+      top: "64.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3166,8 +3178,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "indeedee",
-      left: "88.9%",
-      top: "56.83%",
+      left: "84%",
+      top: "59%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3194,8 +3206,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "64.33%",
-      top: "64.44%",
+      left: "63%",
+      top: "66.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3203,8 +3215,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "66.32%",
-      top: "68.53%",
+      left: "64%",
+      top: "72%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3212,8 +3224,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "37.66%",
-      top: "19.98%",
+      left: "38.5%",
+      top: "22.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3221,8 +3233,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "36.72%",
-      top: "15.88%",
+      left: "37.5%",
+      top: "18%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3230,8 +3242,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "62.93%",
-      top: "19.39%",
+      left: "62%",
+      top: "22%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3239,8 +3251,8 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "sitrus",
-      left: "63.86%",
-      top: "15.88%",
+      left: "63%",
+      top: "17.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3248,8 +3260,28 @@ var UniteLib = (() => {
     {
       mapId: "map-groudon",
       neutralId: "salac",
-      left: "45.14%",
-      top: "50.4%",
+      left: "46%",
+      top: "51%",
+      spawnTime: "08:30",
+      respawnTime: 60,
+      permanentDelete: false,
+      infoKey: "salac"
+    },
+    {
+      mapId: "map-groudon",
+      neutralId: "salac",
+      left: "55%",
+      top: "51%",
+      spawnTime: "08:30",
+      respawnTime: 60,
+      permanentDelete: false,
+      infoKey: "salac"
+    },
+    {
+      mapId: "map-groudon",
+      neutralId: "salac",
+      left: "46%",
+      top: "36%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3259,27 +3291,7 @@ var UniteLib = (() => {
       mapId: "map-groudon",
       neutralId: "salac",
       left: "54.5%",
-      top: "50.4%",
-      spawnTime: "08:30",
-      respawnTime: 60,
-      permanentDelete: false,
-      infoKey: "salac"
-    },
-    {
-      mapId: "map-groudon",
-      neutralId: "salac",
-      left: "45.14%",
-      top: "32.26%",
-      spawnTime: "08:30",
-      respawnTime: 60,
-      permanentDelete: false,
-      infoKey: "salac"
-    },
-    {
-      mapId: "map-groudon",
-      neutralId: "salac",
-      left: "54.5%",
-      top: "32.26%",
+      top: "36%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3293,14 +3305,15 @@ var UniteLib = (() => {
       spawnTime: "NaN:NaN",
       respawnTime: 0,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "altaria.after_regidrago"
     },
     // --- map-kyogre ---
     {
       mapId: "map-kyogre",
       neutralId: "kyogre",
-      left: "50.29%",
-      top: "38.53%",
+      left: "50%",
+      top: "42.5%",
       spawnTime: "02:00",
       respawnTime: 0,
       permanentDelete: false,
@@ -3309,8 +3322,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "15.66%",
-      top: "47.89%",
+      left: "20%",
+      top: "48.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3319,8 +3332,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "15.66%",
-      top: "35.02%",
+      left: "20%",
+      top: "39%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3329,8 +3342,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "22.68%",
-      top: "58.42%",
+      left: "23.5%",
+      top: "58%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3339,8 +3352,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "22.68%",
-      top: "25.66%",
+      left: "24.5%",
+      top: "31%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3359,8 +3372,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "32.39%",
-      top: "19.81%",
+      left: "33.5%",
+      top: "23.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3369,8 +3382,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "84.92%",
-      top: "47.89%",
+      left: "81%",
+      top: "49%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3379,8 +3392,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "84.92%",
-      top: "35.02%",
+      left: "80%",
+      top: "37.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3389,8 +3402,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "76.97%",
-      top: "58.42%",
+      left: "76.5%",
+      top: "58.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3399,8 +3412,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "76.97%",
-      top: "25.66%",
+      left: "75.5%",
+      top: "30.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3409,8 +3422,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "68.19%",
-      top: "65.44%",
+      left: "67.5%",
+      top: "66.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3419,8 +3432,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "68.19%",
-      top: "19.81%",
+      left: "67%",
+      top: "22.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -3449,8 +3462,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "42.8%",
-      top: "12.79%",
+      left: "44%",
+      top: "14%",
       spawnTime: "09:20",
       respawnTime: 60,
       permanentDelete: false,
@@ -3479,8 +3492,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "bunnelby",
-      left: "50.06%",
-      top: "60.17%",
+      left: "50%",
+      top: "62%",
       spawnTime: "09:15",
       respawnTime: 60,
       permanentDelete: false,
@@ -3489,8 +3502,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "accelgor",
-      left: "25.61%",
-      top: "47.3%",
+      left: "29%",
+      top: "50.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3499,8 +3512,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "accelgor",
-      left: "74.04%",
-      top: "47.3%",
+      left: "71.5%",
+      top: "50%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3509,8 +3522,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "escavalier",
-      left: "33.8%",
-      top: "32.09%",
+      left: "35.5%",
+      top: "34.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3519,8 +3532,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "escavalier",
-      left: "66.79%",
-      top: "32.09%",
+      left: "65%",
+      top: "35%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3529,8 +3542,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "26.07%",
-      top: "36.19%",
+      left: "28.5%",
+      top: "38.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3539,8 +3552,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "33.8%",
-      top: "49.06%",
+      left: "35%",
+      top: "50%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3549,8 +3562,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "73.46%",
-      top: "36.19%",
+      left: "71.5%",
+      top: "38%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3559,8 +3572,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "65.85%",
-      top: "49.06%",
+      left: "66%",
+      top: "51%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -3579,8 +3592,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "42.8%",
-      top: "22.15%",
+      left: "43.5%",
+      top: "24%",
       spawnTime: "09:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -3599,8 +3612,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "33.33%",
-      top: "12.79%",
+      left: "35%",
+      top: "15%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -3609,8 +3622,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "67.26%",
-      top: "12.79%",
+      left: "66%",
+      top: "15%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -3619,8 +3632,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "30.99%",
-      top: "73.63%",
+      left: "33.5%",
+      top: "76%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -3629,8 +3642,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "69.13%",
-      top: "73.63%",
+      left: "67.5%",
+      top: "75.5%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -3639,8 +3652,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "42.34%",
-      top: "40.87%",
+      left: "43.5%",
+      top: "45.5%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -3649,8 +3662,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "57.55%",
-      top: "40.87%",
+      left: "57%",
+      top: "45.5%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -3659,8 +3672,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "28.06%",
-      top: "29.75%",
+      left: "30%",
+      top: "32.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3669,8 +3682,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "72.05%",
-      top: "29.75%",
+      left: "69.5%",
+      top: "32%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3679,8 +3692,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "25.61%",
-      top: "52.57%",
+      left: "28%",
+      top: "55%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3689,8 +3702,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "baltoy",
-      left: "74.51%",
-      top: "51.98%",
+      left: "72.5%",
+      top: "54%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3699,91 +3712,100 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "regidrago",
-      left: "50.29%",
-      top: "38.53%",
-      spawnTime: "00:00",
+      left: "50%",
+      top: "52%",
+      spawnTime: "08:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regidrago.kyogre"
     },
     {
       mapId: "map-kyogre",
       neutralId: "regieleki",
-      left: "50.06%",
-      top: "8.11%",
+      left: "50%",
+      top: "10%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "regieleki",
-      left: "50.06%",
-      top: "85.33%",
+      left: "50%",
+      top: "85.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
+      infoKey: "regi.700"
+    },
+    {
+      mapId: "map-kyogre",
+      neutralId: "regice",
+      left: "50%",
+      top: "3.5%",
+      spawnTime: "07:00",
+      respawnTime: 120,
+      permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "regice",
       left: "50.06%",
-      top: "1.09%",
-      spawnTime: "07:00",
-      respawnTime: 120,
-      permanentDelete: false,
-      infoKey: "regi.700"
-    },
-    {
-      mapId: "map-kyogre",
-      neutralId: "regice",
-      left: "50.06%",
       top: "92.35%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "registeel",
-      left: "45.38%",
-      top: "1.09%",
+      left: "46.5%",
+      top: "7%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "registeel",
-      left: "45.38%",
-      top: "92.35%",
+      left: "46%",
+      top: "90%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "regirock",
-      left: "54.74%",
-      top: "1.09%",
+      left: "54%",
+      top: "7.5%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-kyogre",
       neutralId: "regirock",
-      left: "54.74%",
-      top: "92.35%",
+      left: "53.5%",
+      top: "90%",
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
@@ -3799,8 +3821,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "xatu",
-      left: "76.97%",
-      top: "42.04%",
+      left: "75.5%",
+      top: "43%",
       spawnTime: "09:59",
       respawnTime: 0,
       permanentDelete: true,
@@ -3809,28 +3831,30 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "natu",
-      left: "50.18%",
-      top: "41.45%",
+      left: "49%",
+      top: "43%",
       spawnTime: "09:00",
       respawnTime: 0,
       permanentDelete: true,
+      despawnTime: "02:00",
       infoKey: "natu.900"
     },
     {
       mapId: "map-kyogre",
       neutralId: "natu",
-      left: "50.18%",
-      top: "23.9%",
+      left: "51%",
+      top: "43%",
       spawnTime: "09:20",
       respawnTime: 60,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "natu.920"
     },
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "40.93%",
-      top: "74.8%",
+      left: "42.5%",
+      top: "77.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3839,8 +3863,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "41.87%",
-      top: "61.93%",
+      left: "44%",
+      top: "64.5%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -3849,8 +3873,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "58.72%",
-      top: "74.8%",
+      left: "57%",
+      top: "76.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -3859,8 +3883,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "57.78%",
-      top: "61.93%",
+      left: "56%",
+      top: "63.5%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -3869,8 +3893,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "25.61%",
-      top: "16.3%",
+      left: "29%",
+      top: "18.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3879,8 +3903,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "18.7%",
-      top: "20.98%",
+      left: "22%",
+      top: "25%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3889,8 +3913,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "13.55%",
-      top: "28%",
+      left: "18.5%",
+      top: "31.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3899,8 +3923,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "74.04%",
-      top: "16.3%",
+      left: "71.5%",
+      top: "18%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3909,8 +3933,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "80.95%",
-      top: "20.98%",
+      left: "78%",
+      top: "24.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3919,8 +3943,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "84.92%",
-      top: "26.83%",
+      left: "81.5%",
+      top: "32%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3929,8 +3953,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "11.21%",
-      top: "57.01%",
+      left: "16.5%",
+      top: "59%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3939,8 +3963,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "15.66%",
-      top: "62.51%",
+      left: "20%",
+      top: "64%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3949,8 +3973,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "84.46%",
-      top: "62.51%",
+      left: "81%",
+      top: "63.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3959,8 +3983,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "indeedee",
-      left: "88.9%",
-      top: "57.25%",
+      left: "84%",
+      top: "58.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -3969,8 +3993,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "36.72%",
-      top: "64.85%",
+      left: "38%",
+      top: "66.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3978,8 +4002,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "34.73%",
-      top: "68.95%",
+      left: "37%",
+      top: "71%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3987,8 +4011,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "64.33%",
-      top: "64.85%",
+      left: "63%",
+      top: "66.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -3996,8 +4020,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "66.32%",
-      top: "68.95%",
+      left: "63.5%",
+      top: "71.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4005,8 +4029,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "37.66%",
-      top: "20.39%",
+      left: "38.5%",
+      top: "22.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4014,8 +4038,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "36.72%",
-      top: "16.3%",
+      left: "37.5%",
+      top: "18%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4023,8 +4047,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "62.93%",
-      top: "19.81%",
+      left: "62%",
+      top: "22.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4032,8 +4056,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "63.86%",
-      top: "16.3%",
+      left: "62.5%",
+      top: "18.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4041,8 +4065,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "45.14%",
-      top: "50.81%",
+      left: "46%",
+      top: "51.5%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4059,8 +4083,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "45.14%",
-      top: "32.68%",
+      left: "46%",
+      top: "36%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4068,8 +4092,8 @@ var UniteLib = (() => {
     {
       mapId: "map-kyogre",
       neutralId: "sitrus",
-      left: "54.5%",
-      top: "32.68%",
+      left: "54%",
+      top: "35.5%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4100,14 +4124,15 @@ var UniteLib = (() => {
       spawnTime: "NaN:NaN",
       respawnTime: 0,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "altaria.after_regidrago"
     },
     // --- map-rayquaza ---
     {
       mapId: "map-rayquaza",
       neutralId: "rayquaza",
-      left: "50.1%",
-      top: "39.7%",
+      left: "50%",
+      top: "43%",
       spawnTime: "02:00",
       respawnTime: 0,
       permanentDelete: false,
@@ -4116,8 +4141,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "15.47%",
-      top: "47.89%",
+      left: "20%",
+      top: "48.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4126,8 +4151,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "15.47%",
-      top: "35.02%",
+      left: "20%",
+      top: "38.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4136,8 +4161,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "22.49%",
-      top: "58.42%",
+      left: "24%",
+      top: "58%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4146,8 +4171,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "22.49%",
-      top: "25.66%",
+      left: "25.5%",
+      top: "30.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4156,8 +4181,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "32.66%",
-      top: "62.51%",
+      left: "34%",
+      top: "65.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4166,8 +4191,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "31.73%",
-      top: "67.78%",
+      left: "33%",
+      top: "69%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4176,8 +4201,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "34.07%",
-      top: "20.98%",
+      left: "34%",
+      top: "24.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4186,8 +4211,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "33.13%",
-      top: "18.05%",
+      left: "33.5%",
+      top: "21.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4196,8 +4221,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "84.73%",
-      top: "47.89%",
+      left: "81%",
+      top: "48%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4206,18 +4231,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "84.73%",
-      top: "35.02%",
-      spawnTime: "10:00",
-      respawnTime: 0,
-      permanentDelete: true,
-      infoKey: "bunnelby.points"
-    },
-    {
-      mapId: "map-rayquaza",
-      neutralId: "bunnelby",
-      left: "76.77%",
-      top: "58.42%",
+      left: "80.5%",
+      top: "38.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4227,7 +4242,7 @@ var UniteLib = (() => {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
       left: "76.77%",
-      top: "25.66%",
+      top: "58.42%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4236,8 +4251,18 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "67.06%",
-      top: "63.1%",
+      left: "75.5%",
+      top: "31%",
+      spawnTime: "10:00",
+      respawnTime: 0,
+      permanentDelete: true,
+      infoKey: "bunnelby.points"
+    },
+    {
+      mapId: "map-rayquaza",
+      neutralId: "bunnelby",
+      left: "67%",
+      top: "65%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4247,7 +4272,7 @@ var UniteLib = (() => {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
       left: "68%",
-      top: "67.78%",
+      top: "68.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4256,8 +4281,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "66.13%",
-      top: "17.47%",
+      left: "66%",
+      top: "20.5%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4266,8 +4291,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "65.07%",
-      top: "20.98%",
+      left: "65%",
+      top: "23%",
       spawnTime: "10:00",
       respawnTime: 0,
       permanentDelete: true,
@@ -4276,8 +4301,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "bunnelby",
-      left: "49.86%",
-      top: "13.96%",
+      left: "50%",
+      top: "14.5%",
       spawnTime: "09:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -4336,8 +4361,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "accelgor",
-      left: "33.6%",
-      top: "49.64%",
+      left: "35.5%",
+      top: "52%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4346,8 +4371,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "accelgor",
-      left: "65.66%",
-      top: "49.64%",
+      left: "64.5%",
+      top: "51.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4356,8 +4381,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "escavalier",
-      left: "33.6%",
-      top: "32.09%",
+      left: "36%",
+      top: "34%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4366,8 +4391,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "escavalier",
-      left: "66.59%",
-      top: "32.09%",
+      left: "65.5%",
+      top: "35.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4376,8 +4401,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "25.88%",
-      top: "36.19%",
+      left: "29%",
+      top: "38.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4386,8 +4411,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "25.41%",
-      top: "47.3%",
+      left: "28%",
+      top: "49.5%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4406,8 +4431,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "73.85%",
-      top: "47.3%",
+      left: "72.5%",
+      top: "50%",
       spawnTime: "09:45",
       respawnTime: 60,
       permanentDelete: false,
@@ -4446,8 +4471,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "49.86%",
-      top: "10.45%",
+      left: "50%",
+      top: "10.5%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -4466,8 +4491,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "67.06%",
-      top: "12.79%",
+      left: "65.5%",
+      top: "14.5%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -4476,8 +4501,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "30.79%",
-      top: "73.63%",
+      left: "33%",
+      top: "75.5%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -4486,8 +4511,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "68.93%",
-      top: "73.63%",
+      left: "67.5%",
+      top: "76.5%",
       spawnTime: "09:10",
       respawnTime: 60,
       permanentDelete: false,
@@ -4496,8 +4521,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "42.14%",
-      top: "40.87%",
+      left: "43%",
+      top: "43.5%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -4506,8 +4531,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "57.35%",
-      top: "40.87%",
+      left: "57%",
+      top: "43%",
       spawnTime: "08:40",
       respawnTime: 60,
       permanentDelete: false,
@@ -4516,8 +4541,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "27.87%",
-      top: "29.75%",
+      left: "29.5%",
+      top: "32%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4536,8 +4561,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "25.41%",
-      top: "52.57%",
+      left: "28%",
+      top: "54.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4546,8 +4571,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "baltoy",
-      left: "74.32%",
-      top: "51.98%",
+      left: "73%",
+      top: "55%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4561,6 +4586,7 @@ var UniteLib = (() => {
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
@@ -4571,6 +4597,7 @@ var UniteLib = (() => {
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
@@ -4581,6 +4608,7 @@ var UniteLib = (() => {
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
@@ -4591,13 +4619,14 @@ var UniteLib = (() => {
       spawnTime: "07:00",
       respawnTime: 120,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "regi.700"
     },
     {
       mapId: "map-rayquaza",
       neutralId: "xatu",
-      left: "23.42%",
-      top: "42.04%",
+      left: "25.5%",
+      top: "43%",
       spawnTime: "09:59",
       respawnTime: 0,
       permanentDelete: true,
@@ -4606,8 +4635,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "xatu",
-      left: "76.77%",
-      top: "42.04%",
+      left: "74.5%",
+      top: "43.5%",
       spawnTime: "09:59",
       respawnTime: 0,
       permanentDelete: true,
@@ -4616,8 +4645,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "40.74%",
-      top: "74.8%",
+      left: "42.5%",
+      top: "77.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4626,8 +4655,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "41.67%",
-      top: "61.93%",
+      left: "43.5%",
+      top: "64%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -4636,8 +4665,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "58.52%",
-      top: "74.8%",
+      left: "58%",
+      top: "77%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4646,8 +4675,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "57.59%",
-      top: "61.93%",
+      left: "57%",
+      top: "64%",
       spawnTime: "09:35",
       respawnTime: 60,
       permanentDelete: false,
@@ -4656,8 +4685,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "25.41%",
-      top: "16.3%",
+      left: "28.5%",
+      top: "18%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4666,8 +4695,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "18.51%",
-      top: "20.98%",
+      left: "22.5%",
+      top: "25%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4676,8 +4705,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "13.36%",
-      top: "28%",
+      left: "19%",
+      top: "31.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4686,8 +4715,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "73.85%",
-      top: "16.3%",
+      left: "71.5%",
+      top: "18%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4696,8 +4725,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "80.75%",
-      top: "20.98%",
+      left: "78.5%",
+      top: "24.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4706,8 +4735,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "84.73%",
-      top: "26.83%",
+      left: "82%",
+      top: "32%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4716,8 +4745,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "11.02%",
-      top: "57.01%",
+      left: "16.5%",
+      top: "59.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4726,8 +4755,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "15.47%",
-      top: "62.51%",
+      left: "19.5%",
+      top: "64.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4736,8 +4765,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "84.26%",
-      top: "62.51%",
+      left: "81%",
+      top: "64.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4746,8 +4775,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "indeedee",
-      left: "88.71%",
-      top: "57.25%",
+      left: "84%",
+      top: "59.5%",
       spawnTime: "10:00",
       respawnTime: 60,
       permanentDelete: false,
@@ -4756,8 +4785,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "36.53%",
-      top: "64.85%",
+      left: "37.5%",
+      top: "67.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4765,8 +4794,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "34.54%",
-      top: "68.95%",
+      left: "36.5%",
+      top: "71%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4774,8 +4803,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "64.14%",
-      top: "64.85%",
+      left: "63%",
+      top: "67%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4783,8 +4812,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "66.13%",
-      top: "68.95%",
+      left: "64%",
+      top: "72%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4792,8 +4821,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "37.46%",
-      top: "20.39%",
+      left: "38.5%",
+      top: "22.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4801,8 +4830,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "36.53%",
-      top: "16.3%",
+      left: "38%",
+      top: "18%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4810,8 +4839,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "62.73%",
-      top: "19.81%",
+      left: "61.5%",
+      top: "22.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4819,8 +4848,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "sitrus",
-      left: "63.67%",
-      top: "16.3%",
+      left: "62.5%",
+      top: "18.5%",
       spawnTime: "09:30",
       respawnTime: 60,
       permanentDelete: false
@@ -4828,8 +4857,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "salac",
-      left: "44.95%",
-      top: "50.81%",
+      left: "45.5%",
+      top: "51%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4838,8 +4867,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "salac",
-      left: "54.31%",
-      top: "50.81%",
+      left: "55%",
+      top: "50.5%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4848,8 +4877,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "salac",
-      left: "44.95%",
-      top: "32.68%",
+      left: "46%",
+      top: "36%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4858,8 +4887,8 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "salac",
-      left: "54.31%",
-      top: "32.68%",
+      left: "54.5%",
+      top: "36.5%",
       spawnTime: "08:30",
       respawnTime: 60,
       permanentDelete: false,
@@ -4868,11 +4897,12 @@ var UniteLib = (() => {
     {
       mapId: "map-rayquaza",
       neutralId: "altaria",
-      left: "49.86%",
-      top: "40.87%",
+      left: "50%",
+      top: "43%",
       spawnTime: "08:00",
       respawnTime: 90,
       permanentDelete: false,
+      despawnTime: "02:00",
       infoKey: "altaria.rayquaza"
     }
   ];
@@ -4909,11 +4939,11 @@ var UniteLib = (() => {
   function getPokemonByDex(dex) {
     return pokemons_default.find((p) => p.dex === dex);
   }
+  function getPokemonSlug(pokemon) {
+    return pokemon.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
+  }
   function getPokemonBySlug(slug) {
-    return pokemons_default.find((p) => {
-      const s = p.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
-      return s === slug;
-    });
+    return pokemons_default.find((p) => getPokemonSlug(p) === slug);
   }
   function getPokemonsByBattleType(battleType) {
     return pokemons_default.filter((p) => p.battleType === battleType);
@@ -4940,6 +4970,8 @@ var UniteLib = (() => {
   for (const n of neutrals_default) {
     names[n.id] = n.name;
   }
+  names["mega-mewtwo-x"] = "Mega Mewtwo X";
+  names["mega-mewtwo-y"] = "Mega Mewtwo Y";
   Object.assign(names, {
     "spawn.info.groudon.boss": "<p>When defeated, all team members alive receive a <strong>buff</strong> and <strong>15 aeos points</strong>.<br>This buff is <strong>permanent until the holder is KO'd</strong>. When the holder is <strong>KO'd</strong>, the buff <strong>transfers to the killer</strong>.<br>It provides a <strong>goal-scoring speed boost</strong>, a <strong>huge damage boost</strong>, and a <strong>small shield</strong>.<br>Always spawn at 2:00.</p>",
     "spawn.info.bunnelby.initial": "<p>They <strong>spawn at the beginning of the game</strong> and <strong>never respawn</strong> once killed.</p><p>Give 2 points.</p>",
@@ -5074,9 +5106,12 @@ var UniteLib = (() => {
     vaporeon: "\u30B7\u30E3\u30EF\u30FC\u30BA",
     snorlax: "\u30AB\u30D3\u30B4\u30F3",
     zapdos: "\u30B5\u30F3\u30C0\u30FC",
+    moltres: "\u30D5\u30A1\u30A4\u30E4\u30FC",
     dragonite: "\u30AB\u30A4\u30EA\u30E5\u30FC",
     mewtwox: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCX",
     mewtwoy: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCY",
+    "mega-mewtwo-x": "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCX",
+    "mega-mewtwo-y": "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCY",
     mew: "\u30DF\u30E5\u30A6",
     azumarill: "\u30DE\u30EA\u30EB\u30EA",
     espeon: "\u30A8\u30FC\u30D5\u30A3",
@@ -5237,9 +5272,12 @@ var UniteLib = (() => {
     vaporeon: "Aquali",
     snorlax: "Ronflex",
     zapdos: "\xC9lecthor",
+    moltres: "Sulfura",
     dragonite: "Dracolosse",
     mewtwox: "M\xE9ga-Mewtwo X",
     mewtwoy: "M\xE9ga-Mewtwo Y",
+    "mega-mewtwo-x": "M\xE9ga-Mewtwo X",
+    "mega-mewtwo-y": "M\xE9ga-Mewtwo Y",
     mew: "Mew",
     azumarill: "Azumarill",
     espeon: "Mentali",
@@ -5400,9 +5438,12 @@ var UniteLib = (() => {
     vaporeon: "Vaporeon",
     snorlax: "Snorlax",
     zapdos: "Zapdos",
+    moltres: "Moltres",
     dragonite: "Dragonite",
     mewtwox: "Mega-Mewtwo X",
     mewtwoy: "Mega-Mewtwo Y",
+    "mega-mewtwo-x": "Mega-Mewtwo X",
+    "mega-mewtwo-y": "Mega-Mewtwo Y",
     mew: "Mew",
     azumarill: "Azumarill",
     espeon: "Espeon",

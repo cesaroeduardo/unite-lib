@@ -26,3 +26,6 @@ Thumbs.db
 
 # Optional: test coverage (se usar no futuro)
 # coverage/
+
+# Spawn editor local edits (optional; remove to commit shared edits)
+dev/spawn-editor/edits.json

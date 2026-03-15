@@ -2413,7 +2413,7 @@ var maps = [
       "2": "maps/map-groudon/map-groudon@2x.png",
       "4": "maps/map-groudon/map-groudon@4x.png"
     },
-    description: "Map with Groudon."
+    description: "Map with Groudon"
   },
   {
     id: "map-kyogre",
@@ -2424,7 +2424,7 @@ var maps = [
       "2": "maps/map-kyogre/map-kyogre@2x.png",
       "4": "maps/map-kyogre/map-kyogre@4x.png"
     },
-    description: "Map with Kyogre."
+    description: "Map with Kyogre"
   },
   {
     id: "map-rayquaza",
@@ -2435,7 +2435,7 @@ var maps = [
       "2": "maps/map-rayquaza/map-rayquaza@2x.png",
       "4": "maps/map-rayquaza/map-rayquaza@4x.png"
     },
-    description: "Map with Rayquaza."
+    description: "Map with Rayquaza"
   }
 ];
 var maps_default = maps;
@@ -2478,6 +2478,8 @@ for (const m of maps_default) {
 for (const n of neutrals_default) {
   names[n.id] = n.name;
 }
+names["mega-mewtwo-x"] = "Mega Mewtwo X";
+names["mega-mewtwo-y"] = "Mega Mewtwo Y";
 Object.assign(names, {
   "spawn.info.groudon.boss": "<p>When defeated, all team members alive receive a <strong>buff</strong> and <strong>15 aeos points</strong>.<br>This buff is <strong>permanent until the holder is KO'd</strong>. When the holder is <strong>KO'd</strong>, the buff <strong>transfers to the killer</strong>.<br>It provides a <strong>goal-scoring speed boost</strong>, a <strong>huge damage boost</strong>, and a <strong>small shield</strong>.<br>Always spawn at 2:00.</p>",
   "spawn.info.bunnelby.initial": "<p>They <strong>spawn at the beginning of the game</strong> and <strong>never respawn</strong> once killed.</p><p>Give 2 points.</p>",
@@ -2612,9 +2614,12 @@ var jaJP = {
   vaporeon: "\u30B7\u30E3\u30EF\u30FC\u30BA",
   snorlax: "\u30AB\u30D3\u30B4\u30F3",
   zapdos: "\u30B5\u30F3\u30C0\u30FC",
+  moltres: "\u30D5\u30A1\u30A4\u30E4\u30FC",
   dragonite: "\u30AB\u30A4\u30EA\u30E5\u30FC",
   mewtwox: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCX",
   mewtwoy: "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCY",
+  "mega-mewtwo-x": "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCX",
+  "mega-mewtwo-y": "\u30E1\u30AC\u30DF\u30E5\u30A6\u30C4\u30FCY",
   mew: "\u30DF\u30E5\u30A6",
   azumarill: "\u30DE\u30EA\u30EB\u30EA",
   espeon: "\u30A8\u30FC\u30D5\u30A3",
@@ -2775,9 +2780,12 @@ var fr = {
   vaporeon: "Aquali",
   snorlax: "Ronflex",
   zapdos: "\xC9lecthor",
+  moltres: "Sulfura",
   dragonite: "Dracolosse",
   mewtwox: "M\xE9ga-Mewtwo X",
   mewtwoy: "M\xE9ga-Mewtwo Y",
+  "mega-mewtwo-x": "M\xE9ga-Mewtwo X",
+  "mega-mewtwo-y": "M\xE9ga-Mewtwo Y",
   mew: "Mew",
   azumarill: "Azumarill",
   espeon: "Mentali",
@@ -2938,9 +2946,12 @@ var es = {
   vaporeon: "Vaporeon",
   snorlax: "Snorlax",
   zapdos: "Zapdos",
+  moltres: "Moltres",
   dragonite: "Dragonite",
   mewtwox: "Mega-Mewtwo X",
   mewtwoy: "Mega-Mewtwo Y",
+  "mega-mewtwo-x": "Mega-Mewtwo X",
+  "mega-mewtwo-y": "Mega-Mewtwo Y",
   mew: "Mew",
   azumarill: "Azumarill",
   espeon: "Espeon",
