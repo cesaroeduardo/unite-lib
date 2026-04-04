@@ -1789,7 +1789,9 @@ const pokemons: Array<Pokemon> = [{
     "complete": "pokemons/stat-dhelmise.png",
     "move_s11": "moves/dhelmise_s11.png",
     "move_s12": "moves/dhelmise_s12.png",
-    "move_s21": "moves/dhelmise_s21.png",  },
+    "move_s21": "moves/dhelmise_s21.png",
+    "move_s22": "moves/dhelmise_s22.png",
+  },
   "active": true,
   "battleType": BattleType.ALLROUNDER,
   "stats": {
