@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:unite-db.com)",
+      "WebFetch(domain:game8.co)"
+    ]
+  }
+}

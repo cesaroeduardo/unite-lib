@@ -662,6 +662,31 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 1
 },
 {
+  "name": "Articuno",
+  "dex": 144,
+  "images": {
+    "main": "pokemons/roster-articuno.png",
+    "big": "pokemons/roster-articuno-2x.png",
+    "complete": "pokemons/stat-articuno.png",
+    "move_s11": "moves/articuno_s11.png",
+    "move_s21": "moves/articuno_s21.png",
+  },
+  "active": true,
+  "battleType": BattleType.DEFENDER,
+  "stats": {
+    "offense": 2,
+    "endurance": 4,
+    "mobility": 1,
+    "scoring": 2,
+    "support": 4
+  },
+  "tags": [
+    Tag.DEFENDER,
+    Tag.RANGED
+  ],
+  "difficulty": 1
+},
+{
   "name": "Zapdos",
   "dex": 145,
   "images": {
