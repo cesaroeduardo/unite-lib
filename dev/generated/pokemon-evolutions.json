@@ -1,0 +1,1584 @@
+{
+  "generatedAt": "2026-04-22T18:49:39.824Z",
+  "source": "https://unite.pokemon.com/en-us/pokemon/",
+  "totalPages": 79,
+  "matchedPagesInPokemonsTs": 70,
+  "pagesWithErrors": 0,
+  "entries": [
+    {
+      "pageSlug": "aegislash",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/aegislash/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "honedge-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/aegislash/stat/evolution-1-honedge-2x.png",
+          "localPath": "pokemons/evolution-honedge-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "doublade-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/aegislash/stat/evolution-2-doublade-2x.png",
+          "localPath": "pokemons/evolution-doublade-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "aegislash-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/aegislash/stat/evolution-3-aegislash-2x.png",
+          "localPath": "pokemons/evolution-aegislash-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "alcremie",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/alcremie/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "milcery-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alcremie/stat/evolution-1-milcery-2x.png",
+          "localPath": "pokemons/evolution-milcery-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "alcremie-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alcremie/stat/evolution-2-alcremie-2x.png",
+          "localPath": "pokemons/evolution-alcremie-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "alolan-ninetales",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/alolan-ninetales/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "alolan-vulpix-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alolan-ninetales/stat/evolution-1-alolan-vulpix-2x.png",
+          "localPath": "pokemons/evolution-alolan-vulpix-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "alolan-ninetales-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alolan-ninetales/stat/evolution-2-alolan-ninetales-2x.png",
+          "localPath": "pokemons/evolution-alolan-ninetales-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "alolan-raichu",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/alolan-raichu/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "pikachu-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alolan-raichu/stat/evolution-1-pikachu-2x.png",
+          "localPath": "pokemons/evolution-pikachu-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "alolan-raichu-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/alolan-raichu/stat/evolution-2-alolan-raichu-2x.png",
+          "localPath": "pokemons/evolution-alolan-raichu-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "armarouge",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/armarouge/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "charcadet-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/armarouge/stat/evolution-1-charcadet-2x.png",
+          "localPath": "pokemons/evolution-charcadet-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "armarouge-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/armarouge/stat/evolution-2-armarouge-2x.png",
+          "localPath": "pokemons/evolution-armarouge-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "azumarill",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/azumarill/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "marill-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/azumarill/stat/evolution-1-marill-2x.png",
+          "localPath": "pokemons/evolution-marill-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "azumarill-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/azumarill/stat/evolution-2-azumarill-2x.png",
+          "localPath": "pokemons/evolution-azumarill-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "blastoise",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/blastoise/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "squirtle-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blastoise/stat/evolution-1-squirtle-2x.png",
+          "localPath": "pokemons/evolution-squirtle-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "wartortle-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blastoise/stat/evolution-2-wartortle-2x.png",
+          "localPath": "pokemons/evolution-wartortle-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "blastoise-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blastoise/stat/evolution-3-blastoise-2x.png",
+          "localPath": "pokemons/evolution-blastoise-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "blaziken",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/blaziken/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "torchic-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blaziken/stat/evolution-1-torchic-2x.png",
+          "localPath": "pokemons/evolution-torchic-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "combusken-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blaziken/stat/evolution-2-combusken-2x.png",
+          "localPath": "pokemons/evolution-combusken-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "blaziken-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blaziken/stat/evolution-3-blaziken-2x.png",
+          "localPath": "pokemons/evolution-blaziken-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "blissey",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/blissey/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "chansey-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blissey/stat/evolution-1-chansey-2x.png",
+          "localPath": "pokemons/evolution-chansey-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "blissey-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/blissey/stat/evolution-2-blissey-2x.png",
+          "localPath": "pokemons/evolution-blissey-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "buzzwole",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/buzzwole/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "buzzwole-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/buzzwole/stat/evolution-1-buzzwole-2x.png",
+          "localPath": "pokemons/evolution-buzzwole-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "ceruledge",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/ceruledge/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "charcadet-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/ceruledge/stat/evolution-1-charcadet-2x.png",
+          "localPath": "pokemons/evolution-charcadet-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "ceruledge-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/ceruledge/stat/evolution-2-ceruledge-2x.png",
+          "localPath": "pokemons/evolution-ceruledge-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "chandelure",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/chandelure/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "litwick-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/chandelure/stat/evolution-1-litwick-2x.png",
+          "localPath": "pokemons/evolution-litwick-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "lampent-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/chandelure/stat/evolution-2-lampent-2x.png",
+          "localPath": "pokemons/evolution-lampent-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "chandelure-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/chandelure/stat/evolution-3-chandelure-2x.png",
+          "localPath": "pokemons/evolution-chandelure-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "charizard",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/charizard/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "charmander-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/charizard/stat/evolution-1-charmander-2x.png",
+          "localPath": "pokemons/evolution-charmander-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "charmeleon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/charizard/stat/evolution-2-charmeleon-2x.png",
+          "localPath": "pokemons/evolution-charmeleon-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "charizard-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/charizard/stat/evolution-3-charizard-2x.png",
+          "localPath": "pokemons/evolution-charizard-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 4,
+          "slug": "mega-charizard-x-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/charizard/stat/evolution-4-mega-charizard-x-2x.png",
+          "localPath": "pokemons/evolution-mega-charizard-x-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "cinderace",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/cinderace/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "scorbunny-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/cinderace/stat/evolution-1-scorbunny-2x.png",
+          "localPath": "pokemons/evolution-scorbunny-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "raboot-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/cinderace/stat/evolution-2-raboot-2x.png",
+          "localPath": "pokemons/evolution-raboot-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "cinderace-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/cinderace/stat/evolution-3-cinderace-2x.png",
+          "localPath": "pokemons/evolution-cinderace-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "clefable",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/clefable/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "clefairy-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/clefable/stat/evolution-1-clefairy-2x.png",
+          "localPath": "pokemons/evolution-clefairy-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "clefable-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/clefable/stat/evolution-2-clefable-2x.png",
+          "localPath": "pokemons/evolution-clefable-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "comfey",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/comfey/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "comfey-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/comfey/stat/evolution-1-comfey-2x.png",
+          "localPath": "pokemons/evolution-comfey-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "crustle",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/crustle/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "dweeble-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/crustle/stat/evolution-1-dweeble-2x.png",
+          "localPath": "pokemons/evolution-dweeble-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "crustle-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/crustle/stat/evolution-2-crustle-2x.png",
+          "localPath": "pokemons/evolution-crustle-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "darkrai",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/darkrai/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "darkrai-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/darkrai/stat/evolution-1-darkrai-2x.png",
+          "localPath": "pokemons/evolution-darkrai-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "decidueye",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/decidueye/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "rowlet-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/decidueye/stat/evolution-1-rowlet-2x.png",
+          "localPath": "pokemons/evolution-rowlet-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "dartrix-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/decidueye/stat/evolution-2-dartrix-2x.png",
+          "localPath": "pokemons/evolution-dartrix-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "decidueye-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/decidueye/stat/evolution-3-decidueye-2x.png",
+          "localPath": "pokemons/evolution-decidueye-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "delphox",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/delphox/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "fennekin-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/delphox/stat/evolution-1-fennekin-2x.png",
+          "localPath": "pokemons/evolution-fennekin-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "braixen-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/delphox/stat/evolution-2-braixen-2x.png",
+          "localPath": "pokemons/evolution-braixen-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "delphox-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/delphox/stat/evolution-3-delphox-2x.png",
+          "localPath": "pokemons/evolution-delphox-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "dhelmise",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/dhelmise/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "dhelmise-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dhelmise/stat/evolution-1-dhelmise-2x.png",
+          "localPath": "pokemons/evolution-dhelmise-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "dodrio",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/dodrio/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "doduo-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dodrio/stat/evolution-1-doduo-2x.png",
+          "localPath": "pokemons/evolution-doduo-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "dodrio-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dodrio/stat/evolution-2-dodrio-2x.png",
+          "localPath": "pokemons/evolution-dodrio-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "dragapult",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/dragapult/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "dreepy-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragapult/stat/evolution-1-dreepy-2x.png",
+          "localPath": "pokemons/evolution-dreepy-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "drakloak-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragapult/stat/evolution-2-drakloak-2x.png",
+          "localPath": "pokemons/evolution-drakloak-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "dragapult-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragapult/stat/evolution-3-dragapult-2x.png",
+          "localPath": "pokemons/evolution-dragapult-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "dragonite",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/dragonite/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "dratini-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragonite/stat/evolution-1-dratini-2x.png",
+          "localPath": "pokemons/evolution-dratini-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "dragonair-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragonite/stat/evolution-2-dragonair-2x.png",
+          "localPath": "pokemons/evolution-dragonair-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "dragonite-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/dragonite/stat/evolution-3-dragonite-2x.png",
+          "localPath": "pokemons/evolution-dragonite-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "eldegoss",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/eldegoss/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "gossifleur-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/eldegoss/stat/evolution-1-gossifleur-2x.png",
+          "localPath": "pokemons/evolution-gossifleur-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "eldegoss-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/eldegoss/stat/evolution-2-eldegoss-2x.png",
+          "localPath": "pokemons/evolution-eldegoss-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "empoleon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/empoleon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "piplup-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/empoleon/stat/evolution-1-piplup-2x.png",
+          "localPath": "pokemons/evolution-piplup-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "prinplup-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/empoleon/stat/evolution-2-prinplup-2x.png",
+          "localPath": "pokemons/evolution-prinplup-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "empoleon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/empoleon/stat/evolution-3-empoleon-2x.png",
+          "localPath": "pokemons/evolution-empoleon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "espeon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/espeon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/espeon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "espeon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/espeon/stat/evolution-2-espeon-2x.png",
+          "localPath": "pokemons/evolution-espeon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "falinks",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/falinks/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "falinks-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/falinks/stat/evolution-1-falinks-2x.png",
+          "localPath": "pokemons/evolution-falinks-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "galarian-rapidash",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/galarian-rapidash/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "galarian-ponyta-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/galarian-rapidash/stat/evolution-1-galarian-ponyta-2x.png",
+          "localPath": "pokemons/evolution-galarian-ponyta-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "galarian-rapidash-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/galarian-rapidash/stat/evolution-2-galarian-rapidash-2x.png",
+          "localPath": "pokemons/evolution-galarian-rapidash-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "garchomp",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/garchomp/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "gible-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/garchomp/stat/evolution-1-gible-2x.png",
+          "localPath": "pokemons/evolution-gible-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "gabite-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/garchomp/stat/evolution-2-gabite-2x.png",
+          "localPath": "pokemons/evolution-gabite-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "garchomp-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/garchomp/stat/evolution-3-garchomp-2x.png",
+          "localPath": "pokemons/evolution-garchomp-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "gengar",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/gengar/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "gastly-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/gengar/stat/evolution-1-gastly-2x.png",
+          "localPath": "pokemons/evolution-gastly-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "haunter-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/gengar/stat/evolution-2-haunter-2x.png",
+          "localPath": "pokemons/evolution-haunter-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "gengar-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/gengar/stat/evolution-3-gengar-2x.png",
+          "localPath": "pokemons/evolution-gengar-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "glaceon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/glaceon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/glaceon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "glaceon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/glaceon/stat/evolution-2-glaceon-2x.png",
+          "localPath": "pokemons/evolution-glaceon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "goodra",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/goodra/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "goomy-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/goodra/stat/evolution-1-goomy-2x.png",
+          "localPath": "pokemons/evolution-goomy-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "sliggoo-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/goodra/stat/evolution-2-sliggoo-2x.png",
+          "localPath": "pokemons/evolution-sliggoo-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "goodra-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/goodra/stat/evolution-3-goodra-2x.png",
+          "localPath": "pokemons/evolution-goodra-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "greedent",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/greedent/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "skwovet-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/greedent/stat/evolution-1-skwovet-2x.png",
+          "localPath": "pokemons/evolution-skwovet-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "greedent-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/greedent/stat/evolution-2-greedent-2x.png",
+          "localPath": "pokemons/evolution-greedent-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "greninja",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/greninja/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "froakie-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/greninja/stat/evolution-1-froakie-2x.png",
+          "localPath": "pokemons/evolution-froakie-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "frogadier-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/greninja/stat/evolution-2-frogadier-2x.png",
+          "localPath": "pokemons/evolution-frogadier-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "greninja-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/greninja/stat/evolution-3-greninja-2x.png",
+          "localPath": "pokemons/evolution-greninja-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "gyarados",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/gyarados/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "magikarp-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/gyarados/stat/evolution-1-magikarp-2x.png",
+          "localPath": "pokemons/evolution-magikarp-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "gyarados-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/gyarados/stat/evolution-2-gyarados-2x.png",
+          "localPath": "pokemons/evolution-gyarados-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "ho-oh",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/ho-oh/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "ho-oh-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/ho-oh/stat/evolution-1-ho-oh-2x.png",
+          "localPath": "pokemons/evolution-ho-oh-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "hoopa",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/hoopa/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "hoopa-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/hoopa/stat/evolution-1-hoopa-2x.png",
+          "localPath": "pokemons/evolution-hoopa-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "hoopa-unbound-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/hoopa/stat/evolution-2-hoopa-unbound-2x.png",
+          "localPath": "pokemons/evolution-hoopa-unbound-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "inteleon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/inteleon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "sobble-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/inteleon/stat/evolution-1-sobble-2x.png",
+          "localPath": "pokemons/evolution-sobble-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "drizzile-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/inteleon/stat/evolution-2-drizzile-2x.png",
+          "localPath": "pokemons/evolution-drizzile-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "inteleon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/inteleon/stat/evolution-3-inteleon-2x.png",
+          "localPath": "pokemons/evolution-inteleon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "lapras",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/lapras/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "lapras-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/lapras/stat/evolution-1-lapras-2x.png",
+          "localPath": "pokemons/evolution-lapras-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "latias",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/latias/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "latias-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/latias/stat/evolution-1-latias-2x.png",
+          "localPath": "pokemons/evolution-latias-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "latios",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/latios/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "latios-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/latios/stat/evolution-1-latios-2x.png",
+          "localPath": "pokemons/evolution-latios-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "leafeon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/leafeon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/leafeon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "leafeon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/leafeon/stat/evolution-2-leafeon-2x.png",
+          "localPath": "pokemons/evolution-leafeon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "lucario",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/lucario/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "base-lucario-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/lucario/stat/evolution-1-base-lucario-2x.png",
+          "localPath": "pokemons/evolution-base-lucario-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "mega-lucario-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/lucario/stat/evolution-2-mega-lucario-2x.png",
+          "localPath": "pokemons/evolution-mega-lucario-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "machamp",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/machamp/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "machop-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/machamp/stat/evolution-1-machop-2x.png",
+          "localPath": "pokemons/evolution-machop-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "machoke-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/machamp/stat/evolution-2-machoke-2x.png",
+          "localPath": "pokemons/evolution-machoke-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "machamp-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/machamp/stat/evolution-3-machamp-2x.png",
+          "localPath": "pokemons/evolution-machamp-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "mamoswine",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/mamoswine/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "swinub-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mamoswine/stat/evolution-1-swinub-2x.png",
+          "localPath": "pokemons/evolution-swinub-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "piloswine-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mamoswine/stat/evolution-2-piloswine-2x.png",
+          "localPath": "pokemons/evolution-piloswine-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "mamoswine-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mamoswine/stat/evolution-3-mamoswine-2x.png",
+          "localPath": "pokemons/evolution-mamoswine-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "meowscarada",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/meowscarada/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "sprigatito-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/meowscarada/stat/evolution-1-sprigatito-2x.png",
+          "localPath": "pokemons/evolution-sprigatito-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "floragato-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/meowscarada/stat/evolution-2-floragato-2x.png",
+          "localPath": "pokemons/evolution-floragato-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "meowscarada-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/meowscarada/stat/evolution-3-meowscarada-2x.png",
+          "localPath": "pokemons/evolution-meowscarada-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "metagross",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/metagross/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "beldum-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/metagross/stat/evolution-1-beldum-2x.png",
+          "localPath": "pokemons/evolution-beldum-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "metang-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/metagross/stat/evolution-2-metang-2x.png",
+          "localPath": "pokemons/evolution-metang-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "metagross-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/metagross/stat/evolution-3-metagross-2x.png",
+          "localPath": "pokemons/evolution-metagross-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "mew",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/mew/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "mew-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mew/stat/evolution-1-mew-2x.png",
+          "localPath": "pokemons/evolution-mew-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "mewtwo",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/mewtwo/",
+      "matchedInPokemonsTs": false,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "mewtwo-y-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mewtwo/stat/evolution-1-mewtwo-y-2x.png",
+          "localPath": "pokemons/evolution-mewtwo-y-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "mewtwo-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mewtwo/stat/evolution-2-mewtwo-2x.png",
+          "localPath": "pokemons/evolution-mewtwo-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "mewtwo-x-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mewtwo/stat/evolution-3-mewtwo-x-2x.png",
+          "localPath": "pokemons/evolution-mewtwo-x-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "mimikyu",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/mimikyu/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "mimikyu-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/mimikyu/stat/evolution-1-mimikyu-2x.png",
+          "localPath": "pokemons/evolution-mimikyu-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "miraidon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/miraidon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "miraidon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/miraidon/stat/evolution-1-miraidon-2x.png",
+          "localPath": "pokemons/evolution-miraidon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "pawmot",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/pawmot/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "pawmi-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/pawmot/stat/evolution-1-pawmi-2x.png",
+          "localPath": "pokemons/evolution-pawmi-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "pawmo-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/pawmot/stat/evolution-2-pawmo-2x.png",
+          "localPath": "pokemons/evolution-pawmo-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "pawmot-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/pawmot/stat/evolution-3-pawmot-2x.png",
+          "localPath": "pokemons/evolution-pawmot-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "psyduck",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/psyduck/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "psyduck-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/psyduck/stat/evolution-1-psyduck-2x.png",
+          "localPath": "pokemons/evolution-psyduck-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "sableye",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/sableye/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "sableye-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/sableye/stat/evolution-1-sableye-2x.png",
+          "localPath": "pokemons/evolution-sableye-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "scizor",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/scizor/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "scyther-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/scizor/stat/evolution-1-scyther-2x.png",
+          "localPath": "pokemons/evolution-scyther-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "scizor-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/scizor/stat/evolution-2-scizor-2x.png",
+          "localPath": "pokemons/evolution-scizor-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "slowbro",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/slowbro/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "slowpoke-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/slowbro/stat/evolution-1-slowpoke-2x.png",
+          "localPath": "pokemons/evolution-slowpoke-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "slowbro-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/slowbro/stat/evolution-2-slowbro-2x.png",
+          "localPath": "pokemons/evolution-slowbro-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "suicune",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/suicune/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "suicune-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/suicune/stat/evolution-1-suicune-2x.png",
+          "localPath": "pokemons/evolution-suicune-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "sylveon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/sylveon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/sylveon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "sylveon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/sylveon/stat/evolution-2-sylveon-2x.png",
+          "localPath": "pokemons/evolution-sylveon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "talonflame",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/talonflame/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "fletchling-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/talonflame/stat/evolution-1-fletchling-2x.png",
+          "localPath": "pokemons/evolution-fletchling-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "fletchinder-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/talonflame/stat/evolution-2-fletchinder-2x.png",
+          "localPath": "pokemons/evolution-fletchinder-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "talonflame-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/talonflame/stat/evolution-3-talonflame-2x.png",
+          "localPath": "pokemons/evolution-talonflame-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "tinkaton",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/tinkaton/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "tinkatink-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tinkaton/stat/evolution-1-tinkatink-2x.png",
+          "localPath": "pokemons/evolution-tinkatink-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "tinkatuff-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tinkaton/stat/evolution-2-tinkatuff-2x.png",
+          "localPath": "pokemons/evolution-tinkatuff-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "tinkaton-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tinkaton/stat/evolution-3-tinkaton-2x.png",
+          "localPath": "pokemons/evolution-tinkaton-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "trevenant",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/trevenant/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "phantump-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/trevenant/stat/evolution-1-phantump-2x.png",
+          "localPath": "pokemons/evolution-phantump-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "trevenant-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/trevenant/stat/evolution-2-trevenant-2x.png",
+          "localPath": "pokemons/evolution-trevenant-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "tsareena",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/tsareena/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "bounsweet-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tsareena/stat/evolution-1-bounsweet-2x.png",
+          "localPath": "pokemons/evolution-bounsweet-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "steenee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tsareena/stat/evolution-2-steenee-2x.png",
+          "localPath": "pokemons/evolution-steenee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "tsareena-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tsareena/stat/evolution-3-tsareena-2x.png",
+          "localPath": "pokemons/evolution-tsareena-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "tyranitar",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/tyranitar/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "larvitar-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tyranitar/stat/evolution-1-larvitar-2x.png",
+          "localPath": "pokemons/evolution-larvitar-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "pupitar-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tyranitar/stat/evolution-2-pupitar-2x.png",
+          "localPath": "pokemons/evolution-pupitar-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "tyranitar-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/tyranitar/stat/evolution-3-tyranitar-2x.png",
+          "localPath": "pokemons/evolution-tyranitar-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "umbreon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/umbreon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/umbreon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "umbreon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/umbreon/stat/evolution-2-umbreon-2x.png",
+          "localPath": "pokemons/evolution-umbreon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "urshifu",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/urshifu/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "kubfu-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/urshifu/stat/evolution-1-kubfu-2x.png",
+          "localPath": "pokemons/evolution-kubfu-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "urshifu-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/urshifu/stat/evolution-2-urshifu-2x.png",
+          "localPath": "pokemons/evolution-urshifu-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "vaporeon",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/vaporeon/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "eevee-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/vaporeon/stat/evolution-1-eevee-2x.png",
+          "localPath": "pokemons/evolution-eevee-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "vaporeon-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/vaporeon/stat/evolution-2-vaporeon-2x.png",
+          "localPath": "pokemons/evolution-vaporeon-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "venusaur",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/venusaur/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "bulbasaur-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/venusaur/stat/evolution-1-bulbasaur-2x.png",
+          "localPath": "pokemons/evolution-bulbasaur-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "ivysaur-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/venusaur/stat/evolution-2-ivysaur-2x.png",
+          "localPath": "pokemons/evolution-ivysaur-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 3,
+          "slug": "venusaur-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/venusaur/stat/evolution-3-venusaur-2x.png",
+          "localPath": "pokemons/evolution-venusaur-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "wigglytuff",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/wigglytuff/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "jigglypuff-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/wigglytuff/stat/evolution-1-jigglypuff-2x.png",
+          "localPath": "pokemons/evolution-jigglypuff-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "wigglytuff-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/wigglytuff/stat/evolution-2-wigglytuff-2x.png",
+          "localPath": "pokemons/evolution-wigglytuff-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "zacian",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/zacian/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "zacian-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/zacian/stat/evolution-1-zacian-2x.png",
+          "localPath": "pokemons/evolution-zacian-2x.png",
+          "downloaded": false
+        }
+      ]
+    },
+    {
+      "pageSlug": "zoroark",
+      "pageUrl": "https://unite.pokemon.com/en-us/pokemon/zoroark/",
+      "matchedInPokemonsTs": true,
+      "evolutions": [
+        {
+          "slot": 1,
+          "slug": "zorua-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/zoroark/stat/evolution-1-zorua-2x.png",
+          "localPath": "pokemons/evolution-zorua-2x.png",
+          "downloaded": false
+        },
+        {
+          "slot": 2,
+          "slug": "zoroark-2x",
+          "sourceUrl": "https://unite.pokemon.com/images/pokemon/zoroark/stat/evolution-2-zoroark-2x.png",
+          "localPath": "pokemons/evolution-zoroark-2x.png",
+          "downloaded": false
+        }
+      ]
+    }
+  ]
+}

@@ -29,7 +29,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
-    "dev:apply-edits": "node dev/scripts/apply-spawn-edits.js"
+    "dev:apply-edits": "node dev/scripts/apply-spawn-edits.js",
+    "sync:evolutions": "node dev/scripts/sync-pokemon-evolutions.mjs"
   },
   "keywords": [
     "pokemon",

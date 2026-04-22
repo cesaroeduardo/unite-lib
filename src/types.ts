@@ -7,6 +7,9 @@ export interface PokemonImages {
   main: string;
   big: string;
   complete: string;
+  evolution_1?: string;
+  evolution_2?: string;
+  evolution_3?: string;
   move_s11?: string;
   move_s12?: string;
   move_s13?: string;
@@ -14,7 +17,7 @@ export interface PokemonImages {
   move_s22?: string;
   move_s23?: string;
   move_s24?: string;
-  [key: `move_${string}`]: string | undefined;
+  [key: `move_${string}` | `evolution_${number}`]: string | undefined;
 }
 
 /** In-game stat ratings (0.5–5). */
