@@ -1,7 +1,7 @@
 import type { Move, MoveSlotId } from "./types";
+import { POKEMON_MOVE_SLOT_IDS } from "./types";
 import pokemons from "./pokemons";
-
-const SLOT_IDS: MoveSlotId[] = ["s11", "s12", "s13", "s21", "s22", "s23", "s24"];
+import { getPokemonSlug, resolveMoveSlot } from "./utils";
 
 /**
  * Build structured move list from pokemon roster (one source of truth).
@@ -10,18 +10,18 @@ const SLOT_IDS: MoveSlotId[] = ["s11", "s12", "s13", "s21", "s22", "s23", "s24"]
 function buildMoves(): Move[] {
   const moves: Move[] = [];
   for (const pokemon of pokemons) {
-    for (const slotId of SLOT_IDS) {
-      const key = `move_${slotId}` as keyof typeof pokemon.images;
-      const image = pokemon.images[key];
-      if (!image || typeof image !== "string") continue;
-      // Extract pokemonId from path: "moves/venusaur_s11.png" -> "venusaur"
-      const match = image.match(/^moves\/(.+)_s\d+\.png$/);
-      const pokemonId = match ? match[1] : pokemon.name.toLowerCase().replace(/\s+/g, "-").replace(/[.'']/g, "");
+    for (const slotId of POKEMON_MOVE_SLOT_IDS) {
+      const resolved = resolveMoveSlot(pokemon, slotId);
+      if (!resolved) continue;
+      const match = resolved.image.match(/^moves\/(.+)_(s\d+|p1|u1)\.png$/);
+      const pokemonId = match
+        ? match[1]
+        : getPokemonSlug(pokemon);
       moves.push({
         pokemonId,
         slotId,
-        name: `${pokemon.name} (${slotId})`,
-        image,
+        name: resolved.name,
+        image: resolved.image,
       });
     }
   }

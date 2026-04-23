@@ -21,6 +21,17 @@ declare const fr: Record<string, string>;
 declare const es: Record<string, string>;
 
 type Locale = "en" | "pt-BR" | "ja-JP" | "fr" | "es";
+
+/**
+ * Stable slug for move display names (matches PokéAPI move identifiers when possible).
+ * Locale maps use the key `move.<slug>`. Pass the English `images.move_*.{ name }` string.
+ */
+declare function moveNameToKey(englishMoveName: string): string;
+/**
+ * Per-locale display names for moves missing from PokéAPI / the generated `move.*` blocks,
+ * or to override a single locale. Key: `moveNameToKey(english roster name)` (no `move.` prefix).
+ */
+declare const moveNameOverrides: Record<string, Partial<Record<Locale, string>>>;
 /**
  * Returns the display name for a Pokémon by slug/id and locale.
  * Falls back to English if the locale is missing the key, then to the id.
@@ -55,5 +66,11 @@ type SpawnLike = {
  * Returns the localized spawn info HTML for a spawn. Uses infoKey when set, else spawn.info.
  */
 declare function getSpawnInfoForSpawn(spawn: SpawnLike, locale?: Locale): string;
+/**
+ * Localized move display name from the English roster label (`images.move_*.{ name }`).
+ * Looks up `move.<slug>` in the locale maps (synced from PokéAPI via
+ * `npm run sync:move-names-pokeapi`), then optional `moveNameOverrides` below.
+ */
+declare function getMoveName(englishMoveName: string, locale?: Locale): string;
 
-export { type Locale, names as en, es, fr, getMapDescription, getMapName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, jaJP, ptBR };
+export { type Locale, names as en, es, fr, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, jaJP, moveNameOverrides, moveNameToKey, ptBR };

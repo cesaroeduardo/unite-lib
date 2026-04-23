@@ -1,20 +1,50 @@
+export type MoveSlotEntry = {
+  name: string;
+  image: string;
+};
+
+export type MoveSlotValue = MoveSlotEntry | string;
+
+export type PokemonSkillNames = Partial<
+  Record<
+    | "p1"
+    | "s1"
+    | "s2"
+    | "u1"
+    | "s11"
+    | "s12"
+    | "s13"
+    | "s14"
+    | "s21"
+    | "s22"
+    | "s23"
+    | "s24",
+    string
+  >
+>;
+
 export type Pokemon = {
   id?: any;
   name?: string;
   dex?: number;
+  skillNames?: PokemonSkillNames;
   images?: {
     main: string;
     big: string;
     complete?: string;
-    move_s11?: string;
-    move_s12?: string;
-    move_s13?: string;
-    move_s14?: string;
-    move_s21?: string;
-    move_s22?: string;
-    move_s23?: string;
-    move_s24?: string;
-    [key: string]: string | undefined;
+    move_s11?: MoveSlotValue;
+    move_s12?: MoveSlotValue;
+    move_s13?: MoveSlotValue;
+    move_s14?: MoveSlotValue;
+    move_s21?: MoveSlotValue;
+    move_s22?: MoveSlotValue;
+    move_s23?: MoveSlotValue;
+    move_s24?: MoveSlotValue;
+    move_s1?: MoveSlotValue;
+    move_s2?: MoveSlotValue;
+    move_u1?: MoveSlotValue;
+    move_p1?: MoveSlotValue;
+    [key: string]: string | MoveSlotEntry | undefined;
   };
   active?: boolean;
   picked?: number;

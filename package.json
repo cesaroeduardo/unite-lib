@@ -1,6 +1,6 @@
 {
   "name": "unite-lib",
-  "version": "1.6.0",
+  "version": "1.5.0",
   "description": "Assets and data library for Pokémon Unite — names, images, moves, maps. Use via npm or CDN.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -30,7 +30,14 @@
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
     "dev:apply-edits": "node dev/scripts/apply-spawn-edits.js",
-    "sync:evolutions": "node dev/scripts/sync-pokemon-evolutions.mjs"
+    "sync:evolutions": "node dev/scripts/sync-pokemon-evolutions.mjs",
+    "sync:skills": "node dev/scripts/sync-unite-skills.mjs",
+    "sync:unite-db-skill-names": "node dev/scripts/sync-unite-db-skill-names.mjs",
+    "audit:missing-base-skills": "node dev/scripts/audit-missing-base-skills.mjs",
+    "fill:missing-base-skills": "node dev/scripts/fill-missing-base-skills.mjs",
+    "sync:skills:apply-keys": "node dev/scripts/apply-skill-image-keys.mjs",
+    "migrate:move-slots": "node dev/scripts/migrate-move-slots.mjs",
+    "sync:move-names-pokeapi": "node dev/scripts/sync-move-names-pokeapi.mjs"
   },
   "keywords": [
     "pokemon",
@@ -44,21 +51,27 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@pokebag/pokemon-unite-data": "2.1.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "playwright": "^1.49.1",
     "semantic-release": "^25.0.3",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       [
         "@semantic-release/github",
-        { "failComment": false }
+        {
+          "failComment": false
+        }
       ]
     ]
   }

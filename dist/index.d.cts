@@ -1,4 +1,4 @@
-export { Locale, getMapDescription, getMapName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn } from './i18n/index.cjs';
+export { Locale, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, moveNameToKey } from './i18n/index.cjs';
 
 /**
  * Battle role in Pokémon Unite (Attacker, Defender, etc.).
@@ -26,6 +26,13 @@ declare const Tag: {
 };
 type Tag = (typeof Tag)[keyof typeof Tag];
 
+/** One move / passive / unite slot: display name + asset path (single source of truth). */
+interface MoveSlotEntry {
+    name: string;
+    image: string;
+}
+/** Legacy: path string only. Preferred: `{ name, image }`. */
+type MoveSlotValue = MoveSlotEntry | string;
 /** Image paths for a Pokémon (relative to package root or baseUrl). */
 interface PokemonImages {
     main: string;
@@ -34,15 +41,23 @@ interface PokemonImages {
     evolution_1?: string;
     evolution_2?: string;
     evolution_3?: string;
-    move_s11?: string;
-    move_s12?: string;
-    move_s13?: string;
-    move_s21?: string;
-    move_s22?: string;
-    move_s23?: string;
-    move_s24?: string;
-    [key: `move_${string}` | `evolution_${number}`]: string | undefined;
+    evolution_4?: string;
+    move_s11?: MoveSlotValue;
+    move_s12?: MoveSlotValue;
+    move_s13?: MoveSlotValue;
+    move_s14?: MoveSlotValue;
+    move_s21?: MoveSlotValue;
+    move_s22?: MoveSlotValue;
+    move_s23?: MoveSlotValue;
+    move_s24?: MoveSlotValue;
+    move_s1?: MoveSlotValue;
+    move_s2?: MoveSlotValue;
+    move_u1?: MoveSlotValue;
+    move_p1?: MoveSlotValue;
+    [key: string]: string | MoveSlotEntry | undefined;
 }
+/** @deprecated Prefer `images.move_*` as `{ name, image }`. Kept for overrides / gradual migration. */
+type PokemonSkillNames = Partial<Record<"p1" | "s1" | "s2" | "u1" | "s11" | "s12" | "s13" | "s14" | "s21" | "s22" | "s23" | "s24", string>>;
 /** In-game stat ratings (0.5–5). */
 interface PokemonStats {
     offense: number;
@@ -56,6 +71,8 @@ interface Pokemon {
     name: string;
     dex: number;
     images: PokemonImages;
+    /** @deprecated Use `images.move_*.{ name }` instead. */
+    skillNames?: PokemonSkillNames;
     active: boolean;
     battleType: BattleType;
     stats?: PokemonStats;
@@ -63,10 +80,12 @@ interface Pokemon {
     difficulty?: number;
 }
 /** Move slot identifier (e.g. s11 = first slot, first move). */
-type MoveSlotId = `s${11 | 12 | 13 | 21 | 22 | 23 | 24}`;
+type MoveSlotId = "s11" | "s12" | "s13" | "s14" | "s21" | "s22" | "s23" | "s24" | "s1" | "s2" | "p1" | "u1";
+/** All skill slot ids used on the roster (order: branches before base moves for stable `moves` list). */
+declare const POKEMON_MOVE_SLOT_IDS: readonly MoveSlotId[];
 /** Structured move data linked to a Pokémon. */
 interface Move {
-    /** Pokémon identifier (slug from name). */
+    /** Pokémon identifier (slug from image path). */
     pokemonId: string;
     /** Slot id (e.g. 's11', 's22'). */
     slotId: MoveSlotId;
@@ -178,9 +197,21 @@ declare function getPokemonByDex(dex: number): Pokemon | undefined;
  * Use this slug with getPokemonName(id, locale) for i18n.
  */
 declare function getPokemonSlug(pokemon: Pokemon): string;
+/**
+ * Resolved English skill names from `images.move_*.{ name }` and optional deprecated `skillNames` overrides.
+ */
+declare function getPokemonSkillNames(pokemon: Pokemon): PokemonSkillNames;
+/**
+ * Resolves one move slot to `{ name, image }`.
+ * Supports legacy `images.move_*` as a plain string path.
+ */
+declare function resolveMoveSlot(pokemon: Pokemon, slotId: MoveSlotId): {
+    name: string;
+    image: string;
+} | null;
 declare function getPokemonBySlug(slug: string): Pokemon | undefined;
 declare function getPokemonsByBattleType(battleType: BattleType): Pokemon[];
 declare function getPokemonsByTag(tag: Tag): Pokemon[];
 declare function getActivePokemons(): Pokemon[];
 
-export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotId, type Neutral, type Pokemon, type PokemonImages, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, getSpawnsByMapVisibleAt, isSpawnVisibleAtGameClock, maps, moves, neutrals, parseGameClockToSeconds, pokemons, spawns };
+export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotEntry, type MoveSlotId, type MoveSlotValue, type Neutral, POKEMON_MOVE_SLOT_IDS, type Pokemon, type PokemonImages, type PokemonSkillNames, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSkillNames, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, getSpawnsByMapVisibleAt, isSpawnVisibleAtGameClock, maps, moves, neutrals, parseGameClockToSeconds, pokemons, resolveMoveSlot, spawns };

@@ -2,8 +2,11 @@
 export type {
   Pokemon,
   PokemonImages,
+  PokemonSkillNames,
   PokemonStats,
   Move,
+  MoveSlotEntry,
+  MoveSlotValue,
   MoveSlotId,
   Map,
   MapResolution,
@@ -13,6 +16,7 @@ export type {
 
 // Constants (BattleType and Tag: use for values; types come from ./types or inferred)
 export { BattleType, Tag } from "./constants";
+export { POKEMON_MOVE_SLOT_IDS } from "./types";
 
 // Data
 export { default as pokemons } from "./pokemons";
@@ -33,6 +37,8 @@ export {
   getPokemonByDex,
   getPokemonSlug,
   getPokemonBySlug,
+  getPokemonSkillNames,
+  resolveMoveSlot,
   getPokemonsByBattleType,
   getPokemonsByTag,
   getActivePokemons,
@@ -49,5 +55,7 @@ export {
   getNeutralName,
   getSpawnInfo,
   getSpawnInfoForSpawn,
+  getMoveName,
+  moveNameToKey,
 } from "./i18n";
 export type { Locale } from "./i18n";

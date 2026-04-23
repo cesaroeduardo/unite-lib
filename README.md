@@ -2,6 +2,12 @@
 
 Assets and data library for **Pokémon Unite**: roster, names, images, moves, and maps. Use in any project via **npm** or **CDN**.
 
+## Support
+
+If this project helps you, consider supporting it:
+
+[Buy Me a Coffee](https://buymeacoffee.com/reidophotoshops)
+
 ## Install
 
 ```bash
@@ -24,6 +30,8 @@ import {
   getPokemonsByBattleType,
   getImageUrl,
   getPokemonName,
+  getPokemonSkillNames,
+  resolveMoveSlot,
 } from "unite-lib";
 
 // All roster entries
@@ -76,18 +84,55 @@ Roster icons and stat images for the full active roster. The library includes ev
 
 | Roster | Stats | Roster | Stats |
 |--------|-------|--------|-------|
-| ![Pikachu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-pikachu.png) Pikachu | ![Pikachu stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-pikachu.png) | ![Charizard](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-charizard.png) Charizard | ![Charizard stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-charizard.png) |
-| ![Venusaur](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-venusaur.png) Venusaur | ![Venusaur stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-venusaur.png) | ![Blastoise](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-blastoise.png) Blastoise | ![Blastoise stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-blastoise.png) |
-| ![Gengar](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-gengar.png) Gengar | ![Gengar stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-gengar.png) | ![Dragonite](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-dragonite.png) Dragonite | ![Dragonite stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-dragonite.png) |
-| ![Greninja](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-greninja.png) Greninja | ![Greninja stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-greninja.png) | ![Mew](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/roster-mew.png) Mew | ![Mew stats](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/pokemons/stat-mew.png) |
+| ![Pikachu](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-pikachu.png) Pikachu | ![Pikachu stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-pikachu.png) | ![Charizard](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-charizard.png) Charizard | ![Charizard stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-charizard.png) |
+| ![Venusaur](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.png) Venusaur | ![Venusaur stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-venusaur.png) | ![Blastoise](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-blastoise.png) Blastoise | ![Blastoise stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-blastoise.png) |
+| ![Gengar](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-gengar.png) Gengar | ![Gengar stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-gengar.png) | ![Dragonite](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-dragonite.png) Dragonite | ![Dragonite stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-dragonite.png) |
+| ![Greninja](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-greninja.png) Greninja | ![Greninja stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-greninja.png) | ![Mew](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-mew.png) Mew | ![Mew stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-mew.png) |
 
 ### Moves
 
-Move images (slot 1 and 2, variants 1 and 2) per Pokémon.
+Each roster entry stores **passive**, **early moves**, **Unite**, and **branch upgrades** under `pokemon.images` using keys `move_*`. The preferred shape is an object with English **display name** and **asset path**; a plain string is still supported as a legacy image-only path.
 
-| Slot 1.1 | Slot 1.2 | Slot 2.1 | Slot 2.2 |
-|----------|----------|----------|----------|
-| ![Pikachu S11](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s11.png) | ![Pikachu S12](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s12.png) | ![Pikachu S21](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s21.png) | ![Pikachu S22](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/moves/pikachu_s22.png) |
+| Key pattern | Role (typical) |
+|-------------|----------------|
+| `move_p1` | Passive ability |
+| `move_s1`, `move_s2` | Level 1 choices (Move 1 / Move 2 roots) |
+| `move_s11` … `move_s14` | Upgrades for Move 1 (first branch = `s11`, second = `s12`, …) |
+| `move_s21` … `move_s24` | Upgrades for Move 2 |
+| `move_u1` | Unite Move |
+
+**Shape**
+
+- **Preferred:** `{ "name": "Sludge Bomb", "image": "moves/venusaur_s11.png" }`
+- **Legacy:** `"moves/venusaur_s11.png"` (image only; use `getPokemonSkillNames` / `resolveMoveSlot` for names when present)
+
+Slot order used by `moves` and helpers is defined by **`POKEMON_MOVE_SLOT_IDS`** (`s11`–`s14`, `s21`–`s24`, then `s1`, `s2`, `p1`, `u1`).
+
+| Passive | Move 1 | Move 2 | Unite | Branch 1.1 | Branch 1.2 | Branch 2.1 | Branch 2.2 |
+|---------|--------|--------|-------|------------|------------|------------|------------|
+| ![Venusaur p1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.png) | ![Venusaur s1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s1.png) | ![Venusaur s2](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s2.png) | ![Venusaur u1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_u1.png) | ![Venusaur s11](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.png) | ![Venusaur s12](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s12.png) | ![Venusaur s21](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s21.png) | ![Venusaur s22](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s22.png) |
+
+```js
+import {
+  pokemons,
+  getPokemonByName,
+  getImageUrl,
+  getPokemonSkillNames,
+  resolveMoveSlot,
+  POKEMON_MOVE_SLOT_IDS,
+} from "unite-lib";
+
+const v = getPokemonByName("Venusaur");
+// URL for any images.* key (string or { image })
+getImageUrl(v, "move_p1");
+getImageUrl(v, "move_s11");
+
+// Names merged from move_* objects (+ optional deprecated skillNames)
+getPokemonSkillNames(v); // { s11: "Sludge Bomb", s12: "Giga Drain", …, p1: "Overgrow", … }
+
+// One slot as { name, image }
+resolveMoveSlot(v, "s11");
+```
 
 ### Maps
 
@@ -95,7 +140,7 @@ Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map 
 
 | Groudon | Kyogre | Rayquaza |
 |---------|--------|----------|
-| ![Theia Sky Ruins (Groudon)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-groudon/map-groudon@2x.png) | ![Theia Sky Ruins (Kyogre)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-kyogre/map-kyogre@2x.png) | ![Theia Sky Ruins (Rayquaza)](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/maps/map-rayquaza/map-rayquaza@2x.png) |
+| ![Theia Sky Ruins (Groudon)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-groudon/map-groudon@2x.png) | ![Theia Sky Ruins (Kyogre)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-kyogre/map-kyogre@2x.png) | ![Theia Sky Ruins (Rayquaza)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-rayquaza/map-rayquaza@2x.png) |
 
 ### Neutrals and spawns
 
@@ -103,12 +148,12 @@ The library includes a **neutrals** catalog (wild Pokémon and items that spawn 
 
 | Wild Pokémon / Bosses | | | |
 |-----------------------|---|---|---|
-| ![Accelgor](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/accelgor.png) Accelgor | ![Altaria](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/altaria.png) Altaria | ![Baltoy](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/baltoy.png) Baltoy | ![Bunnelby](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/bunnelby.png) Bunnelby |
-| ![Escavalier](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/escavalier.png) Escavalier | ![Groudon](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/groudon.png) Groudon | ![Indeedee](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/indeedee.png) Indeedee | ![Kyogre](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/kyogre.png) Kyogre |
-| ![Natu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/natu.png) Natu | ![Rayquaza](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/rayquaza.png) Rayquaza | ![Regidrago](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regidrago.png) Regidrago | ![Regice](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regice.png) Regice |
-| ![Regieleki](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regieleki.png) Regieleki | ![Regirock](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/regirock.png) Regirock | ![Registeel](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/registeel.png) Registeel | ![Xatu](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/xatu.png) Xatu |
+| ![Accelgor](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/accelgor.png) Accelgor | ![Altaria](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/altaria.png) Altaria | ![Baltoy](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/baltoy.png) Baltoy | ![Bunnelby](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/bunnelby.png) Bunnelby |
+| ![Escavalier](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/escavalier.png) Escavalier | ![Groudon](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/groudon.png) Groudon | ![Indeedee](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/indeedee.png) Indeedee | ![Kyogre](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/kyogre.png) Kyogre |
+| ![Natu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/natu.png) Natu | ![Rayquaza](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/rayquaza.png) Rayquaza | ![Regidrago](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regidrago.png) Regidrago | ![Regice](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regice.png) Regice |
+| ![Regieleki](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regieleki.png) Regieleki | ![Regirock](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regirock.png) Regirock | ![Registeel](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/registeel.png) Registeel | ![Xatu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/xatu.png) Xatu |
 | **Items** | | | |
-| ![Salac Berry](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/salac.png) Salac Berry | ![Sitrus Berry](https://raw.githubusercontent.com/cesaroeduardo/unite-lib/main/neutrals/sitrus.png) Sitrus Berry | | |
+| ![Salac Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/salac.png) Salac Berry | ![Sitrus Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/sitrus.png) Sitrus Berry | | |
 
 ---
 
@@ -166,6 +211,18 @@ npm install
 
 Whenever you change the library, run `npm run build` in it and, to refresh the copy in the consumer, run `npm install` again in the project (or use `npm update unite-lib`).
 
+### Roster & moves (contributors)
+
+Names and paths for skills are maintained in **`src/pokemons.ts`**. External data source for display names (same roster as [unite-db](https://unite-db.com)) is **`https://unite-db.com/pokemon.json`**.
+
+| Script | Purpose |
+|--------|---------|
+| `npm run sync:unite-db-skill-names` | Fill / refresh `images.move_*.{ name }` from `pokemon.json` (dry run; add `-- --write`; optional `-- --slug=…`) |
+| `npm run audit:missing-base-skills` | List Pokémon that have branch slots in TS but are missing `p1`/`s1`/`s2`/`u1` vs unite-db (add `-- --grid-only` for a fixed name subset) |
+| `npm run fill:missing-base-skills` | Insert missing `move_p1` / `move_s1` / `move_s2` / `move_u1` blocks; add `-- --write`. After that, `npm run fill:missing-base-skills -- --download-base-pngs` fetches CloudFront icons where URLs resolve |
+| `npm run sync:skills` | Download move PNGs from the CloudFront layout used by [Pokebag](https://www.npmjs.com/package/@pokebag/pokemon-unite-data) metadata (`-- --slug=…` optional) |
+| `npm run migrate:move-slots` | One-off migration helper for older string-only `move_*` entries |
+
 ### Images when testing locally
 
 Image paths are relative (e.g. `pokemons/roster-venusaur.png`). In the consumer you can:
@@ -187,6 +244,7 @@ Image paths are relative (e.g. `pokemons/roster-venusaur.png`). In the consumer 
 Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 
 - `https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.png`
+- `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.png`
 - `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.png`
 
 ## API overview
@@ -194,13 +252,16 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | Export | Description |
 |--------|-------------|
 | `pokemons` | Full roster (name, dex, images, battleType, stats, tags, difficulty) |
-| `moves` | Move list (pokemonId, slotId, name, image) |
+| `moves` | Flat move list derived from each Pokémon’s `images.move_*` (pokemonId, slotId, name, image) |
 | `maps` | Map list (id, name, image, images by resolution, description) |
 | `neutrals` | Neutral catalog (id, image; wild Pokémon/items for spawns) |
 | `spawns` | All map spawns (mapId, neutralId, left, top, spawnTime, respawnTime, etc.) |
 | `BattleType` | `attacker`, `defender`, `allrounder`, `speedster`, `supporter` |
 | `Tag` | Role + style: `attacker`, `defender`, `melee`, `ranged`, … |
-| `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` |
+| `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` (supports `move_*` as string or `{ name, image }`) |
+| `getPokemonSkillNames(pokemon)` | Skill display names from `images.move_*` (+ optional `skillNames` overrides) |
+| `resolveMoveSlot(pokemon, slotId)` | One slot as `{ name, image }` or `null` (`slotId`: `p1`, `s1`, `s11`, …, `u1`) |
+| `POKEMON_MOVE_SLOT_IDS` | Readonly ordered list of move slot ids used when building the `moves` array |
 | `getMapImageUrl(map, resolution?, options?)` | Map image URL (resolution: `"1"`, `"2"`, `"4"`) |
 | `getNeutralImageUrl(neutral, options?)` | Neutral image path or full URL |
 | `getSpawnsByMap(mapId)` | Spawns for a map (e.g. `"map-groudon"`) |
@@ -215,16 +276,18 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `getMapName(mapId, locale)` | Localized map name |
 | `getMapDescription(mapId, locale)` | Localized map description |
 
-Types: `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `Move`, etc.).
+Types: `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `PokemonImages`, `MoveSlotEntry`, `MoveSlotValue`, `MoveSlotId`, `Move`, etc.).
 
 ## Project structure
 
 - **`dist/`** — Built ESM, CJS, and IIFE; type definitions (`.d.ts`)
 - **`pokemons/`** — Roster and stat images
-- **`moves/`** — Move images
+- **`src/pokemons.ts`** — Roster source: `images.move_*` as `{ name, image }` (or legacy string paths)
+- **`moves/`** — Move skill PNGs (`{slug}_{slot}.png`, e.g. `venusaur_p1.png`, `venusaur_s11.png`)
 - **`maps/`** — Map images
 - **`neutrals/`** — Wild Pokémon and item images used in map spawns
 - **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) for use with AI agents in this repo (e.g. syncing roster from images in `pokemons/` and `moves/`).
+- **`dev/scripts/`** — Node helpers for roster/moves (unite-db sync, Pokebag CDN downloads, audits); see [Roster & moves (contributors)](#roster--moves-contributors)
 - **`mcp/`** — [MCP server](mcp/README.md) (Model Context Protocol) para consumir a library em agentes de IA: tools para listar e buscar pokémons, moves, mapas, URLs de imagens e nomes localizados (Cursor, Claude Desktop, etc.).
 
 ## Releases (publicação no npm)

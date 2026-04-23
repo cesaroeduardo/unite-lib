@@ -29,3 +29,6 @@ Thumbs.db
 
 # Spawn editor local edits (optional; remove to commit shared edits)
 dev/spawn-editor/edits.json
+
+# PokéAPI move sync cache (regenerate: npm run sync:move-names-pokeapi)
+dev/cache/pokeapi-move-names-cache.json

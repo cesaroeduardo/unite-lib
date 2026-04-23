@@ -1,12 +1,17 @@
 import type {
   Pokemon,
   PokemonImages,
+  PokemonSkillNames,
+  MoveSlotEntry,
+  MoveSlotId,
+  BattleType,
+  Tag,
   Map,
   MapResolution,
   Neutral,
   MapSpawn,
 } from "./types";
-import type { BattleType, Tag } from "./types";
+import { POKEMON_MOVE_SLOT_IDS } from "./types";
 import pokemons from "./pokemons";
 import neutrals from "./neutrals";
 import spawns from "./spawns";
@@ -25,8 +30,15 @@ export function getImageUrl(
   imageKey: keyof PokemonImages,
   options?: GetImageUrlOptions
 ): string {
-  const path = pokemon.images[imageKey];
-  if (path == null || path === "") return "";
+  const raw = pokemon.images[imageKey];
+  if (raw == null || raw === "") return "";
+  const path =
+    typeof raw === "string"
+      ? raw
+      : typeof raw === "object" && raw != null && "image" in raw
+        ? (raw as MoveSlotEntry).image
+        : "";
+  if (path === "") return "";
   const base = options?.baseUrl?.replace(/\/$/, "");
   return base ? `${base}/${path}` : path;
 }
@@ -131,6 +143,49 @@ export function getPokemonByDex(dex: number): Pokemon | undefined {
  */
 export function getPokemonSlug(pokemon: Pokemon): string {
   return pokemon.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
+}
+
+/**
+ * Resolved English skill names from `images.move_*.{ name }` and optional deprecated `skillNames` overrides.
+ */
+export function getPokemonSkillNames(pokemon: Pokemon): PokemonSkillNames {
+  const merged: PokemonSkillNames = {};
+  for (const slotId of POKEMON_MOVE_SLOT_IDS) {
+    const key = `move_${slotId}` as keyof PokemonImages;
+    const v = pokemon.images[key];
+    if (
+      v &&
+      typeof v === "object" &&
+      "name" in v &&
+      (v as MoveSlotEntry).name != null &&
+      (v as MoveSlotEntry).name !== ""
+    ) {
+      merged[slotId] = (v as MoveSlotEntry).name;
+    }
+  }
+  return { ...merged, ...pokemon.skillNames };
+}
+
+/**
+ * Resolves one move slot to `{ name, image }`.
+ * Supports legacy `images.move_*` as a plain string path.
+ */
+export function resolveMoveSlot(
+  pokemon: Pokemon,
+  slotId: MoveSlotId
+): { name: string; image: string } | null {
+  const key = `move_${slotId}` as keyof PokemonImages;
+  const raw = pokemon.images[key];
+  if (raw == null || raw === "") return null;
+  const names = getPokemonSkillNames(pokemon);
+  const fallbackName = names[slotId] ?? `${pokemon.name} (${slotId})`;
+  if (typeof raw === "string") {
+    return { name: fallbackName, image: raw };
+  }
+  return {
+    name: raw.name !== "" ? raw.name : fallbackName,
+    image: raw.image,
+  };
 }
 
 export function getPokemonBySlug(slug: string): Pokemon | undefined {
