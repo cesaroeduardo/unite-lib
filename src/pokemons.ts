@@ -1015,6 +1015,29 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 1
 },
 {
+  "name": "Typhlosion",
+  "dex": 157,
+  "images": {
+    "main": "pokemons/roster-typhlosion.png",
+    "big": "pokemons/roster-typhlosion-2x.png",
+    "complete": "pokemons/stat-typhlosion.png",
+  },
+  "active": true,
+  "battleType": BattleType.ATTACKER,
+  "stats": {
+    "offense": 4,
+    "endurance": 2,
+    "mobility": 3,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.ATTACKER,
+    Tag.RANGED
+  ],
+  "difficulty": 2
+},
+{
   "name": "Azumarill",
   "dex": 184,
   "images": {
