@@ -1,0 +1,378 @@
+/**
+ * Rebuilds `move.*` entries in `src/i18n/pt-BR.ts` between move-names markers
+ * using Spanish (es.ts) as base + slug overrides for Brazilian Portuguese.
+ *
+ * Run: node dev/scripts/build-move-names-ptbr.mjs
+ */
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, "../..");
+const ES = path.join(ROOT, "src/i18n/es.ts");
+const PT = path.join(ROOT, "src/i18n/pt-BR.ts");
+
+const BEGIN = "// @begin move-names-i18n";
+const END = "// @end move-names-i18n";
+
+/** Official / usual Pokémon pt-BR names where they differ from es.ts Spanish. */
+const PT_BY_SLUG = {
+  "acid-spray": "Spray Ácido",
+  "acrobatics": "Acrobacia",
+  "aerial-ace": "Golpe Aéreo",
+  "agility": "Agilidade",
+  "air-slash": "Talho Aéreo",
+  "amnesia": "Amnésia",
+  "anchor-shot": "Tiro Âncora",
+  "ancient-power": "Poder Ancestral",
+  "aqua-jet": "Aqua-jato",
+  "aqua-ring": "Aqua-ring",
+  "aqua-tail": "Rabo de Água",
+  "armor-cannon": "Canhão Blindado",
+  "assurance": "Garantia",
+  "astonish": "Abalo",
+  "aurora-veil": "Véu Aurora",
+  "avalanche": "Avalanche",
+  "baby-doll-eyes": "Olhos Encantadores",
+  "barrier": "Barreira",
+  "beat-up": "Surra",
+  "belch": "Arroto",
+  "bite": "Mordida",
+  "bitter-blade": "Lâmina Amarga",
+  "blaze": "Brasa",
+  "blaze-kick": "Chute Labareda",
+  "blizzard": "Nevasca",
+  "block": "Bloqueio",
+  "bone-rush": "Investida Óssea",
+  "bounce": "Salto",
+  "branch-poke": "Toque de Galho",
+  "brave-bird": "Pássaro Bravio",
+  "brutal-swing": "Giro Perverso",
+  "bubble": "Bolha",
+  "bubble-beam": "Raio Bolha",
+  "bulk-up": "Corpulência",
+  "bulldoze": "Tremor",
+  "bullet-punch": "Soco Projétil",
+  "bullet-seed": "Rajada de Sementes",
+  "calm-mind": "Calma Mental",
+  "charge-beam": "Raio Carregado",
+  "charm": "Encanto",
+  "close-combat": "Combate Corpo a Corpo",
+  "coaching": "Treinamento",
+  "confuse-ray": "Raio Confuso",
+  "confusion": "Confusão",
+  "cotton-guard": "Guarda de Algodão",
+  "cotton-spore": "Esporo de Algodão",
+  "covet": "Desejo",
+  "cross-chop": "Talho Cruzado",
+  "curse": "Maldição",
+  "cut": "Corte",
+  "dark-pulse": "Pulso Sombrio",
+  "dark-void": "Buraco Negro",
+  "dazzling-gleam": "Brilho Mágico",
+  "decorate": "Decorar",
+  "defense-curl": "Enrolar",
+  "detect": "Detetar",
+  "dig": "Cavar",
+  "disable": "Desabilitar",
+  "disarming-voice": "Voz Desarmante",
+  "discharge": "Descarga",
+  "dive": "Mergulho",
+  "double-hit": "Golpe Duplo",
+  "double-slap": "Tapa Duplo",
+  "double-team": "Duplicidade",
+  "draco-meteor": "Meteoro do Dragão",
+  "dragon-breath": "Hálito de Dragão",
+  "dragon-cheer": "Brado Dracônico",
+  "dragon-claw": "Garra de Dragão",
+  "dragon-dance": "Dança do Dragão",
+  "dragon-pulse": "Pulso do Dragão",
+  "dragon-rush": "Investida de Dragão",
+  "dragon-tail": "Cauda de Dragão",
+  "draining-kiss": "Beijo Drenante",
+  "dream-eater": "Devorador de Sonhos",
+  "drill-peck": "Bico Broca",
+  "dual-wingbeat": "Asas Duplas",
+  "dynamic-punch": "Soco Dinâmico",
+  "earthquake": "Terremoto",
+  "egg-bomb": "Bomba de Ovo",
+  "electro-ball": "Bola Elétrica",
+  "electro-drift": "Deriva Elétrica",
+  "electroweb": "Teia Elétrica",
+  "ember": "Brasas",
+  "eruption": "Erupção",
+  "explosive-heat-haze": "Neblina de Calor Explosiva",
+  "extreme-speed": "Extrema Velocidade",
+  "fairy-wind": "Vento de Fada",
+  "fake-out": "Surpresa",
+  "fake-tears": "Lágrimas Falsas",
+  "feather-dance": "Dança de Penas",
+  "feint": "Finta",
+  "feint-attack": "Ataque Falso",
+  "fell-stinger": "Ferrão Mortal",
+  "fire-blast": "Rajada de Fogo",
+  "fire-punch": "Soco de Fogo",
+  "fire-spin": "Chama Furacão",
+  "flail": "Agonizar",
+  "flame-burst": "Rajas de Fogo",
+  "flame-charge": "Nitrocarregamento",
+  "flame-wheel": "Roda de Fogo",
+  "flamethrower": "Lança-chamas",
+  "flare-blitz": "Labareda",
+  "flash-cannon": "Canhão de Luz",
+  "flip-turn": "Viravolta",
+  "floral-healing": "Cura Floral",
+  "flower-trick": "Truque Floral",
+  "fly": "Voo",
+  "focus-blast": "Explosão Focada",
+  "follow-me": "Chamariz",
+  "foul-play": "Jogo Sujo",
+  "freeze-dry": "Congelamento Seco",
+  "fury-cutter": "Cortador de Fúria",
+  "fury-swipes": "Golpes de Fúria",
+  "future-sight": "Visão do Futuro",
+  "giga-drain": "Gigadreno",
+  "gigaton-hammer": "Marreta Gigaton",
+  "grass-knot": "Nó de Grama",
+  "grassy-glide": "Deslize Gramado",
+  "gravity": "Gravidade",
+  "growl": "Rosnar",
+  "gyro-ball": "Girobola",
+  "headbutt": "Cabeçada",
+  "heal-pulse": "Pulso Cura",
+  "heat-wave": "Onda de Calor",
+  "heavy-slam": "Corpo Pesado",
+  "helping-hand": "Mãozinha",
+  "hex": "Malefício",
+  "high-horsepower": "Força Equina",
+  "hone-claws": "Afia Garras",
+  "horn-leech": "Chifre de Suga",
+  "hurricane": "Furacão",
+  "hydro-cannon": "Hidrocanhão",
+  "hydro-pump": "Jato d'Água",
+  "hyper-beam": "Hiper Raio",
+  "hyper-voice": "Hiper Voz",
+  "hyperspace-hole": "Buraco Dimensional",
+  "hypnosis": "Hipnose",
+  "ice-beam": "Raio de Gelo",
+  "ice-fang": "Presas de Gelo",
+  "ice-hammer": "Martelo de Gelo",
+  "ice-shard": "Estilha de Gelo",
+  "icicle-crash": "Queda de Estalos",
+  "icicle-spear": "Lança de Gelo",
+  "icy-wind": "Vento Congelante",
+  "imprison": "Aprisionar",
+  "incinerate": "Incinerar",
+  "iron-defense": "Defesa de Ferro",
+  "iron-head": "Cabeça de Ferro",
+  "jump-kick": "Chute em Salto",
+  "karate-chop": "Golpe de Karatê",
+  "knock-off": "Derrubar",
+  "laser-focus": "Foco Laser",
+  "lava-plume": "Pluma de Lava",
+  "leaf-blade": "Folha Navalha",
+  "leaf-storm": "Tempestade de Folhas",
+  "leaf-tornado": "Tornado de Folhas",
+  "leafage": "Folhagem",
+  "leech-life": "Sanguessuga",
+  "lick": "Lambida",
+  "light-screen": "Tela de Luz",
+  "liquidation": "Liquidação",
+  "low-sweep": "Baixa Voadora",
+  "lunge": "Arremetida",
+  "luster-purge": "Purificação Lustrosa",
+  "mach-punch": "Soco Mach",
+  "magical-leaf": "Folha Mágica",
+  "magnet-rise": "Eletromagnetismo",
+  "mean-look": "Olhar Malvado",
+  "mega-punch": "Megasoco",
+  "megahorn": "Megachifre",
+  "metal-claw": "Garra de Metal",
+  "meteor-mash": "Meteoro Esmagador",
+  "mist-ball": "Bola de Neblina",
+  "moonblast": "Explosão Lunar",
+  "moonlight": "Luar",
+  "muddy-water": "Água Lodosa",
+  "mystical-fire": "Fogo Místico",
+  "nasty-plot": "Trama",
+  "night-shade": "Sombra Noturna",
+  "night-slash": "Talho Noturno",
+  "no-retreat": "Sem Retirada",
+  "nuzzle": "Chamego",
+  "outrage": "Ultraje",
+  "overheat": "Superaquecimento",
+  "pain-split": "Divisão da Dor",
+  "parabolic-charge": "Carga Parabólica",
+  "pay-day": "Dia de Pagamento",
+  "payback": "Revide",
+  "peck": "Bicada",
+  "perish-song": "Canção Perversa",
+  "petal-dance": "Dança de Pétalas",
+  "phantom-force": "Força Fantasma",
+  "play-rough": "Jogo Duro",
+  "pollen-puff": "Bola de Pólen",
+  "poltergeist": "Poltergeist",
+  "pound": "Pancada",
+  "powder-snow": "Nevasca de Pó",
+  "power-swap": "Troca de Poder",
+  "power-up-punch": "Soco Poderoso",
+  "power-whip": "Chicote Poderoso",
+  "psybeam": "Feixe Psíquico",
+  "psychic": "Psíquico",
+  "psycho-cut": "Corte Psíquico",
+  "psyshock": "Choque Psíquico",
+  "psystrike": "Golpe Psíquico",
+  "pursuit": "Perseguição",
+  "pyro-ball": "Bola de Fogo",
+  "quick-attack": "Ataque Rápido",
+  "rapid-spin": "Giro Rápido",
+  "razor-leaf": "Folha Navalha",
+  "recover": "Recuperar",
+  "rest": "Descanso",
+  "rock-polish": "Polimento Rochoso",
+  "rock-slide": "Deslize de Rochas",
+  "rock-smash": "Esmagamento de Pedras",
+  "rock-tomb": "Túmulo de Rochas",
+  "rollout": "Rolar",
+  "sacred-fire": "Fogo Sagrado",
+  "sacred-sword": "Espada Sagrada",
+  "safeguard": "Velo Místico",
+  "sand-attack": "Ataque de Areia",
+  "sand-tomb": "Sepultamento de Areia",
+  "scald": "Escaldar",
+  "scratch": "Arranhão",
+  "seed-bomb": "Bomba de Sementes",
+  "shadow-ball": "Bola Sombria",
+  "shadow-claw": "Garra Sombria",
+  "shadow-sneak": "Sombra Furtiva",
+  "shell-smash": "Quebra-cascos",
+  "sing": "Cantar",
+  "skull-bash": "Cabecada",
+  "sky-attack": "Ataque Celeste",
+  "slack-off": "Omitir",
+  "slash": "Talho",
+  "sludge-bomb": "Bomba de Lodo",
+  "smack-down": "Queda Livre",
+  "smart-strike": "Golpe Certeiro",
+  "smokescreen": "Tela de Fumaça",
+  "snarl": "Rosnado",
+  "snipe-shot": "Tiro de Elite",
+  "soft-boiled": "Ovo Cozido",
+  "solar-beam": "Raio Solar",
+  "solar-blade": "Lâmina Solar",
+  "spark": "Faísca",
+  "spirit-shackle": "Cadeia Espiritual",
+  "splash": "Splash",
+  "stealth-rock": "Armadilha de Rochas",
+  "stomp": "Pisotear",
+  "stone-edge": "Pedra Afiada",
+  "stored-power": "Poder Reserva",
+  "stuff-cheeks": "Bochechas Cheias",
+  "submission": "Submissão",
+  "substitute": "Substituto",
+  "sucker-punch": "Soco Surpresa",
+  "supercell-slam": "Pancada Trovejante",
+  "superpower": "Superpoder",
+  "surf": "Surf",
+  "surging-strikes": "Golpes Surpreendentes",
+  "sweet-kiss": "Beijo Doce",
+  "sweet-scent": "Aroma Doce",
+  "swift": "Meteoros",
+  "swords-dance": "Dança das Espadas",
+  "synthesis": "Síntese",
+  "tackle": "Investida",
+  "tail-whip": "Chicote de Cauda",
+  "tailwind": "Cauda Vento",
+  "take-down": "Investida Destruidora",
+  "tearful-look": "Olhar Lacrimejante",
+  "telekinesis": "Telecinese",
+  "teleport": "Teleporte",
+  "thief": "Roubar",
+  "throat-chop": "Golpe de Garganta",
+  "thunder": "Trovão",
+  "thunder-punch": "Soco Trovão",
+  "thunder-shock": "Choque do Trovão",
+  "thunder-wave": "Onda de Trovão",
+  "thunderbolt": "Raio",
+  "trailblaze": "Rastro Flamejante",
+  "tri-attack": "Triataque",
+  "trick": "Truque",
+  "trick-room": "Espaço Estranho",
+  "triple-axel": "Triplo Axel",
+  "trop-kick": "Chute Tropical",
+  "twister": "Twister",
+  "vine-whip": "Chicote de Vinha",
+  "volt-switch": "Troca Elétrica",
+  "volt-tackle": "Investida Elétrica",
+  "water-gun": "Pistola d'Água",
+  "water-pulse": "Pulso d'Água",
+  "water-shuriken": "Shuriken d'Água",
+  "water-spout": "Jorrada",
+  "waterfall": "Cachoeira",
+  "whirlpool": "Redemoinho",
+  "wicked-blow": "Golpe Obscuro",
+  "wide-guard": "Barreira Ampla",
+  "wild-charge": "Investida Selvagem",
+  "will-o-wisp": "Fogo Fátuo",
+  "wing-attack": "Ataque de Asa",
+  "wish": "Desejo",
+  "wood-hammer": "Martelo de Madeira",
+  "x-scissor": "Tesoura-X",
+  "yawn": "Bocejo",
+  "zap-cannon": "Canhão Elétrico",
+  "zen-headbutt": "Cabeçada Zen",
+};
+
+function parseMoveBlock(text) {
+  const inner = text.split(BEGIN)[1].split(END)[0];
+  const re = /"move\.([^"]+)": "([^"]+)"/g;
+  /** @type {Record<string, string>} */
+  const out = {};
+  let m;
+  while ((m = re.exec(inner)) !== null) out[m[1]] = m[2];
+  return out;
+}
+
+function injectBetweenMarkers(fileContent, newInner) {
+  const bi = fileContent.indexOf(BEGIN);
+  if (bi === -1) throw new Error("Missing begin marker");
+  const nl = fileContent.indexOf("\n", bi);
+  const afterBegin = nl + 1;
+  const ei = fileContent.indexOf(END, afterBegin);
+  if (ei === -1) throw new Error("Missing end marker");
+  return fileContent.slice(0, afterBegin) + newInner + fileContent.slice(ei);
+}
+
+function formatProps(map, indent) {
+  const pad = " ".repeat(indent);
+  return Object.keys(map)
+    .sort()
+    .map((slug) => {
+      const k = `move.${slug}`;
+      return `${pad}${JSON.stringify(k)}: ${JSON.stringify(map[slug])}`;
+    })
+    .join(",\n");
+}
+
+async function main() {
+  const esText = await fs.readFile(ES, "utf8");
+  const esMoves = parseMoveBlock(esText);
+  const slugs = Object.keys(esMoves).sort();
+  /** @type {Record<string, string>} */
+  const ptMoves = {};
+  for (const slug of slugs) {
+    if (PT_BY_SLUG[slug]) ptMoves[slug] = PT_BY_SLUG[slug];
+    else ptMoves[slug] = esMoves[slug];
+  }
+  const inner = `${formatProps(ptMoves, 2)},\n`;
+  const ptFile = await fs.readFile(PT, "utf8");
+  const out = injectBetweenMarkers(ptFile, inner);
+  await fs.writeFile(PT, out, "utf8");
+  console.log(`Updated ${PT} (${Object.keys(ptMoves).length} moves).`);
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

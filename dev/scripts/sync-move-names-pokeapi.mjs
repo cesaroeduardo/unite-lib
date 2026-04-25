@@ -3,6 +3,10 @@
  * `// @begin move-names-i18n` and `// @end move-names-i18n`.
  * Keys: `move.<slug>` (same slug as `moveNameToKey(english roster name)`).
  *
+ * Note: PokéAPI `pt-br` move names are identical to English for all moves,
+ * so Brazilian Portuguese is maintained separately — run
+ * `npm run build:move-names-ptbr` after syncing if the roster changed.
+ *
  * Usage:
  *   node dev/scripts/sync-move-names-pokeapi.mjs
  *   node dev/scripts/sync-move-names-pokeapi.mjs --rebuild-index

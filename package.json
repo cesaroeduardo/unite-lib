@@ -37,7 +37,8 @@
     "fill:missing-base-skills": "node dev/scripts/fill-missing-base-skills.mjs",
     "sync:skills:apply-keys": "node dev/scripts/apply-skill-image-keys.mjs",
     "migrate:move-slots": "node dev/scripts/migrate-move-slots.mjs",
-    "sync:move-names-pokeapi": "node dev/scripts/sync-move-names-pokeapi.mjs"
+    "sync:move-names-pokeapi": "node dev/scripts/sync-move-names-pokeapi.mjs",
+    "build:move-names-ptbr": "node dev/scripts/build-move-names-ptbr.mjs"
   },
   "keywords": [
     "pokemon",
