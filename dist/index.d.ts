@@ -1,4 +1,4 @@
-export { Locale, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, moveNameToKey } from './i18n/index.js';
+export { Locale, getBattleItemName, getHeldItemName, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, moveNameToKey } from './i18n/index.js';
 
 /**
  * Battle role in Pokémon Unite (Attacker, Defender, etc.).
@@ -109,6 +109,24 @@ interface Map {
     /** Optional description. */
     description?: string;
 }
+/** Consumable item used during battle (e.g. Eject Button, Potion). */
+interface BattleItem {
+    id: string;
+    /** Image path (relative to package root or baseUrl). */
+    image: string;
+    /** Display name in English (use getBattleItemName for other locales). */
+    name: string;
+}
+/** Passive item held by a Pokémon during battle (e.g. Muscle Band, Buddy Barrier). */
+interface HeldItem {
+    id: string;
+    /** Image path (relative to package root or baseUrl). */
+    image: string;
+    /** Display name in English (use getHeldItemName for other locales). */
+    name: string;
+    /** Pokémon name if this item is exclusive to a specific Pokémon. */
+    exclusive?: string;
+}
 /** Wild/neutral Pokémon or item that can spawn on a map. */
 interface Neutral {
     id: string;
@@ -148,6 +166,10 @@ declare const maps: Map[];
 declare const neutrals: Neutral[];
 
 declare const spawns: MapSpawn[];
+
+declare const battleItems: BattleItem[];
+
+declare const heldItems: HeldItem[];
 
 interface GetImageUrlOptions {
     /** Base URL for assets (e.g. CDN). No trailing slash. */
@@ -213,5 +235,9 @@ declare function getPokemonBySlug(slug: string): Pokemon | undefined;
 declare function getPokemonsByBattleType(battleType: BattleType): Pokemon[];
 declare function getPokemonsByTag(tag: Tag): Pokemon[];
 declare function getActivePokemons(): Pokemon[];
+declare function getBattleItemById(id: string): BattleItem | undefined;
+declare function getHeldItemById(id: string): HeldItem | undefined;
+declare function getHeldItemsByPokemon(pokemonName: string): HeldItem[];
+declare function getExclusiveHeldItems(): HeldItem[];
 
-export { BattleType, type GetImageUrlOptions, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotEntry, type MoveSlotId, type MoveSlotValue, type Neutral, POKEMON_MOVE_SLOT_IDS, type Pokemon, type PokemonImages, type PokemonSkillNames, type PokemonStats, Tag, getActivePokemons, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSkillNames, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, getSpawnsByMapVisibleAt, isSpawnVisibleAtGameClock, maps, moves, neutrals, parseGameClockToSeconds, pokemons, resolveMoveSlot, spawns };
+export { type BattleItem, BattleType, type GetImageUrlOptions, type HeldItem, type Map, type MapResolution, type MapSpawn, type Move, type MoveSlotEntry, type MoveSlotId, type MoveSlotValue, type Neutral, POKEMON_MOVE_SLOT_IDS, type Pokemon, type PokemonImages, type PokemonSkillNames, type PokemonStats, Tag, battleItems, getActivePokemons, getBattleItemById, getExclusiveHeldItems, getHeldItemById, getHeldItemsByPokemon, getImageUrl, getMapImageUrl, getNeutralById, getNeutralImageUrl, getPokemonByDex, getPokemonByName, getPokemonBySlug, getPokemonSkillNames, getPokemonSlug, getPokemonsByBattleType, getPokemonsByTag, getSpawnsByMap, getSpawnsByMapVisibleAt, heldItems, isSpawnVisibleAtGameClock, maps, moves, neutrals, parseGameClockToSeconds, pokemons, resolveMoveSlot, spawns };

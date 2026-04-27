@@ -5,6 +5,8 @@ import {
   pokemons,
   moves,
   maps,
+  battleItems,
+  heldItems,
   getPokemonByName,
   getPokemonByDex,
   getPokemonBySlug,
@@ -13,6 +15,12 @@ import {
   getActivePokemons,
   getImageUrl,
   getPokemonName,
+  getBattleItemById,
+  getHeldItemById,
+  getHeldItemsByPokemon,
+  getExclusiveHeldItems,
+  getBattleItemName,
+  getHeldItemName,
   BattleType,
   Tag,
 } from "unite-lib";
@@ -214,6 +222,76 @@ server.registerTool(
     return {
       content: [{ type: "text", text: JSON.stringify({ slug, locale, name }) }],
     };
+  }
+);
+
+// list_battle_items
+server.registerTool(
+  "list_battle_items",
+  {
+    title: "List Battle Items",
+    description: "List all Pokémon Unite battle items with optional localized names.",
+    inputSchema: z.object({
+      locale: z.enum(LOCALES).optional(),
+    }),
+  },
+  async ({ locale = "en" }) => {
+    const result = battleItems.map((b) => ({
+      ...b,
+      displayName: getBattleItemName(b.id, locale as (typeof LOCALES)[number]),
+    }));
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// list_held_items
+server.registerTool(
+  "list_held_items",
+  {
+    title: "List Held Items",
+    description: "List all Pokémon Unite held items. Optionally filter by Pokémon name (includes non-exclusive + that Pokémon's exclusives) or list only exclusive items.",
+    inputSchema: z.object({
+      locale: z.enum(LOCALES).optional(),
+      pokemonName: z.string().optional().describe("Filter items available for a specific Pokémon (e.g. Lucario)"),
+      exclusiveOnly: z.boolean().optional().describe("Return only exclusive items (Mega Stones, Rusted Sword, etc.)"),
+    }),
+  },
+  async ({ locale = "en", pokemonName, exclusiveOnly }) => {
+    let list = exclusiveOnly
+      ? getExclusiveHeldItems()
+      : pokemonName
+        ? getHeldItemsByPokemon(pokemonName)
+        : [...heldItems];
+    const result = list.map((h) => ({
+      ...h,
+      displayName: getHeldItemName(h.id, locale as (typeof LOCALES)[number]),
+    }));
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// get_item_name
+server.registerTool(
+  "get_item_name",
+  {
+    title: "Get Item Name (i18n)",
+    description: "Get localized display name for a battle item or held item by id and locale.",
+    inputSchema: z.object({
+      itemType: z.enum(["battle", "held"]),
+      id: z.string().describe("Item id, e.g. eject-button or muscle-band"),
+      locale: z.enum(LOCALES).optional(),
+    }),
+  },
+  async ({ itemType, id, locale = "en" }) => {
+    const loc = locale as (typeof LOCALES)[number];
+    const item = itemType === "battle" ? getBattleItemById(id) : getHeldItemById(id);
+    if (!item) {
+      return { content: [{ type: "text", text: JSON.stringify({ error: "Item not found", itemType, id }) }] };
+    }
+    const displayName = itemType === "battle"
+      ? getBattleItemName(id, loc)
+      : getHeldItemName(id, loc);
+    return { content: [{ type: "text", text: JSON.stringify({ itemType, locale, displayName, ...item }) }] };
   }
 );
 

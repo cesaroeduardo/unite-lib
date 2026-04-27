@@ -12,6 +12,8 @@ export type {
   MapResolution,
   Neutral,
   MapSpawn,
+  BattleItem,
+  HeldItem,
 } from "./types";
 
 // Constants (BattleType and Tag: use for values; types come from ./types or inferred)
@@ -24,6 +26,8 @@ export { default as moves } from "./moves";
 export { default as maps } from "./maps";
 export { default as neutrals } from "./neutrals";
 export { default as spawns } from "./spawns";
+export { default as battleItems } from "./battleItems";
+export { default as heldItems } from "./heldItems";
 
 // Utils
 export {
@@ -44,6 +48,10 @@ export {
   getActivePokemons,
   parseGameClockToSeconds,
   isSpawnVisibleAtGameClock,
+  getBattleItemById,
+  getHeldItemById,
+  getHeldItemsByPokemon,
+  getExclusiveHeldItems,
 } from "./utils";
 export type { GetImageUrlOptions } from "./utils";
 
@@ -57,5 +65,7 @@ export {
   getSpawnInfoForSpawn,
   getMoveName,
   moveNameToKey,
+  getBattleItemName,
+  getHeldItemName,
 } from "./i18n";
 export type { Locale } from "./i18n";

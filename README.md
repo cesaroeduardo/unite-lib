@@ -1,6 +1,6 @@
 # unite-lib
 
-Assets and data library for **Pokémon Unite**: roster, names, images, moves, and maps. Use in any project via **npm** or **CDN**.
+Assets and data library for **Pokémon Unite**: roster, names, images, moves, maps, battle items, and held items. Use in any project via **npm** or **CDN**.
 
 ## Support
 
@@ -23,6 +23,8 @@ import {
   pokemons,
   moves,
   maps,
+  battleItems,
+  heldItems,
   BattleType,
   Tag,
   getPokemonByName,
@@ -32,6 +34,10 @@ import {
   getPokemonName,
   getPokemonSkillNames,
   resolveMoveSlot,
+  getBattleItemById,
+  getHeldItemById,
+  getBattleItemName,
+  getHeldItemName,
 } from "unite-lib";
 
 // All roster entries
@@ -141,6 +147,55 @@ Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map 
 | Groudon | Kyogre | Rayquaza |
 |---------|--------|----------|
 | ![Theia Sky Ruins (Groudon)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-groudon/map-groudon@2x.png) | ![Theia Sky Ruins (Kyogre)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-kyogre/map-kyogre@2x.png) | ![Theia Sky Ruins (Rayquaza)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-rayquaza/map-rayquaza@2x.png) |
+
+### Battle Items
+
+Consumable items used during battle (e.g. Eject Button, Potion). Images in `battle-items/`.
+
+```js
+import { battleItems, getBattleItemById, getBattleItemName } from "unite-lib";
+
+// All battle items
+console.log(battleItems.length); // 10
+
+// Lookup by id
+const btn = getBattleItemById("eject-button");
+// { id: "eject-button", image: "battle-items/eject-button.png", name: "Eject Button" }
+
+// Localized names
+getBattleItemName("eject-button", "pt-BR"); // "Botão de Ejeção"
+getBattleItemName("potion", "fr");          // "Potion"
+```
+
+| | | | | |
+|-|-|-|-|-|
+| ![Eject Button](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/eject-button.png) Eject Button | ![Potion](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/potion.png) Potion | ![X Attack](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-attack.png) X Attack | ![X Speed](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-speed.png) X Speed | ![Full Heal](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/full-heal.png) Full Heal |
+| ![Fluffy Tail](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/fluffy-tail.png) Fluffy Tail | ![Slow Smoke](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/slow-smoke.png) Slow Smoke | ![Goal Getter](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-getter.png) Goal Getter | ![Goal Hacker](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-hacker.png) Goal Hacker | ![Shedinja Doll](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/shedinja-doll.png) Shedinja Doll |
+
+### Held Items
+
+Passive items held by a Pokémon during battle (e.g. Muscle Band, Buddy Barrier). Images in `held-items/`. Some items have an `exclusive` field indicating the Pokémon they belong to (e.g. Mega Stones).
+
+```js
+import { heldItems, getHeldItemById, getHeldItemsByPokemon, getExclusiveHeldItems, getHeldItemName } from "unite-lib";
+
+// All held items
+console.log(heldItems.length); // 41
+
+// Lookup by id
+const band = getHeldItemById("muscle-band");
+// { id: "muscle-band", image: "held-items/muscle-band.png", name: "Muscle Band" }
+
+// Items available for a Pokémon (non-exclusive + that Pokémon's exclusives)
+getHeldItemsByPokemon("Lucario"); // all common items + Lucarionite
+
+// Only exclusive/mega-stone items
+getExclusiveHeldItems(); // Rusted Sword, Mewtwonite X/Y, Lucarionite, Charizardite X/Y, Gyaradosite
+
+// Localized names
+getHeldItemName("muscle-band", "pt-BR"); // "Faixa Muscular"
+getHeldItemName("buddy-barrier", "es");  // "Buddy Barrier" (falls back to English)
+```
 
 ### Neutrals and spawns
 
@@ -256,6 +311,8 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `maps` | Map list (id, name, image, images by resolution, description) |
 | `neutrals` | Neutral catalog (id, image; wild Pokémon/items for spawns) |
 | `spawns` | All map spawns (mapId, neutralId, left, top, spawnTime, respawnTime, etc.) |
+| `battleItems` | Battle item catalog (id, image, name) — 10 items |
+| `heldItems` | Held item catalog (id, image, name, exclusive?) — 41 items |
 | `BattleType` | `attacker`, `defender`, `allrounder`, `speedster`, `supporter` |
 | `Tag` | Role + style: `attacker`, `defender`, `melee`, `ranged`, … |
 | `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` (supports `move_*` as string or `{ name, image }`) |
@@ -266,6 +323,10 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `getNeutralImageUrl(neutral, options?)` | Neutral image path or full URL |
 | `getSpawnsByMap(mapId)` | Spawns for a map (e.g. `"map-groudon"`) |
 | `getNeutralById(id)` | Find neutral by id |
+| `getBattleItemById(id)` | Find battle item by id (e.g. `"eject-button"`) |
+| `getHeldItemById(id)` | Find held item by id (e.g. `"muscle-band"`) |
+| `getHeldItemsByPokemon(pokemonName)` | Held items available for a Pokémon (non-exclusive + that Pokémon’s exclusives) |
+| `getExclusiveHeldItems()` | Only exclusive held items (Mega Stones, Rusted Sword, etc.) |
 | `getPokemonByName(name)` | Find by display name |
 | `getPokemonByDex(dex)` | Find by Pokédex number |
 | `getPokemonBySlug(slug)` | Find by slug (e.g. `venusaur`) |
@@ -275,8 +336,10 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `getPokemonName(slug, locale)` | Localized Pokémon name (from main package or `unite-lib/i18n`) |
 | `getMapName(mapId, locale)` | Localized map name |
 | `getMapDescription(mapId, locale)` | Localized map description |
+| `getBattleItemName(id, locale)` | Localized battle item name |
+| `getHeldItemName(id, locale)` | Localized held item name |
 
-Types: `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `PokemonImages`, `MoveSlotEntry`, `MoveSlotValue`, `MoveSlotId`, `Move`, etc.).
+Types: `BattleItem`, `HeldItem`, `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `PokemonImages`, `MoveSlotEntry`, `MoveSlotValue`, `MoveSlotId`, `Move`, etc.).
 
 ## Project structure
 
@@ -286,6 +349,8 @@ Types: `Neutral`, `MapSpawn` (see also `Map`, `MapResolution`, `Pokemon`, `Pokem
 - **`moves/`** — Move skill PNGs (`{slug}_{slot}.png`, e.g. `venusaur_p1.png`, `venusaur_s11.png`)
 - **`maps/`** — Map images
 - **`neutrals/`** — Wild Pokémon and item images used in map spawns
+- **`battle-items/`** — Battle item images (10 items)
+- **`held-items/`** — Held item images (41 items)
 - **`.cursor/skills/`** — [Cursor Agent Skills](https://docs.cursor.com/context/agent-skills) for use with AI agents in this repo (e.g. syncing roster from images in `pokemons/` and `moves/`).
 - **`dev/scripts/`** — Node helpers for roster/moves (unite-db sync, Pokebag CDN downloads, audits); see [Roster & moves (contributors)](#roster--moves-contributors)
 - **`mcp/`** — [MCP server](mcp/README.md) (Model Context Protocol) para consumir a library em agentes de IA: tools para listar e buscar pokémons, moves, mapas, URLs de imagens e nomes localizados (Cursor, Claude Desktop, etc.).

@@ -3,7 +3,13 @@
     "allow": [
       "WebSearch",
       "WebFetch(domain:unite-db.com)",
-      "WebFetch(domain:game8.co)"
+      "WebFetch(domain:game8.co)",
+      "WebFetch(domain:uniteapi.dev)",
+      "WebFetch(domain:www.serebii.net)",
+      "WebFetch(domain:bulbapedia.bulbagarden.net)",
+      "WebFetch(domain:www.pokemon-unite.gg)",
+      "Bash(python3 -)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

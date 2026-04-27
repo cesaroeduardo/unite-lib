@@ -137,6 +137,26 @@ export interface Map {
   description?: string;
 }
 
+/** Consumable item used during battle (e.g. Eject Button, Potion). */
+export interface BattleItem {
+  id: string;
+  /** Image path (relative to package root or baseUrl). */
+  image: string;
+  /** Display name in English (use getBattleItemName for other locales). */
+  name: string;
+}
+
+/** Passive item held by a Pokémon during battle (e.g. Muscle Band, Buddy Barrier). */
+export interface HeldItem {
+  id: string;
+  /** Image path (relative to package root or baseUrl). */
+  image: string;
+  /** Display name in English (use getHeldItemName for other locales). */
+  name: string;
+  /** Pokémon name if this item is exclusive to a specific Pokémon. */
+  exclusive?: string;
+}
+
 /** Wild/neutral Pokémon or item that can spawn on a map. */
 export interface Neutral {
   id: string;

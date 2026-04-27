@@ -2983,6 +2983,67 @@ var neutrals = [
 ];
 var neutrals_default = neutrals;
 
+// src/battleItems.ts
+var battleItems = [
+  { id: "potion", image: "battle-items/potion.png", name: "Potion" },
+  { id: "x-attack", image: "battle-items/x-attack.png", name: "X Attack" },
+  { id: "x-speed", image: "battle-items/x-speed.png", name: "X Speed" },
+  { id: "fluffy-tail", image: "battle-items/fluffy-tail.png", name: "Fluffy Tail" },
+  { id: "eject-button", image: "battle-items/eject-button.png", name: "Eject Button" },
+  { id: "slow-smoke", image: "battle-items/slow-smoke.png", name: "Slow Smoke" },
+  { id: "full-heal", image: "battle-items/full-heal.png", name: "Full Heal" },
+  { id: "goal-getter", image: "battle-items/goal-getter.png", name: "Goal-Getter" },
+  { id: "shedinja-doll", image: "battle-items/shedinja-doll.png", name: "Shedinja Doll" },
+  { id: "goal-hacker", image: "battle-items/goal-hacker.png", name: "Goal Hacker" }
+];
+var battleItems_default = battleItems;
+
+// src/heldItems.ts
+var heldItems = [
+  { id: "aeos-cookie", image: "held-items/aeos-cookie.png", name: "Aeos Cookie" },
+  { id: "attack-weight", image: "held-items/attack-weight.png", name: "Attack Weight" },
+  { id: "special-attack-specs", image: "held-items/special-attack-specs.png", name: "Sp. Atk Specs" },
+  { id: "shell-bell", image: "held-items/shell-bell.png", name: "Shell Bell" },
+  { id: "float-stone", image: "held-items/float-stone.png", name: "Float Stone" },
+  { id: "muscle-band", image: "held-items/muscle-band.png", name: "Muscle Band" },
+  { id: "scope-lens", image: "held-items/scope-lens.png", name: "Scope Lens" },
+  { id: "wise-glasses", image: "held-items/wise-glasses.png", name: "Wise Glasses" },
+  { id: "leftovers", image: "held-items/leftovers.png", name: "Leftovers" },
+  { id: "exp-share", image: "held-items/exp-share.png", name: "Exp. Share" },
+  { id: "focus-band", image: "held-items/focus-band.png", name: "Focus Band" },
+  { id: "energy-amplifier", image: "held-items/energy-amplifier.png", name: "Energy Amplifier" },
+  { id: "buddy-barrier", image: "held-items/buddy-barrier.png", name: "Buddy Barrier" },
+  { id: "score-shield", image: "held-items/score-shield.png", name: "Score Shield" },
+  { id: "assault-vest", image: "held-items/assault-vest.png", name: "Assault Vest" },
+  { id: "rocky-helmet", image: "held-items/rocky-helmet.png", name: "Rocky Helmet" },
+  { id: "razor-claw", image: "held-items/razor-claw.png", name: "Razor Claw" },
+  { id: "choice-specs", image: "held-items/choice-specs.png", name: "Choice Specs" },
+  { id: "weakness-policy", image: "held-items/weakness-policy.png", name: "Weakness Policy" },
+  { id: "rapid-fire-scarf", image: "held-items/rapid-fire-scarf.png", name: "Rapid-Fire Scarf" },
+  { id: "drain-crown", image: "held-items/drain-crown.png", name: "Drain Crown" },
+  { id: "slick-spoon", image: "held-items/slick-spoon.png", name: "Slick Spoon" },
+  { id: "rescue-hood", image: "held-items/rescue-hood.png", name: "Rescue Hood" },
+  { id: "curse-bangle", image: "held-items/curse-bangle.png", name: "Curse Bangle" },
+  { id: "curse-incense", image: "held-items/curse-incense.png", name: "Curse Incense" },
+  { id: "charging-charm", image: "held-items/charging-charm.png", name: "Charging Charm" },
+  { id: "resonant-guard", image: "held-items/resonant-guard.png", name: "Resonant Guard" },
+  { id: "drive-lens", image: "held-items/drive-lens.png", name: "Drive Lens" },
+  { id: "accel-bracer", image: "held-items/accel-bracer.png", name: "Accel Bracer" },
+  { id: "amulet-coin", image: "held-items/amulet-coin.png", name: "Amulet Coin" },
+  { id: "choice-scarf", image: "held-items/choice-scarf.png", name: "Choice Scarf" },
+  { id: "big-root", image: "held-items/big-root.png", name: "Big Root" },
+  { id: "tenacity-belt", image: "held-items/tenacity-belt.png", name: "Tenacity Belt" },
+  { id: "vanguard-bell", image: "held-items/vanguard-bell.png", name: "Vanguard Bell" },
+  { id: "rusted-sword", image: "held-items/rusted-sword.png", name: "Rusted Sword", exclusive: "Zacian" },
+  { id: "mewtwonite-x", image: "held-items/mewtwonite-x.png", name: "Mewtwonite X", exclusive: "Mewtwo" },
+  { id: "mewtwonite-y", image: "held-items/mewtwonite-y.png", name: "Mewtwonite Y", exclusive: "Mewtwo" },
+  { id: "lucarionite", image: "held-items/lucarionite.png", name: "Lucarionite", exclusive: "Lucario" },
+  { id: "charizardite-x", image: "held-items/charizardite-x.png", name: "Charizardite X", exclusive: "Charizard" },
+  { id: "charizardite-y", image: "held-items/charizardite-y.png", name: "Charizardite Y", exclusive: "Charizard" },
+  { id: "gyaradosite", image: "held-items/gyaradosite.png", name: "Gyaradosite", exclusive: "Gyarados" }
+];
+var heldItems_default = heldItems;
+
 // src/i18n/en.ts
 function slugFromMain(mainPath) {
   return mainPath.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
@@ -2997,6 +3058,12 @@ for (const m of maps_default) {
 }
 for (const n of neutrals_default) {
   names[n.id] = n.name;
+}
+for (const b of battleItems_default) {
+  names[`battle-item.${b.id}`] = b.name;
+}
+for (const h of heldItems_default) {
+  names[`held-item.${h.id}`] = h.name;
 }
 names["mega-mewtwo-x"] = "Mega Mewtwo X";
 names["mega-mewtwo-y"] = "Mega Mewtwo Y";
@@ -3663,6 +3730,59 @@ var ptBR = {
   "move.zap-cannon": "Canh\xE3o El\xE9trico",
   "move.zen-headbutt": "Cabe\xE7ada Zen",
   // @end move-names-i18n
+  // Battle Items
+  "battle-item.potion": "Po\xE7\xE3o",
+  "battle-item.x-attack": "Ataque X",
+  "battle-item.x-speed": "Velocidade X",
+  "battle-item.fluffy-tail": "Cauda Felpuda",
+  "battle-item.eject-button": "Bot\xE3o de Eje\xE7\xE3o",
+  "battle-item.slow-smoke": "Fuma\xE7a Lenta",
+  "battle-item.full-heal": "Cura Total",
+  "battle-item.goal-getter": "Goleador",
+  "battle-item.shedinja-doll": "Boneca Shedinja",
+  "battle-item.goal-hacker": "Infiltrador de Gol",
+  // Held Items
+  "held-item.aeos-cookie": "Biscoito Aeos",
+  "held-item.attack-weight": "Peso de Ataque",
+  "held-item.special-attack-specs": "Esp. de Atq. Esp.",
+  "held-item.shell-bell": "Sino Concha",
+  "held-item.float-stone": "Pedra Flutuante",
+  "held-item.muscle-band": "Faixa Muscular",
+  "held-item.scope-lens": "Lente de Mira",
+  "held-item.wise-glasses": "\xD3culos S\xE1bios",
+  "held-item.leftovers": "Sobras",
+  "held-item.exp-share": "Compartilhar Exp.",
+  "held-item.focus-band": "Faixa de Foco",
+  "held-item.energy-amplifier": "Amplificador de Energia",
+  "held-item.buddy-barrier": "Barreira do Companheiro",
+  "held-item.score-shield": "Escudo de Pontos",
+  "held-item.assault-vest": "Colete de Assalto",
+  "held-item.rocky-helmet": "Capacete Rochoso",
+  "held-item.razor-claw": "Garra Afiada",
+  "held-item.choice-specs": "\xD3culos da Escolha",
+  "held-item.weakness-policy": "Pol\xEDtica de Fraqueza",
+  "held-item.rapid-fire-scarf": "Cachecol de Tiro R\xE1pido",
+  "held-item.drain-crown": "Coroa Dreno",
+  "held-item.slick-spoon": "Colher Lisa",
+  "held-item.rescue-hood": "Capuz Resgate",
+  "held-item.curse-bangle": "Pulseira Amaldi\xE7oada",
+  "held-item.curse-incense": "Incenso Amaldi\xE7oado",
+  "held-item.charging-charm": "Amuleto de Carregamento",
+  "held-item.resonant-guard": "Guarda Ressonante",
+  "held-item.drive-lens": "Lente Acionadora",
+  "held-item.accel-bracer": "Bracelete Accel",
+  "held-item.amulet-coin": "Moeda Amuleto",
+  "held-item.choice-scarf": "Cachecol da Escolha",
+  "held-item.big-root": "Raiz Grande",
+  "held-item.tenacity-belt": "Cinto de Tenacidade",
+  "held-item.vanguard-bell": "Sino Vanguarda",
+  "held-item.rusted-sword": "Espada Enferrujada",
+  "held-item.mewtwonite-x": "Mewtunita X",
+  "held-item.mewtwonite-y": "Mewtunita Y",
+  "held-item.lucarionite": "Lucari\xF4nita",
+  "held-item.charizardite-x": "Charizardita X",
+  "held-item.charizardite-y": "Charizardita Y",
+  "held-item.gyaradosite": "Gyaradosita",
   // Maps — names and descriptions
   "map-groudon": "Ru\xEDnas Celestes de Theia",
   "map-groudon.description": "Mapa 5v5 com Groudon.",
@@ -4186,8 +4306,25 @@ var jaJP = {
   "move.x-scissor": "\u30B7\u30B6\u30FC\u30AF\u30ED\u30B9",
   "move.yawn": "\u3042\u304F\u3073",
   "move.zap-cannon": "\u3067\u3093\u3058\u307B\u3046",
-  "move.zen-headbutt": "\u3057\u306D\u3093\u306E\u305A\u3064\u304D"
+  "move.zen-headbutt": "\u3057\u306D\u3093\u306E\u305A\u3064\u304D",
   // @end move-names-i18n
+  // Battle Items — standard Pokémon series items with known official JP names
+  "battle-item.potion": "\u30AD\u30BA\u3050\u3059\u308A",
+  "battle-item.full-heal": "\u306A\u3093\u3067\u3082\u306A\u304A\u3057",
+  "battle-item.eject-button": "\u3072\u304D\u3082\u3069\u3057\u30DC\u30BF\u30F3",
+  // Held Items — standard Pokémon series items with known official JP names
+  "held-item.leftovers": "\u305F\u3079\u306E\u3053\u3057",
+  "held-item.amulet-coin": "\u304A\u307E\u3082\u308A\u3053\u3070\u3093",
+  "held-item.rocky-helmet": "\u30B4\u30C4\u30B4\u30C4\u30E1\u30C3\u30C8",
+  "held-item.razor-claw": "\u3059\u308B\u3069\u3044\u30C4\u30E1",
+  "held-item.big-root": "\u304A\u304A\u304D\u306A\u306D\u3063\u3053",
+  "held-item.rusted-sword": "\u3055\u3073\u305F\u3064\u308B\u304E",
+  "held-item.mewtwonite-x": "\u30DF\u30E5\u30A6\u30C4\u30CA\u30A4\u30C8X",
+  "held-item.mewtwonite-y": "\u30DF\u30E5\u30A6\u30C4\u30CA\u30A4\u30C8Y",
+  "held-item.lucarionite": "\u30EB\u30AB\u30EA\u30AA\u30CA\u30A4\u30C8",
+  "held-item.charizardite-x": "\u30EA\u30B6\u30FC\u30C9\u30CA\u30A4\u30C8X",
+  "held-item.charizardite-y": "\u30EA\u30B6\u30FC\u30C9\u30CA\u30A4\u30C8Y",
+  "held-item.gyaradosite": "\u30AE\u30E3\u30E9\u30C9\u30B9\u30CA\u30A4\u30C8"
 };
 var ja_JP_default = jaJP;
 
@@ -4659,8 +4796,42 @@ var fr = {
   "move.x-scissor": "Plaie Croix",
   "move.yawn": "B\xE2illement",
   "move.zap-cannon": "\xC9lecanon",
-  "move.zen-headbutt": "Psykoud\u2019Boul"
+  "move.zen-headbutt": "Psykoud\u2019Boul",
   // @end move-names-i18n
+  // Battle Items
+  "battle-item.potion": "Potion",
+  "battle-item.x-attack": "X Attaque",
+  "battle-item.x-speed": "X Vitesse",
+  "battle-item.fluffy-tail": "Queue Duveteuse",
+  "battle-item.eject-button": "Bouton \xC9jection",
+  "battle-item.slow-smoke": "Fum\xE9e Ralentissante",
+  "battle-item.full-heal": "Gu\xE9rison Totale",
+  "battle-item.goal-getter": "Marqueur",
+  "battle-item.shedinja-doll": "Poup\xE9e Munja",
+  "battle-item.goal-hacker": "Pirate de But",
+  // Held Items
+  "held-item.leftovers": "Restes",
+  "held-item.muscle-band": "Bande Muscl\xE9e",
+  "held-item.scope-lens": "Lentille Optique",
+  "held-item.wise-glasses": "Lunettes Savantes",
+  "held-item.shell-bell": "Grelot Coquillage",
+  "held-item.float-stone": "Pierre L\xE9g\xE8re",
+  "held-item.focus-band": "Bandeau Concentration",
+  "held-item.assault-vest": "Veste d\u2019Assaut",
+  "held-item.rocky-helmet": "Casque Cogneur",
+  "held-item.razor-claw": "Griffe Rasoir",
+  "held-item.choice-specs": "Lunettes de Choix",
+  "held-item.choice-scarf": "Foulard de Choix",
+  "held-item.weakness-policy": "Politique Faiblesse",
+  "held-item.big-root": "Grosse Racine",
+  "held-item.amulet-coin": "Pi\xE8ce Amulette",
+  "held-item.rusted-sword": "\xC9p\xE9e Rouill\xE9e",
+  "held-item.mewtwonite-x": "Mewtnite X",
+  "held-item.mewtwonite-y": "Mewtnite Y",
+  "held-item.lucarionite": "Lucariodite",
+  "held-item.charizardite-x": "Dracaufite X",
+  "held-item.charizardite-y": "Dracaufite Y",
+  "held-item.gyaradosite": "L\xE9viatorite"
 };
 var fr_default = fr;
 
@@ -5132,8 +5303,42 @@ var es = {
   "move.x-scissor": "Tijera X",
   "move.yawn": "Bostezo",
   "move.zap-cannon": "Electroca\xF1\xF3n",
-  "move.zen-headbutt": "Cabezazo Zen"
+  "move.zen-headbutt": "Cabezazo Zen",
   // @end move-names-i18n
+  // Battle Items
+  "battle-item.potion": "Poci\xF3n",
+  "battle-item.x-attack": "Ataque X",
+  "battle-item.x-speed": "Velocidad X",
+  "battle-item.fluffy-tail": "Cola Vaporosa",
+  "battle-item.eject-button": "Bot\xF3n de Expulsi\xF3n",
+  "battle-item.slow-smoke": "Humo Lento",
+  "battle-item.full-heal": "Cura Total",
+  "battle-item.goal-getter": "Goleador",
+  "battle-item.shedinja-doll": "Mu\xF1eco Shedinja",
+  "battle-item.goal-hacker": "Pirata de Gol",
+  // Held Items
+  "held-item.leftovers": "Restos",
+  "held-item.muscle-band": "Cinta Muscular",
+  "held-item.scope-lens": "Lente de Alcance",
+  "held-item.wise-glasses": "Gafas Sabias",
+  "held-item.shell-bell": "Concha Campanilla",
+  "held-item.float-stone": "Piedra Flotante",
+  "held-item.focus-band": "Cinta Enfoque",
+  "held-item.assault-vest": "Chaleco Asalto",
+  "held-item.rocky-helmet": "Casco F\xE9rreo",
+  "held-item.razor-claw": "Zarpa Afilada",
+  "held-item.choice-specs": "Gafas Elegidas",
+  "held-item.choice-scarf": "Pa\xF1uelo Elegido",
+  "held-item.weakness-policy": "Pol\xEDtica de Debilidad",
+  "held-item.big-root": "Ra\xEDz Grande",
+  "held-item.amulet-coin": "Monedamuleto",
+  "held-item.rusted-sword": "Espada Oxidada",
+  "held-item.mewtwonite-x": "Mewdosnita X",
+  "held-item.mewtwonite-y": "Mewdosnita Y",
+  "held-item.lucarionite": "Lucarionita",
+  "held-item.charizardite-x": "Charizardita X",
+  "held-item.charizardite-y": "Charizardita Y",
+  "held-item.gyaradosite": "Gyaradosita"
 };
 var es_default = es;
 
@@ -5192,10 +5397,22 @@ function getMoveName(englishMoveName, locale = "en") {
   if (hit) return hit;
   return englishMoveName;
 }
+function getBattleItemName(id, locale = "en") {
+  const key = `battle-item.${id}`;
+  const map = locales[locale] ?? en_default;
+  return map[key] ?? en_default[key] ?? id;
+}
+function getHeldItemName(id, locale = "en") {
+  const key = `held-item.${id}`;
+  const map = locales[locale] ?? en_default;
+  return map[key] ?? en_default[key] ?? id;
+}
 export {
   en_default as en,
   es_default as es,
   fr_default as fr,
+  getBattleItemName,
+  getHeldItemName,
   getMapDescription,
   getMapName,
   getMoveName,

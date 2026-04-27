@@ -1,6 +1,8 @@
 import pokemons from "../pokemons";
 import maps from "../maps";
 import neutrals from "../neutrals";
+import battleItems from "../battleItems";
+import heldItems from "../heldItems";
 
 /** Slug from roster image path: "pokemons/roster-venusaur.png" -> "venusaur" */
 function slugFromMain(mainPath: string): string {
@@ -17,6 +19,12 @@ for (const m of maps) {
 }
 for (const n of neutrals) {
   names[n.id] = n.name;
+}
+for (const b of battleItems) {
+  names[`battle-item.${b.id}`] = b.name;
+}
+for (const h of heldItems) {
+  names[`held-item.${h.id}`] = h.name;
 }
 
 // Aliases for slug variants (e.g. kebab-case "mega-mewtwo-x" from display name).

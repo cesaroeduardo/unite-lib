@@ -514,6 +514,23 @@ const jaJP: Record<string, string> = {
   "move.zap-cannon": "でんじほう",
   "move.zen-headbutt": "しねんのずつき",
 // @end move-names-i18n
+  // Battle Items — standard Pokémon series items with known official JP names
+  "battle-item.potion": "キズぐすり",
+  "battle-item.full-heal": "なんでもなおし",
+  "battle-item.eject-button": "ひきもどしボタン",
+  // Held Items — standard Pokémon series items with known official JP names
+  "held-item.leftovers": "たべのこし",
+  "held-item.amulet-coin": "おまもりこばん",
+  "held-item.rocky-helmet": "ゴツゴツメット",
+  "held-item.razor-claw": "するどいツメ",
+  "held-item.big-root": "おおきなねっこ",
+  "held-item.rusted-sword": "さびたつるぎ",
+  "held-item.mewtwonite-x": "ミュウツナイトX",
+  "held-item.mewtwonite-y": "ミュウツナイトY",
+  "held-item.lucarionite": "ルカリオナイト",
+  "held-item.charizardite-x": "リザードナイトX",
+  "held-item.charizardite-y": "リザードナイトY",
+  "held-item.gyaradosite": "ギャラドスナイト",
 };
 
 export default jaJP;

@@ -10,11 +10,15 @@ import type {
   MapResolution,
   Neutral,
   MapSpawn,
+  BattleItem,
+  HeldItem,
 } from "./types";
 import { POKEMON_MOVE_SLOT_IDS } from "./types";
 import pokemons from "./pokemons";
 import neutrals from "./neutrals";
 import spawns from "./spawns";
+import battleItems from "./battleItems";
+import heldItems from "./heldItems";
 
 export interface GetImageUrlOptions {
   /** Base URL for assets (e.g. CDN). No trailing slash. */
@@ -202,4 +206,22 @@ export function getPokemonsByTag(tag: Tag): Pokemon[] {
 
 export function getActivePokemons(): Pokemon[] {
   return pokemons.filter((p) => p.active);
+}
+
+export function getBattleItemById(id: string): BattleItem | undefined {
+  return battleItems.find((b) => b.id === id);
+}
+
+export function getHeldItemById(id: string): HeldItem | undefined {
+  return heldItems.find((h) => h.id === id);
+}
+
+export function getHeldItemsByPokemon(pokemonName: string): HeldItem[] {
+  return heldItems.filter(
+    (h) => !h.exclusive || h.exclusive === pokemonName
+  );
+}
+
+export function getExclusiveHeldItems(): HeldItem[] {
+  return heldItems.filter((h) => h.exclusive != null);
 }

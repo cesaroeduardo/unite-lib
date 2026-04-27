@@ -135,4 +135,24 @@ export function getMoveName(
   return englishMoveName;
 }
 
+/**
+ * Returns the localized name for a battle item by id and locale.
+ * Falls back to English, then to the id.
+ */
+export function getBattleItemName(id: string, locale: Locale = "en"): string {
+  const key = `battle-item.${id}`;
+  const map = locales[locale] ?? en;
+  return map[key] ?? en[key] ?? id;
+}
+
+/**
+ * Returns the localized name for a held item by id and locale.
+ * Falls back to English, then to the id.
+ */
+export function getHeldItemName(id: string, locale: Locale = "en"): string {
+  const key = `held-item.${id}`;
+  const map = locales[locale] ?? en;
+  return map[key] ?? en[key] ?? id;
+}
+
 export { en, ptBR, jaJP, fr, es };

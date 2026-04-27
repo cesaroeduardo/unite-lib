@@ -72,5 +72,15 @@ declare function getSpawnInfoForSpawn(spawn: SpawnLike, locale?: Locale): string
  * `npm run sync:move-names-pokeapi`), then optional `moveNameOverrides` below.
  */
 declare function getMoveName(englishMoveName: string, locale?: Locale): string;
+/**
+ * Returns the localized name for a battle item by id and locale.
+ * Falls back to English, then to the id.
+ */
+declare function getBattleItemName(id: string, locale?: Locale): string;
+/**
+ * Returns the localized name for a held item by id and locale.
+ * Falls back to English, then to the id.
+ */
+declare function getHeldItemName(id: string, locale?: Locale): string;
 
-export { type Locale, names as en, es, fr, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, jaJP, moveNameOverrides, moveNameToKey, ptBR };
+export { type Locale, names as en, es, fr, getBattleItemName, getHeldItemName, getMapDescription, getMapName, getMoveName, getNeutralName, getPokemonName, getSpawnInfo, getSpawnInfoForSpawn, jaJP, moveNameOverrides, moveNameToKey, ptBR };
