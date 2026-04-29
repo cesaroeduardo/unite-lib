@@ -23,7 +23,8 @@
     "pokemons",
     "moves",
     "maps",
-    "neutrals"
+    "neutrals",
+    "battle-items"
   ],
   "scripts": {
     "build": "tsup",
