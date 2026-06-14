@@ -1073,6 +1073,35 @@ var pokemons = [
     "difficulty": 1
   },
   {
+    "name": "Meganium",
+    "dex": 154,
+    "images": {
+      "main": "pokemons/roster-meganium.png",
+      "big": "pokemons/roster-meganium-2x.png",
+      "complete": "pokemons/stat-meganium.png",
+      "move_p1": { "name": "Overgrow", "image": "moves/meganium_p1.png" },
+      "move_s1": { "name": "Magical Leaf", "image": "moves/meganium_s1.png" },
+      "move_s2": { "name": "Synthesis", "image": "moves/meganium_s2.png" },
+      "move_u1": { "name": "Full Bloom Aroma", "image": "moves/meganium_u1.png" },
+      "move_s11": { "name": "Grass Knot", "image": "moves/meganium_s11.png" },
+      "move_s21": { "name": "Petal Blizzard", "image": "moves/meganium_s21.png" }
+    },
+    "active": true,
+    "battleType": BattleType.SUPPORTER,
+    "stats": {
+      "offense": 2,
+      "endurance": 3,
+      "mobility": 2,
+      "scoring": 2,
+      "support": 4
+    },
+    "tags": [
+      Tag.SUPPORTER,
+      Tag.MELEE
+    ],
+    "difficulty": 1
+  },
+  {
     "name": "Typhlosion",
     "dex": 157,
     "images": {
@@ -2791,6 +2820,35 @@ var pokemons = [
     "tags": [
       Tag.SPEEDSTER,
       Tag.MELEE
+    ],
+    "difficulty": 2
+  },
+  {
+    "name": "Skeledirge",
+    "dex": 911,
+    "images": {
+      "main": "pokemons/roster-skeledirge.png",
+      "big": "pokemons/roster-skeledirge-2x.png",
+      "complete": "pokemons/stat-skeledirge.png",
+      "move_p1": { "name": "Blaze", "image": "moves/skeledirge_p1.png" },
+      "move_s1": { "name": "Disarming Voice", "image": "moves/skeledirge_s1.png" },
+      "move_s2": { "name": "Roar", "image": "moves/skeledirge_s2.png" },
+      "move_u1": { "name": "Rousing Symphony", "image": "moves/skeledirge_u1.png" },
+      "move_s11": { "name": "Hyper Voice", "image": "moves/skeledirge_s11.png" },
+      "move_s21": { "name": "Snarl", "image": "moves/skeledirge_s21.png" }
+    },
+    "active": true,
+    "battleType": BattleType.ATTACKER,
+    "stats": {
+      "offense": 4,
+      "endurance": 1,
+      "mobility": 3,
+      "scoring": 2,
+      "support": 1
+    },
+    "tags": [
+      Tag.ATTACKER,
+      Tag.RANGED
     ],
     "difficulty": 2
   },
