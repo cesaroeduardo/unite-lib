@@ -1071,6 +1071,35 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 2
 },
 {
+  "name": "Feraligatr",
+  "dex": 160,
+  "images": {
+    "main": "pokemons/roster-feraligatr.png",
+    "big": "pokemons/roster-feraligatr-2x.png",
+    "complete": "pokemons/stat-feraligatr.png",
+    "move_p1": { "name": "Torrent", "image": "moves/feraligatr_p1.png" },
+    "move_s1": { "name": "Bite", "image": "moves/feraligatr_s1.png" },
+    "move_s2": { "name": "Scratch", "image": "moves/feraligatr_s2.png" },
+    "move_u1": { "name": "Big Jaw Bite", "image": "moves/feraligatr_u1.png" },
+    "move_s11": { "name": "Crunch", "image": "moves/feraligatr_s11.png" },
+    "move_s21": { "name": "Waterfall", "image": "moves/feraligatr_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 4,
+    "endurance": 3,
+    "mobility": 2.5,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
   "name": "Azumarill",
   "dex": 184,
   "images": {
@@ -2081,6 +2110,35 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 2
 },
 {
+  "name": "Yveltal",
+  "dex": 717,
+  "images": {
+    "main": "pokemons/roster-yveltal.png",
+    "big": "pokemons/roster-yveltal-2x.png",
+    "complete": "pokemons/stat-yveltal.png",
+    "move_p1": { "name": "Dark Aura", "image": "moves/yveltal_p1.png" },
+    "move_s1": { "name": "Gust", "image": "moves/yveltal_s1.png" },
+    "move_s2": { "name": "Lash Out", "image": "moves/yveltal_s2.png" },
+    "move_u1": { "name": "Lumiere of Demise", "image": "moves/yveltal_u1.png" },
+    "move_s11": { "name": "Oblivion Wing", "image": "moves/yveltal_s11.png" },
+    "move_s21": { "name": "Dark Pulse", "image": "moves/yveltal_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ATTACKER,
+  "stats": {
+    "offense": 4,
+    "endurance": 3,
+    "mobility": 1,
+    "scoring": 2,
+    "support": 3
+  },
+  "tags": [
+    Tag.ATTACKER,
+    Tag.RANGED
+  ],
+  "difficulty": 1
+},
+{
   "name": "Hoopa",
   "dex": 720,
   "images": {
@@ -2791,6 +2849,35 @@ const pokemons: Array<Pokemon> = [{
   "tags": [
     Tag.ATTACKER,
     Tag.RANGED
+  ],
+  "difficulty": 2
+},
+{
+  "name": "Quaquaval",
+  "dex": 914,
+  "images": {
+    "main": "pokemons/roster-quaquaval.png",
+    "big": "pokemons/roster-quaquaval-2x.png",
+    "complete": "pokemons/stat-quaquaval.png",
+    "move_p1": { "name": "Moxie", "image": "moves/quaquaval_p1.png" },
+    "move_s1": { "name": "Pound", "image": "moves/quaquaval_s1.png" },
+    "move_s2": { "name": "Wing Attack", "image": "moves/quaquaval_s2.png" },
+    "move_u1": { "name": "Carnival Splash", "image": "moves/quaquaval_u1.png" },
+    "move_s11": { "name": "Low Sweep", "image": "moves/quaquaval_s11.png" },
+    "move_s21": { "name": "Liquidation", "image": "moves/quaquaval_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 4,
+    "endurance": 3,
+    "mobility": 3,
+    "scoring": 1,
+    "support": 1
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
   ],
   "difficulty": 2
 },
