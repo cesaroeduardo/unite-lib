@@ -1742,6 +1742,35 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 2
 },
 {
+  "name": "Palkia",
+  "dex": 484,
+  "images": {
+    "main": "pokemons/roster-palkia.png",
+    "big": "pokemons/roster-palkia-2x.png",
+    "complete": "pokemons/stat-palkia.png",
+    "move_p1": { "name": "Pressure", "image": "moves/palkia_p1.png" },
+    "move_s1": { "name": "Aqua Ring", "image": "moves/palkia_s1.png" },
+    "move_s2": { "name": "Slash", "image": "moves/palkia_s2.png" },
+    "move_u1": { "name": "Multi Dimensional Rend", "image": "moves/palkia_u1.png" },
+    "move_s11": { "name": "Aura Sphere", "image": "moves/palkia_s11.png" },
+    "move_s21": { "name": "Dragon Claw", "image": "moves/palkia_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 2,
+    "endurance": 4,
+    "mobility": 2,
+    "scoring": 2.5,
+    "support": 2.5
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
   "name": "Darkrai",
   "dex": 491,
   "images": {
@@ -1872,6 +1901,35 @@ const pokemons: Array<Pokemon> = [{
     Tag.RANGED
   ],
   "difficulty": 1
+},
+{
+  "name": "Reshiram",
+  "dex": 643,
+  "images": {
+    "main": "pokemons/roster-reshiram.png",
+    "big": "pokemons/roster-reshiram-2x.png",
+    "complete": "pokemons/stat-reshiram.png",
+    "move_p1": { "name": "Turboblaze", "image": "moves/reshiram_p1.png" },
+    "move_s1": { "name": "Dragon Breath", "image": "moves/reshiram_s1.png" },
+    "move_s2": { "name": "Tailwind", "image": "moves/reshiram_s2.png" },
+    "move_u1": { "name": "Flames That Bring Lightning", "image": "moves/reshiram_u1.png" },
+    "move_s11": { "name": "Blue Flare", "image": "moves/reshiram_s11.png" },
+    "move_s21": { "name": "Dragon Dance", "image": "moves/reshiram_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ATTACKER,
+  "stats": {
+    "offense": 4,
+    "endurance": 1,
+    "mobility": 4,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.ATTACKER,
+    Tag.RANGED
+  ],
+  "difficulty": 2
 },
 {
   "name": "Delphox",
