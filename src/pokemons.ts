@@ -769,6 +769,64 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 2
 },
 {
+  "name": "Jolteon",
+  "dex": 135,
+  "images": {
+    "main": "pokemons/roster-jolteon.png",
+    "big": "pokemons/roster-jolteon-2x.png",
+    "complete": "pokemons/stat-jolteon.png",
+    "move_p1": { "name": "Quick Feet", "image": "moves/jolteon_p1.png" },
+    "move_s1": { "name": "Swift", "image": "moves/jolteon_s1.png" },
+    "move_s2": { "name": "Quick Attack", "image": "moves/jolteon_s2.png" },
+    "move_u1": { "name": "Plasma Quintupulse", "image": "moves/jolteon_u1.png" },
+    "move_s11": { "name": "Pin Missile", "image": "moves/jolteon_s11.png" },
+    "move_s21": { "name": "Volt Switch", "image": "moves/jolteon_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.SPEEDSTER,
+  "stats": {
+    "offense": 4,
+    "endurance": 2,
+    "mobility": 4,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.SPEEDSTER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
+  "name": "Flareon",
+  "dex": 136,
+  "images": {
+    "main": "pokemons/roster-flareon.png",
+    "big": "pokemons/roster-flareon-2x.png",
+    "complete": "pokemons/stat-flareon.png",
+    "move_p1": { "name": "Flash Fire", "image": "moves/flareon_p1.png" },
+    "move_s1": { "name": "Swift", "image": "moves/flareon_s1.png" },
+    "move_s2": { "name": "Tackle", "image": "moves/flareon_s2.png" },
+    "move_u1": { "name": "Garnet Ignition", "image": "moves/flareon_u1.png" },
+    "move_s11": { "name": "Fire Blast", "image": "moves/flareon_s11.png" },
+    "move_s21": { "name": "Flare Blitz", "image": "moves/flareon_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 4,
+    "endurance": 3,
+    "mobility": 3,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
   "name": "Snorlax",
   "dex": 143,
   "images": {
@@ -2394,6 +2452,35 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 2
 },
 {
+  "name": "Solgaleo",
+  "dex": 791,
+  "images": {
+    "main": "pokemons/roster-solgaleo.png",
+    "big": "pokemons/roster-solgaleo-2x.png",
+    "complete": "pokemons/stat-solgaleo.png",
+    "move_p1": { "name": "Full Metal Body", "image": "moves/solgaleo_p1.png" },
+    "move_s1": { "name": "Teleport", "image": "moves/solgaleo_s1.png" },
+    "move_s2": { "name": "Cosmic Power", "image": "moves/solgaleo_s2.png" },
+    "move_u1": { "name": "Shining Meteor Crush", "image": "moves/solgaleo_u1.png" },
+    "move_s11": { "name": "Iron Head", "image": "moves/solgaleo_s11.png" },
+    "move_s21": { "name": "Psyshock", "image": "moves/solgaleo_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ALLROUNDER,
+  "stats": {
+    "offense": 5,
+    "endurance": 3,
+    "mobility": 2,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.ALLROUNDER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
+},
+{
   "name": "Buzzwole",
   "dex": 794,
   "images": {
@@ -2622,6 +2709,35 @@ const pokemons: Array<Pokemon> = [{
   "difficulty": 3
 },
 {
+  "name": "Toxtricity",
+  "dex": 849,
+  "images": {
+    "main": "pokemons/roster-toxtricity.png",
+    "big": "pokemons/roster-toxtricity-2x.png",
+    "complete": "pokemons/stat-toxtricity.png",
+    "move_p1": { "name": "Punk Rock", "image": "moves/toxtricity_p1.png" },
+    "move_s1": { "name": "Charge", "image": "moves/toxtricity_s1.png" },
+    "move_s2": { "name": "Growl", "image": "moves/toxtricity_s2.png" },
+    "move_u1": { "name": "Venom Distortion", "image": "moves/toxtricity_u1.png" },
+    "move_s11": { "name": "Shift Gear", "image": "moves/toxtricity_s11.png" },
+    "move_s21": { "name": "Overdrive", "image": "moves/toxtricity_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.ATTACKER,
+  "stats": {
+    "offense": 5,
+    "endurance": 2,
+    "mobility": 2,
+    "scoring": 1,
+    "support": 1
+  },
+  "tags": [
+    Tag.ATTACKER,
+    Tag.RANGED
+  ],
+  "difficulty": 2
+},
+{
   "name": "Sirfetch'd",
   "dex": 865,
   "images": {
@@ -2716,6 +2832,35 @@ const pokemons: Array<Pokemon> = [{
     Tag.MELEE
   ],
   "difficulty": 3
+},
+{
+  "name": "Morpeko",
+  "dex": 877,
+  "images": {
+    "main": "pokemons/roster-morpeko.png",
+    "big": "pokemons/roster-morpeko-2x.png",
+    "complete": "pokemons/stat-morpeko.png",
+    "move_p1": { "name": "Hunger Switch", "image": "moves/morpeko_p1.png" },
+    "move_s1": { "name": "Thunder Shock", "image": "moves/morpeko_s1.png" },
+    "move_s2": { "name": "Power Trip", "image": "moves/morpeko_s2.png" },
+    "move_u1": { "name": "Hungry Supercharge Wheel", "image": "moves/morpeko_u1.png" },
+    "move_s11": { "name": "Spark", "image": "moves/morpeko_s11.png" },
+    "move_s21": { "name": "Assurance", "image": "moves/morpeko_s21.png" },
+  },
+  "active": true,
+  "battleType": BattleType.SPEEDSTER,
+  "stats": {
+    "offense": 4,
+    "endurance": 3,
+    "mobility": 3,
+    "scoring": 2,
+    "support": 1
+  },
+  "tags": [
+    Tag.SPEEDSTER,
+    Tag.MELEE
+  ],
+  "difficulty": 2
 },
 {
   "name": "Duraludon",
