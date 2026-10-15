@@ -43,6 +43,7 @@ export {
   getPokemonBySlug,
   getPokemonSkillNames,
   resolveMoveSlot,
+  migrateAssetPath,
   getPokemonsByBattleType,
   getPokemonsByTag,
   getActivePokemons,

@@ -142,11 +142,28 @@ export function getPokemonByDex(dex: number): Pokemon | undefined {
 }
 
 /**
- * Slug from roster image: "pokemons/roster-venusaur.png" -> "venusaur"
+ * Slug from roster image: "pokemons/roster-venusaur.webp" -> "venusaur"
  * Use this slug with getPokemonName(id, locale) for i18n.
  */
 export function getPokemonSlug(pokemon: Pokemon): string {
-  return pokemon.images.main.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
+  return pokemon.images.main
+    .replace(/^pokemons\/roster-/, "")
+    .replace(/\.(webp|png)$/i, "");
+}
+
+/**
+ * Migrate a legacy `.png` asset path or CDN URL to `.webp`.
+ * No-op when the string already uses `.webp` or has no `.png` extension.
+ *
+ * @example
+ * migrateAssetPath("pokemons/roster-pikachu.png")
+ * // => "pokemons/roster-pikachu.webp"
+ * migrateAssetPath("https://cdn.example/unite-lib@1.13.0/moves/venusaur_s11.png")
+ * // => "https://cdn.example/unite-lib@1.13.0/moves/venusaur_s11.webp"
+ */
+export function migrateAssetPath(pathOrUrl: string): string {
+  if (pathOrUrl == null || pathOrUrl === "") return pathOrUrl;
+  return pathOrUrl.replace(/\.png(\?|#|$)/gi, ".webp$1");
 }
 
 /**

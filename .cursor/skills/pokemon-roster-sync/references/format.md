@@ -4,20 +4,20 @@ Referência para inserção em [src/pokemons.ts](../../../src/pokemons.ts). Tipo
 
 ## Template completo (4 moves)
 
-Paths relativos à raiz do pacote, sem barra inicial (igual ao restante do arquivo): `pokemons/roster-{slug}.png`, `moves/{slug}_s11.png`, etc.
+Paths relativos à raiz do pacote, sem barra inicial (igual ao restante do arquivo): `pokemons/roster-{slug}.webp`, `moves/{slug}_s11.webp`, etc.
 
 ```ts
 {
   "name": "Nome do Pokémon",
   "dex": 123,
   "images": {
-    "main": "pokemons/roster-{slug}.png",
-    "big": "pokemons/roster-{slug}-2x.png",
-    "complete": "pokemons/stat-{slug}.png",
-    "move_s11": "moves/{slug}_s11.png",
-    "move_s12": "moves/{slug}_s12.png",
-    "move_s21": "moves/{slug}_s21.png",
-    "move_s22": "moves/{slug}_s22.png",
+    "main": "pokemons/roster-{slug}.webp",
+    "big": "pokemons/roster-{slug}-2x.webp",
+    "complete": "pokemons/stat-{slug}.webp",
+    "move_s11": "moves/{slug}_s11.webp",
+    "move_s12": "moves/{slug}_s12.webp",
+    "move_s21": "moves/{slug}_s21.webp",
+    "move_s22": "moves/{slug}_s22.webp",
   },
   "active": true,
   "battleType": BattleType.ATTACKER,
@@ -45,11 +45,11 @@ Alguns pokémons têm apenas move_s11 e move_s21 (sem s12/s22). Exemplo:
   "name": "Mega Charizard X",
   "dex": 6.1,
   "images": {
-    "main": "pokemons/roster-mega-charizard-x.png",
-    "big": "pokemons/roster-mega-charizard-x-2x.png",
-    "complete": "pokemons/stat-mega-charizard-x.png",
-    "move_s11": "moves/mega-charizard_s11.png",
-    "move_s21": "moves/mega-charizard_s21.png",
+    "main": "pokemons/roster-mega-charizard-x.webp",
+    "big": "pokemons/roster-mega-charizard-x-2x.webp",
+    "complete": "pokemons/stat-mega-charizard-x.webp",
+    "move_s11": "moves/mega-charizard_s11.webp",
+    "move_s21": "moves/mega-charizard_s21.webp",
   },
   "active": true,
   "battleType": BattleType.ALLROUNDER,

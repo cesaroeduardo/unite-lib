@@ -1,5 +1,5 @@
 /**
- * Inserts move_p1 / move_s1 / move_s2 / move_u1 after `complete` when moves/{slug}_p1.png exists.
+ * Inserts move_p1 / move_s1 / move_s2 / move_u1 after `complete` when moves/{slug}_p1.webp exists.
  */
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -14,7 +14,7 @@ async function slugsWithP1() {
   const names = await fs.readdir(MOVES);
   const slugs = new Set();
   for (const f of names) {
-    const m = f.match(/^(.+)_p1\.png$/);
+    const m = f.match(/^(.+)_p1\.webp$/);
     if (m) slugs.add(m[1]);
   }
   return [...slugs];
@@ -25,17 +25,17 @@ async function main() {
   let text = await fs.readFile(POKEMONS, "utf8");
   let n = 0;
   for (const slug of slugs) {
-    if (text.includes(`"move_p1": { "name": "", "image": "moves/${slug}_p1.png"`)) continue;
-    const needle = `"complete": "pokemons/stat-${slug}.png",`;
+    if (text.includes(`"move_p1": { "name": "", "image": "moves/${slug}_p1.webp"`)) continue;
+    const needle = `"complete": "pokemons/stat-${slug}.webp",`;
     if (!text.includes(needle)) {
       process.stderr.write(`skip ${slug}: no complete line match\n`);
       continue;
     }
     const insert = `${needle}
-    "move_p1": { "name": "", "image": "moves/${slug}_p1.png" },
-    "move_s1": { "name": "", "image": "moves/${slug}_s1.png" },
-    "move_s2": { "name": "", "image": "moves/${slug}_s2.png" },
-    "move_u1": { "name": "", "image": "moves/${slug}_u1.png" },`;
+    "move_p1": { "name": "", "image": "moves/${slug}_p1.webp" },
+    "move_s1": { "name": "", "image": "moves/${slug}_s1.webp" },
+    "move_s2": { "name": "", "image": "moves/${slug}_s2.webp" },
+    "move_u1": { "name": "", "image": "moves/${slug}_u1.webp" },`;
     text = text.replace(needle, insert);
     n++;
   }

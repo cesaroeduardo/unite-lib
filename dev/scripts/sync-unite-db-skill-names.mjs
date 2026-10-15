@@ -19,6 +19,7 @@ import {
   CDN_FOLDER_OVERRIDES,
   cdnUrl,
   parseRosterFromPokemonsTs,
+  writePngBufferAsWebp,
 } from "./pokebag-skills-lib.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,7 +50,7 @@ const AEGISLASH_MANUAL = {
   u1: "Coup de Grace",
 };
 
-function httpsGet(url) {
+function httpsGetBuf(url) {
   return new Promise((resolve, reject) => {
     https
       .get(url, { headers: { "User-Agent": "unite-lib-skill-name-sync" } }, (res) => {
@@ -61,11 +62,15 @@ function httpsGet(url) {
             reject(new Error(`${res.statusCode} ${url}`));
             return;
           }
-          resolve(buf.toString("utf8"));
+          resolve(buf);
         });
       })
       .on("error", reject);
   });
+}
+
+async function httpsGet(url) {
+  return (await httpsGetBuf(url)).toString("utf8");
 }
 
 function escapeJsonString(s) {
@@ -74,7 +79,7 @@ function escapeJsonString(s) {
 
 /** Which move_* slot ids exist for this slug in the current pokemons.ts text. */
 function moveSlotIdsInBlock(text, slug) {
-  const anchor = `"main": "pokemons/roster-${slug}.png"`;
+  const anchor = `"main": "pokemons/roster-${slug}.webp"`;
   const pos = text.indexOf(anchor);
   if (pos < 0) return new Set();
   const end = text.indexOf(`\n  },\n  "active":`, pos);
@@ -147,7 +152,7 @@ function slotNamesFromUniteDb(entry, slug, slotIds) {
  * @param {Record<string, string>} slotNameMap slot id without "move_" → display name
  */
 function patchBlockForSlots(text, slug, slotNameMap) {
-  const anchor = `"main": "pokemons/roster-${slug}.png"`;
+  const anchor = `"main": "pokemons/roster-${slug}.webp"`;
   const pos = text.indexOf(anchor);
   if (pos < 0) return { text, ok: false, reason: "no roster anchor" };
   const end = text.indexOf(`\n  },\n  "active":`, pos);
@@ -223,17 +228,17 @@ async function main() {
       const folder = CDN_FOLDER_OVERRIDES[slug] ?? name;
       for (const [slotId, displayName] of Object.entries(slotMap)) {
         const moveKey = `move_${slotId}`;
-        const anchor = `"main": "pokemons/roster-${slug}.png"`;
+        const anchor = `"main": "pokemons/roster-${slug}.webp"`;
         const pos = text.indexOf(anchor);
         if (pos < 0) continue;
         const end = text.indexOf(`\n  },\n  "active":`, pos);
         const block = text.slice(pos, end);
         if (!block.includes(`"${moveKey}"`)) continue;
         const url = cdnUrl(folder, displayName);
-        const outPath = path.join(MOVES_DIR, `${slug}_${slotId}.png`);
+        const outPath = path.join(MOVES_DIR, `${slug}_${slotId}.webp`);
         try {
-          const buf = await httpsGet(url);
-          await fs.writeFile(outPath, buf);
+          const buf = await httpsGetBuf(url);
+          await writePngBufferAsWebp(buf, outPath);
           process.stdout.write(`OK ${path.basename(outPath)}\n`);
         } catch (e) {
           process.stderr.write(`FAIL ${slug} ${slotId} ${url} ${e.message}\n`);

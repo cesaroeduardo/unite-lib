@@ -90,10 +90,10 @@ Roster icons and stat images for the full active roster. The library includes ev
 
 | Roster | Stats | Roster | Stats |
 |--------|-------|--------|-------|
-| ![Pikachu](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-pikachu.png) Pikachu | ![Pikachu stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-pikachu.png) | ![Charizard](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-charizard.png) Charizard | ![Charizard stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-charizard.png) |
-| ![Venusaur](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.png) Venusaur | ![Venusaur stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-venusaur.png) | ![Blastoise](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-blastoise.png) Blastoise | ![Blastoise stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-blastoise.png) |
-| ![Gengar](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-gengar.png) Gengar | ![Gengar stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-gengar.png) | ![Dragonite](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-dragonite.png) Dragonite | ![Dragonite stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-dragonite.png) |
-| ![Greninja](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-greninja.png) Greninja | ![Greninja stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-greninja.png) | ![Mew](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-mew.png) Mew | ![Mew stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-mew.png) |
+| ![Pikachu](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-pikachu.webp) Pikachu | ![Pikachu stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-pikachu.webp) | ![Charizard](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-charizard.webp) Charizard | ![Charizard stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-charizard.webp) |
+| ![Venusaur](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.webp) Venusaur | ![Venusaur stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-venusaur.webp) | ![Blastoise](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-blastoise.webp) Blastoise | ![Blastoise stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-blastoise.webp) |
+| ![Gengar](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-gengar.webp) Gengar | ![Gengar stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-gengar.webp) | ![Dragonite](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-dragonite.webp) Dragonite | ![Dragonite stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-dragonite.webp) |
+| ![Greninja](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-greninja.webp) Greninja | ![Greninja stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-greninja.webp) | ![Mew](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-mew.webp) Mew | ![Mew stats](https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/stat-mew.webp) |
 
 ### Moves
 
@@ -109,14 +109,14 @@ Each roster entry stores **passive**, **early moves**, **Unite**, and **branch u
 
 **Shape**
 
-- **Preferred:** `{ "name": "Sludge Bomb", "image": "moves/venusaur_s11.png" }`
-- **Legacy:** `"moves/venusaur_s11.png"` (image only; use `getPokemonSkillNames` / `resolveMoveSlot` for names when present)
+- **Preferred:** `{ "name": "Sludge Bomb", "image": "moves/venusaur_s11.webp" }`
+- **Legacy:** `"moves/venusaur_s11.webp"` (image only; use `getPokemonSkillNames` / `resolveMoveSlot` for names when present)
 
 Slot order used by `moves` and helpers is defined by **`POKEMON_MOVE_SLOT_IDS`** (`s11`–`s14`, `s21`–`s24`, then `s1`, `s2`, `p1`, `u1`).
 
 | Passive | Move 1 | Move 2 | Unite | Branch 1.1 | Branch 1.2 | Branch 2.1 | Branch 2.2 |
 |---------|--------|--------|-------|------------|------------|------------|------------|
-| ![Venusaur p1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.png) | ![Venusaur s1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s1.png) | ![Venusaur s2](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s2.png) | ![Venusaur u1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_u1.png) | ![Venusaur s11](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.png) | ![Venusaur s12](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s12.png) | ![Venusaur s21](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s21.png) | ![Venusaur s22](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s22.png) |
+| ![Venusaur p1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.webp) | ![Venusaur s1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s1.webp) | ![Venusaur s2](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s2.webp) | ![Venusaur u1](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_u1.webp) | ![Venusaur s11](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.webp) | ![Venusaur s12](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s12.webp) | ![Venusaur s21](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s21.webp) | ![Venusaur s22](https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s22.webp) |
 
 ```js
 import {
@@ -146,7 +146,7 @@ Game map images (Theia Sky Ruins variants: Groudon, Kyogre, Rayquaza). Each map 
 
 | Groudon | Kyogre | Rayquaza |
 |---------|--------|----------|
-| ![Theia Sky Ruins (Groudon)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-groudon/map-groudon@2x.png) | ![Theia Sky Ruins (Kyogre)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-kyogre/map-kyogre@2x.png) | ![Theia Sky Ruins (Rayquaza)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-rayquaza/map-rayquaza@2x.png) |
+| ![Theia Sky Ruins (Groudon)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-groudon/map-groudon@2x.webp) | ![Theia Sky Ruins (Kyogre)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-kyogre/map-kyogre@2x.webp) | ![Theia Sky Ruins (Rayquaza)](https://cdn.jsdelivr.net/npm/unite-lib@latest/maps/map-rayquaza/map-rayquaza@2x.webp) |
 
 ### Battle Items
 
@@ -160,7 +160,7 @@ console.log(battleItems.length); // 10
 
 // Lookup by id
 const btn = getBattleItemById("eject-button");
-// { id: "eject-button", image: "battle-items/eject-button.png", name: "Eject Button" }
+// { id: "eject-button", image: "battle-items/eject-button.webp", name: "Eject Button" }
 
 // Localized names
 getBattleItemName("eject-button", "pt-BR"); // "Botão de Ejeção"
@@ -169,8 +169,8 @@ getBattleItemName("potion", "fr");          // "Potion"
 
 | | | | | |
 |-|-|-|-|-|
-| ![Eject Button](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/eject-button.png) Eject Button | ![Potion](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/potion.png) Potion | ![X Attack](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-attack.png) X Attack | ![X Speed](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-speed.png) X Speed | ![Full Heal](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/full-heal.png) Full Heal |
-| ![Fluffy Tail](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/fluffy-tail.png) Fluffy Tail | ![Slow Smoke](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/slow-smoke.png) Slow Smoke | ![Goal Getter](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-getter.png) Goal Getter | ![Goal Hacker](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-hacker.png) Goal Hacker | ![Shedinja Doll](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/shedinja-doll.png) Shedinja Doll |
+| ![Eject Button](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/eject-button.webp) Eject Button | ![Potion](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/potion.webp) Potion | ![X Attack](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-attack.webp) X Attack | ![X Speed](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/x-speed.webp) X Speed | ![Full Heal](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/full-heal.webp) Full Heal |
+| ![Fluffy Tail](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/fluffy-tail.webp) Fluffy Tail | ![Slow Smoke](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/slow-smoke.webp) Slow Smoke | ![Goal Getter](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-getter.webp) Goal Getter | ![Goal Hacker](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/goal-hacker.webp) Goal Hacker | ![Shedinja Doll](https://cdn.jsdelivr.net/npm/unite-lib@latest/battle-items/shedinja-doll.webp) Shedinja Doll |
 
 ### Held Items
 
@@ -184,7 +184,7 @@ console.log(heldItems.length); // 41
 
 // Lookup by id
 const band = getHeldItemById("muscle-band");
-// { id: "muscle-band", image: "held-items/muscle-band.png", name: "Muscle Band" }
+// { id: "muscle-band", image: "held-items/muscle-band.webp", name: "Muscle Band" }
 
 // Items available for a Pokémon (non-exclusive + that Pokémon's exclusives)
 getHeldItemsByPokemon("Lucario"); // all common items + Lucarionite
@@ -203,12 +203,12 @@ The library includes a **neutrals** catalog (wild Pokémon and items that spawn 
 
 | Wild Pokémon / Bosses | | | |
 |-----------------------|---|---|---|
-| ![Accelgor](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/accelgor.png) Accelgor | ![Altaria](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/altaria.png) Altaria | ![Baltoy](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/baltoy.png) Baltoy | ![Bunnelby](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/bunnelby.png) Bunnelby |
-| ![Escavalier](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/escavalier.png) Escavalier | ![Groudon](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/groudon.png) Groudon | ![Indeedee](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/indeedee.png) Indeedee | ![Kyogre](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/kyogre.png) Kyogre |
-| ![Natu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/natu.png) Natu | ![Rayquaza](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/rayquaza.png) Rayquaza | ![Regidrago](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regidrago.png) Regidrago | ![Regice](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regice.png) Regice |
-| ![Regieleki](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regieleki.png) Regieleki | ![Regirock](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regirock.png) Regirock | ![Registeel](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/registeel.png) Registeel | ![Xatu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/xatu.png) Xatu |
+| ![Accelgor](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/accelgor.webp) Accelgor | ![Altaria](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/altaria.webp) Altaria | ![Baltoy](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/baltoy.webp) Baltoy | ![Bunnelby](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/bunnelby.webp) Bunnelby |
+| ![Escavalier](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/escavalier.webp) Escavalier | ![Groudon](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/groudon.webp) Groudon | ![Indeedee](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/indeedee.webp) Indeedee | ![Kyogre](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/kyogre.webp) Kyogre |
+| ![Natu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/natu.webp) Natu | ![Rayquaza](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/rayquaza.webp) Rayquaza | ![Regidrago](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regidrago.webp) Regidrago | ![Regice](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regice.webp) Regice |
+| ![Regieleki](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regieleki.webp) Regieleki | ![Regirock](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/regirock.webp) Regirock | ![Registeel](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/registeel.webp) Registeel | ![Xatu](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/xatu.webp) Xatu |
 | **Items** | | | |
-| ![Salac Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/salac.png) Salac Berry | ![Sitrus Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/sitrus.png) Sitrus Berry | | |
+| ![Salac Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/salac.webp) Salac Berry | ![Sitrus Berry](https://cdn.jsdelivr.net/npm/unite-lib@latest/neutrals/sitrus.webp) Sitrus Berry | | |
 
 ---
 
@@ -274,13 +274,13 @@ Names and paths for skills are maintained in **`src/pokemons.ts`**. External dat
 |--------|---------|
 | `npm run sync:unite-db-skill-names` | Fill / refresh `images.move_*.{ name }` from `pokemon.json` (dry run; add `-- --write`; optional `-- --slug=…`) |
 | `npm run audit:missing-base-skills` | List Pokémon that have branch slots in TS but are missing `p1`/`s1`/`s2`/`u1` vs unite-db (add `-- --grid-only` for a fixed name subset) |
-| `npm run fill:missing-base-skills` | Insert missing `move_p1` / `move_s1` / `move_s2` / `move_u1` blocks; add `-- --write`. After that, `npm run fill:missing-base-skills -- --download-base-pngs` fetches CloudFront icons where URLs resolve |
-| `npm run sync:skills` | Download move PNGs from the CloudFront layout used by [Pokebag](https://www.npmjs.com/package/@pokebag/pokemon-unite-data) metadata (`-- --slug=…` optional) |
+| `npm run fill:missing-base-skills` | Insert missing `move_p1` / `move_s1` / `move_s2` / `move_u1` blocks; add `-- --write`. After that, `npm run fill:missing-base-skills -- --download-base-pngs` fetches CloudFront icons and converts them to `.webp` |
+| `npm run sync:skills` | Download move icons from the CloudFront layout used by [Pokebag](https://www.npmjs.com/package/@pokebag/pokemon-unite-data) metadata and save as `.webp` (`-- --slug=…` optional) |
 | `npm run migrate:move-slots` | One-off migration helper for older string-only `move_*` entries |
 
 ### Images when testing locally
 
-Image paths are relative (e.g. `pokemons/roster-venusaur.png`). In the consumer you can:
+Image paths are relative (e.g. `pokemons/roster-venusaur.webp`). In the consumer you can:
 
 - Use **baseUrl** when calling `getImageUrl(pokemon, "main", { baseUrl: "http://localhost:3000/node_modules/unite-lib" })` if the bundler/server serves `node_modules`, or
 - Point **baseUrl** to where the `pokemons/`, `moves/`, and `maps/` folders are available in your app.
@@ -298,9 +298,40 @@ Image paths are relative (e.g. `pokemons/roster-venusaur.png`). In the consumer 
 
 Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 
-- `https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.png`
-- `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.png`
-- `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.png`
+- `https://cdn.jsdelivr.net/npm/unite-lib@latest/pokemons/roster-venusaur.webp`
+- `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_p1.webp`
+- `https://cdn.jsdelivr.net/npm/unite-lib@latest/moves/venusaur_s11.webp`
+
+> **Note:** If jsDelivr fails on a large package version, use [unpkg](https://unpkg.com/) the same way, e.g. `https://unpkg.com/unite-lib@VERSION/pokemons/roster-venusaur.webp`.
+
+## Migrating from PNG to WebP (breaking)
+
+From **v1.15.0** onward, all shipped assets use **`.webp`** instead of `.png` (`pokemons/`, `moves/`, `maps/`, `neutrals/`, `battle-items/`, `held-items/`). Paths in the data API already point to `.webp`.
+
+### Consumer checklist
+
+1. Bump `unite-lib` to a version that includes WebP assets.
+2. Replace hardcoded `.png` URLs/paths with `.webp` (CDN, `public/`, Next `Image` `src`, etc.).
+3. Prefer reading paths from the library (`getImageUrl`, `pokemon.images.*`, `migrateAssetPath`) instead of hardcoding extensions.
+4. Ensure your host/CDN and image pipeline accept WebP (Next.js `Image` does by default).
+
+### Helper
+
+```js
+import { migrateAssetPath, getImageUrl } from "unite-lib";
+
+// One-off string rewrite for legacy hardcoded paths/URLs
+migrateAssetPath("pokemons/roster-pikachu.png");
+// => "pokemons/roster-pikachu.webp"
+
+migrateAssetPath("https://cdn.jsdelivr.net/npm/unite-lib@1.14.0/moves/venusaur_s11.png");
+// => "https://cdn.jsdelivr.net/npm/unite-lib@1.14.0/moves/venusaur_s11.webp"
+
+// Preferred: use library paths (already .webp after upgrade)
+getImageUrl(pikachu, "main", { baseUrl: "https://unpkg.com/unite-lib@1.15.0" });
+```
+
+Agents using the [MCP server](mcp/README.md) can call **`migrate_asset_path`** to rewrite legacy `.png` paths/URLs during consumer migrations.
 
 ## API overview
 
@@ -316,6 +347,7 @@ Asset URLs via jsDelivr (substitua `@latest` por uma versão se quiser):
 | `BattleType` | `attacker`, `defender`, `allrounder`, `speedster`, `supporter` |
 | `Tag` | Role + style: `attacker`, `defender`, `melee`, `ranged`, … |
 | `getImageUrl(pokemon, key, options?)` | Image path or full URL with `baseUrl` (supports `move_*` as string or `{ name, image }`) |
+| `migrateAssetPath(pathOrUrl)` | Rewrite a legacy `.png` asset path/URL to `.webp` (no-op if already `.webp`) |
 | `getPokemonSkillNames(pokemon)` | Skill display names from `images.move_*` (+ optional `skillNames` overrides) |
 | `resolveMoveSlot(pokemon, slotId)` | One slot as `{ name, image }` or `null` (`slotId`: `p1`, `s1`, `s11`, …, `u1`) |
 | `POKEMON_MOVE_SLOT_IDS` | Readonly ordered list of move slot ids used when building the `moves` array |
@@ -346,7 +378,7 @@ Types: `BattleItem`, `HeldItem`, `Neutral`, `MapSpawn` (see also `Map`, `MapReso
 - **`dist/`** — Built ESM, CJS, and IIFE; type definitions (`.d.ts`)
 - **`pokemons/`** — Roster and stat images
 - **`src/pokemons.ts`** — Roster source: `images.move_*` as `{ name, image }` (or legacy string paths)
-- **`moves/`** — Move skill PNGs (`{slug}_{slot}.png`, e.g. `venusaur_p1.png`, `venusaur_s11.png`)
+- **`moves/`** — Move skill PNGs (`{slug}_{slot}.webp`, e.g. `venusaur_p1.webp`, `venusaur_s11.webp`)
 - **`maps/`** — Map images
 - **`neutrals/`** — Wild Pokémon and item images used in map spawns
 - **`battle-items/`** — Battle item images (10 items)

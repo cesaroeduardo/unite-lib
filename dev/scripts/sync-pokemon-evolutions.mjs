@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { writePngBufferAsWebp } from "./pokebag-skills-lib.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -78,7 +79,7 @@ function findMatchingBrace(text, openBraceIndex) {
 
 function getExistingPokemonSlugs(pokemonsFileContent) {
   const slugs = new Set();
-  const regex = /"main":\s*"pokemons\/roster-([^"]+)\.png"/g;
+  const regex = /"main":\s*"pokemons\/roster-([^"]+)\\.webp"/g;
 
   for (const match of pokemonsFileContent.matchAll(regex)) {
     slugs.add(match[1]);
@@ -117,7 +118,7 @@ async function saveEvolutionImages(pageSlug, evolutions) {
   const saved = [];
 
   for (const evolution of evolutions) {
-    const filename = `evolution-${evolution.slug}.png`;
+    const filename = `evolution-${evolution.slug}.webp`;
     const relativePath = path.posix.join("pokemons", filename);
     const absolutePath = path.join(POKEMONS_DIR, filename);
 
@@ -131,7 +132,7 @@ async function saveEvolutionImages(pageSlug, evolutions) {
 
     if (!skipped) {
       const imageBuffer = await fetchBuffer(evolution.url);
-      await fs.writeFile(absolutePath, imageBuffer);
+      await writePngBufferAsWebp(imageBuffer, absolutePath);
     }
 
     saved.push({
@@ -146,7 +147,7 @@ async function saveEvolutionImages(pageSlug, evolutions) {
 }
 
 function updatePokemonImagesBlock(fileContent, pokemonSlug, evolutions) {
-  const marker = `"main": "pokemons/roster-${pokemonSlug}.png"`;
+  const marker = `"main": "pokemons/roster-${pokemonSlug}.webp"`;
   const markerIndex = fileContent.indexOf(marker);
   if (markerIndex === -1) {
     return { changed: false, content: fileContent };

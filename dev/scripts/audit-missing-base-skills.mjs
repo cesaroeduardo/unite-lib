@@ -136,7 +136,7 @@ function httpsGet(url) {
 }
 
 function moveSlotIdsInBlock(text, slug) {
-  const anchor = `"main": "pokemons/roster-${slug}.png"`;
+  const anchor = `"main": "pokemons/roster-${slug}.webp"`;
   const pos = text.indexOf(anchor);
   if (pos < 0) return new Set();
   const end = text.indexOf(`\n  },\n  "active":`, pos);

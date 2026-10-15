@@ -9,17 +9,17 @@ Sincroniza imagens em `pokemons/` e `moves/` (raiz do projeto) com o array em [s
 
 ## Convenção de paths (unite-lib)
 
-**Onde as imagens ficam** (raiz do repositório):
-- `pokemons/` — roster e stat (ex.: `roster-venusaur.png`, `roster-venusaur-2x.png`, `stat-venusaur.png`)
-- `moves/` — ícones de moves (ex.: `venusaur_s11.png`, `venusaur_s12.png`, …)
+**Onde as imagens ficam** (raiz do repositório; formato **`.webp`**):
+- `pokemons/` — roster e stat (ex.: `roster-venusaur.webp`, `roster-venusaur-2x.webp`, `stat-venusaur.webp`)
+- `moves/` — ícones de moves (ex.: `venusaur_s11.webp`, `venusaur_s12.webp`, …)
 
 **Paths no código** (sem barra inicial; relativos à raiz do pacote):
-- `main`: `pokemons/roster-{slug}.png`
-- `big`: `pokemons/roster-{slug}-2x.png`
-- `complete`: `pokemons/stat-{slug}.png`
-- Moves: `moves/{slug}_s11.png`, `moves/{slug}_s12.png`, `moves/{slug}_s21.png`, `moves/{slug}_s22.png`
+- `main`: `pokemons/roster-{slug}.webp`
+- `big`: `pokemons/roster-{slug}-2x.webp`
+- `complete`: `pokemons/stat-{slug}.webp`
+- Moves: `moves/{slug}_s11.webp`, `moves/{slug}_s12.webp`, `moves/{slug}_s21.webp`, `moves/{slug}_s22.webp`
 
-Slug = nome do arquivo sem prefixo nem extensão, em minúsculas e com hífens (ex.: `roster-sirfetchd.png` → slug `sirfetchd`; `sirfetchd_s11.png` → slug `sirfetchd`). O pacote publica as pastas `pokemons` e `moves` no npm (`files` no package.json).
+Slug = nome do arquivo sem prefixo nem extensão, em minúsculas e com hífens (ex.: `roster-sirfetchd.webp` → slug `sirfetchd`; `sirfetchd_s11.webp` → slug `sirfetchd`). O pacote publica as pastas `pokemons` e `moves` no npm (`files` no package.json).
 
 ## Fluxo
 
@@ -27,14 +27,14 @@ Slug = nome do arquivo sem prefixo nem extensão, em minúsculas e com hífens (
 
 - Listar arquivos em `pokemons/` e `moves/` (raiz do projeto).
 - Extrair slugs:
-  - `roster-*.png` ou `stat-*.png` em `pokemons/` → slug = trecho entre prefixo e `.png` (ex.: `roster-sirfetchd.png` → `sirfetchd`).
-  - `*_s11.png`, `*_s12.png`, etc. em `moves/` → slug = trecho antes de `_s` (ex.: `sirfetchd_s11.png` → `sirfetchd`).
+  - `roster-*.webp` ou `stat-*.webp` em `pokemons/` → slug = trecho entre prefixo e `.webp` (ex.: `roster-sirfetchd.webp` → `sirfetchd`).
+  - `*_s11.webp`, `*_s12.webp`, etc. em `moves/` → slug = trecho antes de `_s` (ex.: `sirfetchd_s11.webp` → `sirfetchd`).
 - Agrupar por slug: para cada slug, anotar se tem roster/stat e quais moves (s11, s12, s21, s22) existem.
 
 ### 2. Comparação
 
 - Ler [src/pokemons.ts](../../src/pokemons.ts).
-- Coletar slugs já presentes: de `images.main` extrair o slug (ex.: `pokemons/roster-venusaur.png` → `venusaur`). Também considerar `images.move_s11` etc. (ex.: `moves/venusaur_s11.png` → `venusaur`).
+- Coletar slugs já presentes: de `images.main` extrair o slug (ex.: `pokemons/roster-venusaur.webp` → `venusaur`). Também considerar `images.move_s11` etc. (ex.: `moves/venusaur_s11.webp` → `venusaur`).
 - **Faltantes** = slugs que aparecem nas pastas mas não em nenhum `images` do array.
 
 ### 3. Busca externa (por cada pokémon faltante)

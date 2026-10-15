@@ -14,6 +14,7 @@ import {
   getPokemonsByTag,
   getActivePokemons,
   getImageUrl,
+  migrateAssetPath,
   getPokemonName,
   getBattleItemById,
   getHeldItemById,
@@ -173,6 +174,36 @@ server.registerTool(
     const key = imageKey as keyof PokemonImages;
     const url = getImageUrl(p, key, baseUrl ? { baseUrl } : undefined);
     return { content: [{ type: "text", text: JSON.stringify({ url, pokemon: p.name, imageKey }) }] };
+  }
+);
+
+// migrate_asset_path
+server.registerTool(
+  "migrate_asset_path",
+  {
+    title: "Migrate asset path PNG → WebP",
+    description:
+      "Rewrite a legacy unite-lib asset path or CDN URL from .png to .webp (for consumer migrations after the WebP asset switch). Pass a single path/URL or an array. Already-.webp strings are returned unchanged.",
+    inputSchema: z.object({
+      pathOrUrl: z
+        .union([z.string(), z.array(z.string())])
+        .describe(
+          'Relative path or full URL, e.g. "pokemons/roster-pikachu.png" or a CDN URL ending in .png'
+        ),
+    }),
+  },
+  async ({ pathOrUrl }) => {
+    const input = Array.isArray(pathOrUrl) ? pathOrUrl : [pathOrUrl];
+    const migrated = input.map((p) => ({
+      from: p,
+      to: migrateAssetPath(p),
+      changed: migrateAssetPath(p) !== p,
+    }));
+    const result =
+      migrated.length === 1
+        ? migrated[0]
+        : { count: migrated.length, items: migrated };
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );
 

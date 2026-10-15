@@ -19,6 +19,7 @@ import {
   CDN_FOLDER_OVERRIDES,
   cdnUrl,
   parseRosterFromPokemonsTs,
+  writePngBufferAsWebp,
 } from "./pokebag-skills-lib.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -87,7 +88,7 @@ function httpsGetText(url) {
 }
 
 function moveSlotIdsInBlock(text, slug) {
-  const anchor = `"main": "pokemons/roster-${slug}.png"`;
+  const anchor = `"main": "pokemons/roster-${slug}.webp"`;
   const pos = text.indexOf(anchor);
   if (pos < 0) return new Set();
   const end = text.indexOf(`\n  },\n  "active":`, pos);
@@ -137,7 +138,7 @@ function escapeJsonString(s) {
 }
 
 function insertBaseMoves(text, slug, names, gaps) {
-  const anchor = `"main": "pokemons/roster-${slug}.png"`;
+  const anchor = `"main": "pokemons/roster-${slug}.webp"`;
   const pos = text.indexOf(anchor);
   if (pos < 0) return { text, ok: false };
   const end = text.indexOf(`\n  },\n  "active":`, pos);
@@ -150,7 +151,7 @@ function insertBaseMoves(text, slug, names, gaps) {
   const lines = order
     .map(
       (id) =>
-        `    "move_${id}": { "name": "${escapeJsonString(names[id])}", "image": "moves/${slug}_${id}.png" },\n`
+        `    "move_${id}": { "name": "${escapeJsonString(names[id])}", "image": "moves/${slug}_${id}.webp" },\n`
     )
     .join("");
   return {
@@ -175,7 +176,7 @@ async function downloadBasePngsForRoster(text, roster, byName) {
     );
     for (const id of ["p1", "s1", "s2", "u1"]) {
       if (!slotIds.has(id) || !names[id]) continue;
-      const out = path.join(MOVES_DIR, `${slug}_${id}.png`);
+      const out = path.join(MOVES_DIR, `${slug}_${id}.webp`);
       /** @type {Buffer | null} */
       let buf = null;
       /** @type {Error | null} */
@@ -193,8 +194,8 @@ async function downloadBasePngsForRoster(text, roster, byName) {
       }
       try {
         if (!buf) throw lastErr || new Error("no valid PNG");
-        await fs.writeFile(out, buf);
-        process.stdout.write(`OK ${slug}_${id}.png\n`);
+        await writePngBufferAsWebp(buf, out);
+        process.stdout.write(`OK ${slug}_${id}.webp\n`);
         n++;
       } catch (e) {
         process.stderr.write(`FAIL ${slug} ${id} ${e.message}\n`);
@@ -269,11 +270,11 @@ async function main() {
       for (const id of gaps) {
         if (!names[id]) continue;
         const url = cdnUrl(folder, names[id]);
-        const out = path.join(MOVES_DIR, `${slug}_${id}.png`);
+        const out = path.join(MOVES_DIR, `${slug}_${id}.webp`);
         try {
           const buf = await httpsGetBuf(url);
-          await fs.writeFile(out, buf);
-          process.stdout.write(`OK ${slug}_${id}.png\n`);
+          await writePngBufferAsWebp(buf, out);
+          process.stdout.write(`OK ${slug}_${id}.webp\n`);
         } catch (e) {
           process.stderr.write(`FAIL ${slug} ${id} ${e.message}\n`);
         }

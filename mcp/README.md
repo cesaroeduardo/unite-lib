@@ -54,6 +54,7 @@ In Claude Desktop config (e.g. `%APPDATA%\Claude\claude_desktop_config.json` on 
 | `get_pokemons_by_role` | Filter by battle role | `battleType`: attacker \| defender \| allrounder \| speedster \| supporter |
 | `get_pokemons_by_tag` | Filter by tag (e.g. Melee, Ranged) | `tag`: attacker \| defender \| allrounder \| speedster \| supporter \| melee \| ranged |
 | `get_image_url` | Get image path or full URL for a Pokémon | `pokemonRef`: name, slug, or dex; `imageKey`: main \| big \| complete \| move_s11 \| … \| move_s24; `baseUrl?` |
+| `migrate_asset_path` | Rewrite legacy `.png` asset path/URL → `.webp` | `pathOrUrl`: string or string[] (relative path or CDN URL) |
 | `get_moves` | Moves for a Pokémon (by slug) | `pokemonId`: slug (e.g. `venusaur`, `pikachu`) |
 | `list_maps` | List all maps/arenas | — |
 | `get_pokemon_name` | Localized Pokémon name (i18n) | `slug`, `locale?`: en \| pt-BR \| ja-JP \| fr \| es (default: en) |
@@ -62,6 +63,23 @@ In Claude Desktop config (e.g. `%APPDATA%\Claude\claude_desktop_config.json` on 
 | `get_item_name` | Localized battle or held item name (i18n) | `itemType`: `"battle"` \| `"held"`, `id`: item id (e.g. `eject-button`), `locale?` |
 
 Responses are JSON (e.g. array of Pokémon objects or a single object). The agent can use these tools to look up roster data, image paths, moves, and names without importing the package in code.
+
+## Migrating consumers from PNG → WebP
+
+unite-lib ships assets as **`.webp`** (not `.png`). When updating an app that still hardcodes `.png` CDN/paths:
+
+1. Upgrade `unite-lib` to a WebP release.
+2. Call **`migrate_asset_path`** with each legacy path/URL (or pass an array) to get the `.webp` form.
+3. Prefer library helpers (`get_image_url` / `getImageUrl`) so new paths stay correct without hardcoding extensions.
+
+Example agent flow:
+
+```text
+migrate_asset_path pathOrUrl=["pokemons/roster-blissey.png","https://cdn.jsdelivr.net/npm/unite-lib@1.14.0/moves/venusaur_s11.png"]
+→ rewrite consumer code to the returned `to` values
+```
+
+See also `migrateAssetPath` in the main [README](../README.md#migrating-from-png-to-webp-breaking).
 
 ## Development
 

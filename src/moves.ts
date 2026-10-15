@@ -13,7 +13,7 @@ function buildMoves(): Move[] {
     for (const slotId of POKEMON_MOVE_SLOT_IDS) {
       const resolved = resolveMoveSlot(pokemon, slotId);
       if (!resolved) continue;
-      const match = resolved.image.match(/^moves\/(.+)_(s\d+|p1|u1)\.png$/);
+      const match = resolved.image.match(/^moves\/(.+)_(s\d+|p1|u1)\.webp$/);
       const pokemonId = match
         ? match[1]
         : getPokemonSlug(pokemon);

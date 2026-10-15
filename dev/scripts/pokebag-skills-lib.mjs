@@ -39,8 +39,35 @@ export function cdnSkillFileName(displayName) {
 
 export function cdnUrl(folder, displayName) {
   const encFolder = encodeURIComponent(folder);
+  // Upstream CloudFront icons are still PNG; convert to WebP after download.
   const encFile = encodeURIComponent(cdnSkillFileName(displayName)) + ".png";
   return `${CLOUD}/${encFolder}/${encFile}`;
+}
+
+/**
+ * Write a PNG buffer to a .webp path via cwebp (must be on PATH).
+ * @param {Buffer} pngBuf
+ * @param {string} outWebpPath
+ */
+export async function writePngBufferAsWebp(pngBuf, outWebpPath) {
+  const { spawn } = await import("node:child_process");
+  const tmpPng = `${outWebpPath}.tmp.png`;
+  await fs.writeFile(tmpPng, pngBuf);
+  try {
+    await new Promise((resolve, reject) => {
+      const child = spawn(
+        "cwebp",
+        ["-q", "82", "-alpha_q", "100", "-m", "6", "-quiet", tmpPng, "-o", outWebpPath],
+        { stdio: "ignore" }
+      );
+      child.on("error", reject);
+      child.on("close", (code) =>
+        code === 0 ? resolve() : reject(new Error(`cwebp exit ${code}`))
+      );
+    });
+  } finally {
+    await fs.unlink(tmpPng).catch(() => {});
+  }
 }
 
 export async function loadMergedSkillsFromDisk(repoRoot) {
@@ -144,7 +171,7 @@ export function layoutSlotsFixed(list, rosterName, slug, movesDir) {
       downloads.push({
         slotKey,
         url: cdnUrl(folder, displayName),
-        out: path.join(movesDir, `${slug}_${slotKey}.png`),
+        out: path.join(movesDir, `${slug}_${slotKey}.webp`),
       });
     };
     add("p1", p1n);
@@ -162,7 +189,7 @@ export async function parseRosterFromPokemonsTs(pokemonsPath) {
   const raw = await fs.readFile(pokemonsPath, "utf8");
   const out = [];
   const re =
-    /"name":\s*"([^"]+)",\s*\n\s*"dex":\s*([^,]+),\s*\n\s*"images":\s*\{[\s\S]*?\n\s*"main":\s*"pokemons\/roster-([^"]+)\.png"/g;
+    /"name":\s*"([^"]+)",\s*\n\s*"dex":\s*([^,]+),\s*\n\s*"images":\s*\{[\s\S]*?\n\s*"main":\s*"pokemons\/roster-([^"]+)\\.webp"/g;
   let m;
   while ((m = re.exec(raw)) !== null) {
     out.push({ name: m[1], slug: m[3] });

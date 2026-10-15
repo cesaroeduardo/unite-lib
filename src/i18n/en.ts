@@ -4,9 +4,11 @@ import neutrals from "../neutrals";
 import battleItems from "../battleItems";
 import heldItems from "../heldItems";
 
-/** Slug from roster image path: "pokemons/roster-venusaur.png" -> "venusaur" */
+/** Slug from roster image path: "pokemons/roster-venusaur.webp" -> "venusaur" */
 function slugFromMain(mainPath: string): string {
-  return mainPath.replace(/^pokemons\/roster-/, "").replace(/\.png$/, "");
+  return mainPath
+    .replace(/^pokemons\/roster-/, "")
+    .replace(/\.(webp|png)$/i, "");
 }
 
 const names: Record<string, string> = {};

@@ -1,5 +1,5 @@
 /**
- * Converts "move_s11": "moves/foo.png" -> "move_s11": { "name": "...", "image": "moves/foo.png" }
+ * Converts "move_s11": "moves/foo.webp" -> "move_s11": { "name": "...", "image": "moves/foo.webp" }
  * using Pokebag skill data (devDependency) + inline skillNames blocks (then removes skillNames).
  */
 import fs from "node:fs/promises";
@@ -40,7 +40,7 @@ async function main() {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    const mainM = line.match(/"main":\s*"pokemons\/roster-([^"]+)\.png"/);
+    const mainM = line.match(/"main":\s*"pokemons\/roster-([^"]+)\\.webp"/);
     if (mainM) {
       slug = mainM[1];
       inlineSkillNames = null;
