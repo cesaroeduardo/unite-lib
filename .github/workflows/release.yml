@@ -6,13 +6,12 @@ on:
 
 permissions:
   contents: write   # tag/release e push do @semantic-release/git
-  issues: write    # criar issue quando o release falhar (@semantic-release/github)
+  issues: write     # criar issue quando o release falhar (@semantic-release/github)
+  id-token: write   # OIDC para Trusted Publishing no npm (sem NPM_TOKEN)
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    # Usa o environment onde você configurou o NPM_TOKEN (Environment secrets)
-    environment: NPM_TOKEN
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,8 +20,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          # Node 22.14+ exigido pelo Trusted Publishing; 24 traz npm >= 11.5.1
+          node-version: "24"
           cache: "npm"
+          # NÃO use registry-url aqui: conflita com auth do semantic-release / OIDC
 
       - name: Install dependencies
         run: npm ci
@@ -31,9 +32,9 @@ jobs:
         run: npm run build
 
       # Menos log do npm evita buffer gigante (muitos arquivos em moves/ e pokemons/).
+      # Sem NPM_TOKEN: o npm CLI autentica via OIDC (Trusted Publishing).
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_LOGLEVEL: error
         run: npx semantic-release

@@ -52,6 +52,10 @@
     "maps"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesaroeduardo/unite-lib.git"
+  },
   "devDependencies": {
     "@pokebag/pokemon-unite-data": "2.1.0",
     "@semantic-release/changelog": "^6.0.3",

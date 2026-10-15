@@ -381,15 +381,23 @@ Commits que não indicam release (ex.: `chore:`, `style:`, `test:`) não geram n
 
 ### O que você precisa configurar
 
-1. **Token do npm (NPM_TOKEN)**  
-   No repositório no GitHub: **Settings → Secrets and variables → Actions** e crie um secret chamado **`NPM_TOKEN`**.
-   - Crie o token em [npmjs.com → Access Tokens](https://www.npmjs.com/settings/~youruser/tokens): “Automation” ou “Publish”.
-   - Cole o valor no secret `NPM_TOKEN`.
+1. **Trusted Publishing (OIDC) no npm** — sem tokens de 90 dias  
+   Em [npmjs.com → unite-lib → Settings → Trusted Publisher](https://www.npmjs.com/package/unite-lib/access):
+   - **Publisher:** GitHub Actions  
+   - **Organization or user:** `cesaroeduardo`  
+   - **Repository:** `unite-lib`  
+   - **Workflow filename:** `release.yml` (só o nome do arquivo, com extensão)  
+   - **Environment name:** deixe vazio (o workflow não usa GitHub Environment)  
+   - Em **Allowed actions**, permita `npm publish` (necessário para o semantic-release)
+
+   O workflow já tem `permissions.id-token: write` e **não** usa `NPM_TOKEN`. Depois do primeiro publish bem-sucedido, você pode em **Publishing access** escolher “Require two-factor authentication and disallow tokens” e revogar tokens antigos.
+
+   > A configuração do Trusted Publisher expira em **2 dias** se nenhum publish validar. Crie no npm e faça o próximo release na `main` nesse intervalo.
 
 2. **Conventional Commits**  
    Para haver release, use pelo menos um commit com `feat:` ou `fix:` (ou breaking) no histórico desde a última tag. Se todos forem `chore:`/`style:`/`test:`, nenhuma versão será publicada.
 
-Depois disso, ao dar push na `main`, o workflow **Release** roda, o semantic-release analisa os commits, atualiza a versão no `package.json`, gera/atualiza o `CHANGELOG.md`, cria a release no GitHub e publica o pacote no npm.
+Depois disso, ao dar push na `main`, o workflow **Release** roda, o semantic-release analisa os commits, atualiza a versão no `package.json`, gera/atualiza o `CHANGELOG.md`, cria a release no GitHub e publica o pacote no npm (com provenance automático via OIDC).
 
 ## License
 
